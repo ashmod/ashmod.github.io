@@ -739,7 +739,6 @@ function updateTerminalContent(persona) {
             'OS: Career Ready',
             'Uptime: 4+ years coding',
             'Skills: Java, Node.js, React, Python',
-            'Experience: Multiple Projects',
             'Education: Computer Engineering',
             'Status: Open to Opportunities'
         ],
@@ -748,7 +747,7 @@ function updateTerminalContent(persona) {
             'OS: Development Environment',
             'Uptime: Coding when I feel like it',
             'Tools: Git, VS Code, Docker',
-            'Status: Building Something Cool'
+            'Status: Exploring'
         ],
         explorer: [
             'shehab@explorer-mode',

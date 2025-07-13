@@ -1,5 +1,3 @@
-/* Main CSS - Minimalist Design inspired by Atom One Dark & Monkeytype */
-
 /* CSS Custom Properties (Design System) */
 :root {
     /* Color Palette - Atom One Dark inspired */
@@ -677,4 +675,8 @@ h1, h2, h3, h4, h5, h6 {
         --accent-primary: #00ffff;
         --border-primary: #ffffff;
     }
+}
+
+.terminal-output a.output-item-underlined {
+    text-decoration: underline;
 }
