@@ -32,7 +32,7 @@ const personaConfig = {
 const personaContentData = {
     student: {
         profileTitle: 'Computer Science Student',
-        intro: "I'm currently pursuing my studies in computer science while building practical skills through hands-on projects. My learning journey is focused on understanding both theoretical foundations and real-world applications of software development.",
+        intro: "I'm currently a Computer Engineering student, particularly interested in Software Engineering, but I'm well-versed in other fields as AI, ML/DL, and Cybersecurity.",
         favorites: {
             'Platform': 'Stack Overflow',
             'Language': 'Java, Python',
@@ -155,9 +155,9 @@ const personaContentData = {
     },
     recruiter: {
         profileTitle: 'Software Engineer',
-        intro: "Experienced full-stack developer with a proven track record of delivering high-quality software solutions. I bring technical expertise combined with strong communication skills and a results-driven approach to every project.",
+        intro: "A passionate software developer, with a 5-year experience in leading teams to success, I believe collaboration and co-operation are the shortest path to success.",
         favorites: {
-            'Experience': '3+ Years',
+            'Experience': '4+ Years',
             'Specialization': 'Software Development',
             'Team Size': '5-10 developers',
             'Methodology': 'Agile/Scrum',
@@ -302,8 +302,8 @@ const personaContentData = {
         }
     },
     developer: {
-        profileTitle: 'Full-Stack Developer',
-        intro: "Passionate about creating elegant solutions to complex problems. I love diving deep into new technologies, contributing to open source, and building applications that make a real impact.",
+        profileTitle: 'Software Developer',
+        intro: "24/7 passionate about creating solutions, contributing to open-source and discovering new tools and technologies.",
         favorites: {
             'Editor': 'Vi',
             'Languages': 'Java, Python, JavaScript',
@@ -427,8 +427,8 @@ const personaContentData = {
         ]
     },
     explorer: {
-        profileTitle: 'Creative Technologist',
-        intro: "I approach technology with curiosity and creativity, exploring the intersection of code, design, and human experience. Always excited about emerging technologies and their potential to solve real-world problems.",
+        profileTitle: 'Explorer/Learner',
+        intro: "I've tried things, many things! I've dabbled in Graphic Design, starting from MS Paint, and even MS Office, till I've become comfortable with complex tools like Adobe Photoshop and Illustrator. I've also tried Game Development, Hacking (the good kind), Creative Writing (I wrote a book!). Even though I major in Computer Engineering and Software Development, I love exploring new areas, that usually starts by the words 'I'd like to', and the rest is history.",
         favorites: {
             'Inspiration': 'Behance',
             'Tools': 'Adobe CC',
@@ -674,26 +674,26 @@ function updateGreeting(persona) {
 function updateHeroContent(persona) {
     const contentMap = {
         student: {
-            subtitle: 'A dedicated student exploring the world of code',
-            description: 'Currently studying Computer Science and passionate about learning new technologies, building projects, and growing as a developer.',
-            primaryAction: 'View Learning Journey',
+            subtitle: 'Still learning...',
+            description: "I'm continuously learning everyday, I'm interested in breakthroughs in the field of technology, currently expanding knowledge in Cybersecurity",
+            primaryAction: 'View Course Projects',
             secondaryAction: 'Study Notes'
         },
         recruiter: {
-            subtitle: 'A skilled developer ready for new opportunities',
-            description: 'Computer Science student with hands-on experience in full-stack development, strong problem-solving skills, and a passion for creating impactful solutions.',
+            subtitle: 'Open to new opportunities',
+            description: 'Computer Engineering student with hands-on experience in software development, AI & Machine Learning, Cybersecurity, and above all, a passion for creating impactful solutions.',
             primaryAction: 'View Resume',
-            secondaryAction: 'Download CV'
+            secondaryAction: 'Contact'
         },
         developer: {
-            subtitle: 'A passionate developer crafting digital experiences',
-            description: 'Building meaningful software with modern technologies, always learning something new, and sharing the journey with the community.',
+            subtitle: 'there\'s no place like 127.0.0.1',
+            description: 'Occasionally building things, contributing to open-source or playing dead.',
             primaryAction: 'View Projects',
             secondaryAction: 'Check GitHub'
         },
         explorer: {
-            subtitle: 'A creative mind exploring the digital frontier',
-            description: 'Passionate about technology, design, and innovation. Always curious about new possibilities and excited to share discoveries.',
+            subtitle: 'A curious learner.',
+            description: 'Passionate about technology, design, and innovation. I believe that just the way "Necessity is the mother of invention", Curiosity is the mother of learning.',
             primaryAction: 'Explore Projects',
             secondaryAction: 'See Creative Work'
         }
@@ -993,69 +993,45 @@ function renderResumeView(container, resumeData) {
 // Render design projects view for explorers
 function renderDesignProjectsView(container, projects) {
     if (!projects) return;
-    
+
+    const behanceProjects = [
+        '182654047',
+        '182542339',
+        '180213987'
+    ];
+
     container.innerHTML = `
-        <div class="design-projects-container">
-            <div class="projects-world-map">
-                <h2><i data-lucide="globe"></i> Design Work Around the World</h2>
-                <p>My creative works have reached clients across the globe, from local businesses to international organizations.</p>
+        <div class="explorer-projects-container" style="margin-top: 0; padding-top: 0;">
+            <div class="alert" role="alert" style="margin-bottom: var(--space-lg); margin-top: 0; padding: 1rem; text-align: left; background-color: rgba(var(--persona-primary-rgb), 0.1); border: 2px solid var(--persona-primary, var(--accent-primary)); border-radius: 0.75rem; box-shadow: 0 2px 8px rgba(var(--persona-primary-rgb), 0.08); color: var(--persona-primary);">
+                <div class="alert-icon" style="flex-shrink: 0; margin-top: 0; color: var(--persona-primary);">
+                    <i data-lucide="construction"></i>
+                </div>
+                <div class="alert-content" style="margin-top: 0;">
+                    <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Under Development</h4>
+                    <p style="color: var(--text-secondary);">This section is currently being refined. More creative projects and an enhanced viewing experience are coming soon!</p>
+                </div>
             </div>
-            
-            <div class="design-projects-masonry">
-                ${projects.map(project => `
-                    <div class="design-project-card ${project.special ? 'special-project' : ''}" data-category="${project.category.toLowerCase().replace(/\s+/g, '-')}">
-                        <div class="project-image-container">
-                            ${project.image ? 
-                                `<img src="${project.image}" alt="${project.title}" class="design-project-image" loading="lazy" />` :
-                                `<div class="design-placeholder">
-                                    <i data-lucide="${project.icon}"></i>
-                                </div>`
-                            }
-                            <div class="project-overlay">
-                                <div class="project-location">
-                                    <i data-lucide="map-pin"></i>
-                                    ${project.location}
-                                </div>
-                                <div class="project-year">${project.year}</div>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-header">
-                                <h3 class="project-title">${project.title}</h3>
-                                <span class="project-status ${project.status.toLowerCase().replace(' ', '-')}">${project.status}</span>
-                            </div>
-                            <p class="project-description">${project.description}</p>
-                            <div class="project-meta">
-                                <div class="meta-row">
-                                    <span class="meta-label">Type:</span>
-                                    <span class="project-type">${project.type}</span>
-                                </div>
-                                <div class="meta-row">
-                                    <span class="meta-label">Client:</span>
-                                    <span class="project-client">${project.client}</span>
-                                </div>
-                            </div>
-                            <div class="project-tags">
-                                <span class="category-tag">${project.category}</span>
-                            </div>
-                        </div>
+            <div class="explorer-header">
+                <i data-lucide="telescope"></i>
+                <h2>Featured Creative Work</h2>
+                <p>Here's a selection of my recent creative projects. You can view my full portfolio on Behance.</p>
+                <a href="https://www.behance.net/dizzydroid" class="btn btn-primary" target="_blank" rel="noopener">
+                    <span>View Full Portfolio</span>
+                    <i data-lucide="external-link"></i>
+                </a>
+            </div>
+            <div class="behance-grid">
+                ${behanceProjects.map(projectId => `
+                    <div class="behance-embed-wrapper">
+                        <iframe src="https://www.behance.net/embed/project/${projectId}?ilo0=1"
+                                allowfullscreen 
+                                lazyload 
+                                frameborder="0" 
+                                allow="autoplay; encrypted-media" 
+                                refererPolicy="strict-origin-when-cross-origin">
+                        </iframe>
                     </div>
                 `).join('')}
-            </div>
-            
-            <div class="design-stats">
-                <div class="stat-item">
-                    <div class="stat-number">200+</div>
-                    <div class="stat-label">Happy Clients</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">5</div>
-                    <div class="stat-label">Countries</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">Projects</div>
-                </div>
             </div>
         </div>
     `;

@@ -283,10 +283,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Hero Section */
 .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 6rem 0 var(--space-3xl);
+    padding: 8rem 0 2rem;
     position: relative;
 }
 

@@ -592,7 +592,8 @@
     
     .design-projects-container {
         padding: 0 var(--space-xs);
-        max-width: 100vw;
+        max-w
+idth: 100vw;
         overflow-x: hidden;
     }
     
@@ -677,4 +678,77 @@
 
 .resume-achievements a:hover {
     text-decoration: underline;
+}
+
+/* Coming Soon & Behance Widget Styles */
+.explorer-projects-container {
+    text-align: center;
+    padding: var(--space-xl) 0;
+}
+
+.explorer-header {
+    max-width: 700px;
+    margin: 0 auto var(--space-2xl);
+}
+
+.explorer-header i {
+    font-size: 3rem;
+    color: var(--persona-primary);
+    margin-bottom: var(--space-lg);
+}
+
+.explorer-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+}
+
+.explorer-header p {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-xl);
+}
+
+.behance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--space-xl);
+    justify-content: center;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.behance-embed-wrapper {
+    position: relative;
+    padding-top: 78.22%; /* Aspect ratio for Behance embeds (316/404) */
+    height: 0;
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    background: var(--bg-tertiary);
+}
+
+.behance-embed-wrapper:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-glow);
+    border-color: var(--persona-primary);
+}
+
+.behance-embed-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+@media (max-width: 480px) {
+    .behance-grid {
+        grid-template-columns: 1fr;
+    }
 }
