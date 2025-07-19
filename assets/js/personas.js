@@ -53,7 +53,7 @@ const personaContentData = {
         ],
         connectDescription: "Always eager to connect with fellow students and learn from experienced developers!",
         facts: [
-            { icon: 'graduation-cap', text: 'CS Student' },
+            { icon: 'graduation-cap', text: 'Computer Engineer' },
             { icon: 'clock', text: 'Late night coder' },
             { icon: 'brain', text: 'Brainstormer' },
             { icon: 'users', text: 'Collaborative' }
