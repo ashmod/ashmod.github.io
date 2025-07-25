@@ -64,7 +64,7 @@ const personaContentData = {
                 description: "Java-based desktop application: An educational platform with different roles, and dynamic pages.",
                 tech: ["Java", "JavaFX", "OOP", "GUI Design"],
                 category: "Software Engineering",
-                link: "https://github.com/dizzydroid/ASU_JuniorProject",
+                link: "https://github.com/dizzydroid/ByteWise",
                 icon: "graduation-cap",
                 image: "images/projects/student/BW.png",
                 status: "Completed",
@@ -95,7 +95,7 @@ const personaContentData = {
                 description: "Desktop application visualizing CPU scheduling algorithms with interactive Gantt charts.",
                 tech: ["Python", "Tkinter", "OS Concepts", "Algorithms"],
                 category: "Operating Systems",
-                link: "https://github.com/dizzydroid/ASU_SeniorProject_OS",
+                link: "https://github.com/dizzydroid/Chronos",
                 icon: "cpu",
                 image: "images/projects/student/OS.png",
                 status: "Completed"
@@ -105,7 +105,7 @@ const personaContentData = {
                 description: "Python-based XML editor and graph visualizer for efficient file management and data analysis.",
                 tech: ["Python", "XML", "Graph Theory", "Data Structures"],
                 category: "Data Structures",
-                link: "https://github.com/dizzydroid/ASU_SeniorProject_DSA",
+                link: "https://github.com/dizzydroid/NodeScope",
                 icon: "network",
                 image: "images/projects/student/NS.png",
                 status: "Completed",
@@ -222,7 +222,7 @@ const personaContentData = {
                     title: "Nodescope: XML Editor and Visualizer",
                     type: "DSA Project | Team Lead",
                     period: "Dec. 2024",
-                    githubUrl: "https://github.com/dizzydroid/ASU_SeniorProject_DSA",
+                    githubUrl: "https://github.com/dizzydroid/NodeScope",
                     achievements: [
                         "Applied advanced Data Structures and Algorithms for XML data processing.",
                         "Developed a GUI and CLI for rapid file and directory operations, enhancing user workflow.",
@@ -233,7 +233,7 @@ const personaContentData = {
                     title: "ByteWise: Course Management System",
                     type: "Object-Oriented Programming Project | Team Lead",
                     period: "Apr. 2024",
-                    githubUrl: "https://github.com/dizzydroid/ASU_JuniorProject",
+                    githubUrl: "https://github.com/dizzydroid/ByteWise",
                     achievements: [
                         "Led the development of the \"ByteWise\" educational platform.",
                         "Implemented Object-Oriented Programming (OOP) principles for a maintainable and flexible system design.",
@@ -291,7 +291,7 @@ const personaContentData = {
                 }
             ],
             skills: {
-                "Programming Languages": ["Java", "Python", "C++", "C", "JavaScript", "HTML", "CSS", "Embedded C", "SQL"],
+                "Programming Languages": ["Java", "Python", "C++", "C", "JavaScript", "Go", "HTML", "CSS", "SQL"],
                 "Frameworks & Libraries": ["React", "JUnit", "Matplotlib", "Numpy", "Scikit-learn", "PyTorch", "Tensorflow"],
                 "Developer Tools & DevOps": ["Git", "GitHub", "Docker", "Kubernetes", "Maven", "Jira", "GitHub Actions"],
                 "Operating Systems": ["Linux", "Windows", "macOS"],
