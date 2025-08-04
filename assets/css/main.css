@@ -103,6 +103,10 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
 }
 
+.highlight-solid {
+    color: var(--persona-primary, var(--accent-primary));
+}
+
 /* Navigation */
 .main-nav {
     position: fixed;
@@ -318,6 +322,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-title {
+    font-family: var(--font-mono);
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 700;
     margin-bottom: var(--space-lg);
@@ -326,7 +331,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-subtitle {
     display: block;
-    font-size: clamp(1.25rem, 3vw, 1.875rem);
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
     font-weight: 400;
     color: var(--text-secondary);
     margin-top: var(--space-md);

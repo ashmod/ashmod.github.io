@@ -674,13 +674,13 @@ function updateGreeting(persona) {
 function updateHeroContent(persona) {
     const contentMap = {
         student: {
-            subtitle: 'Still learning...',
+            subtitle: 'still learning...',
             description: "I'm continuously learning everyday, I'm interested in breakthroughs in the field of technology, currently expanding knowledge in Cybersecurity",
             primaryAction: 'View Course Projects',
             secondaryAction: 'Study Notes'
         },
         recruiter: {
-            subtitle: 'Open to new opportunities',
+            subtitle: 'open to new opportunities',
             description: 'Computer Engineering student with hands-on experience in software development, AI & Machine Learning, Cybersecurity, and above all, a passion for creating impactful solutions.',
             primaryAction: 'View Resume',
             secondaryAction: 'Contact'
@@ -692,7 +692,7 @@ function updateHeroContent(persona) {
             secondaryAction: 'Check GitHub'
         },
         explorer: {
-            subtitle: 'A curious learner.',
+            subtitle: 'a curious individual.',
             description: 'Passionate about technology, design, and innovation. I believe that just the way "Necessity is the mother of invention", Curiosity is the mother of learning.',
             primaryAction: 'Explore Projects',
             secondaryAction: 'See Creative Work'
@@ -728,15 +728,14 @@ function updateTerminalContent(persona) {
     const outputs = {
         student: [
             'shehab@learning',
-            'Uptime: Napping',
+            'Uptime: napping',
             'Packages: Java, Python',
             'Shell: Zsh',
             'Theme: Dark',
-            'Status: Procrastinating'
+            'Status: procrastinating'
         ],
         recruiter: [
             'shehab@professional',
-            'OS: Career Ready',
             'Uptime: 4+ years coding',
             'Skills: Java, Node.js, React, Python',
             'Education: Computer Engineering',
@@ -744,23 +743,22 @@ function updateTerminalContent(persona) {
         ],
         developer: [
             'shehab@dev',
-            'OS: Development Environment',
-            'Uptime: Coding when I feel like it',
+            'OS: arch btw',
+            'Uptime: coding when I feel like it',
             'Tools: Git, VS Code, Docker',
-            'Status: Exploring'
+            'Status: stuck in vim'
         ],
         explorer: [
             'shehab@explorer-mode',
-            'OS: Discovery OS',
             'Uptime: Exploring',
+            'Tools: Adobe CC',
             'Interests: Tech, Graphic Design, Gaming',
-            'Status: Gaming probably'
+            'Status: Reading probably'
         ]
     };
     
     const output = outputs[persona] || outputs.developer;
     
-    // Clear and add new content without fade animation
     terminalOutput.innerHTML = '';
     
     output.forEach((line, index) => {
@@ -769,14 +767,12 @@ function updateTerminalContent(persona) {
             lineElement.className = 'output-line';
             lineElement.textContent = line;
             terminalOutput.appendChild(lineElement);
-        }, index * 50); // Faster typing effect
+        }, index * 50);
     });
 }
 
 // Update navigation highlight
 function updateNavigationHighlight(persona) {
-    // This could be used to highlight different nav items based on persona
-    // For now, we'll keep it simple but leave room for expansion
     const config = personaConfig[persona];
     if (config) {
         document.documentElement.style.setProperty('--current-persona-color', 
