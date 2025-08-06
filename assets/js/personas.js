@@ -675,7 +675,7 @@ function updateHeroContent(persona) {
     const contentMap = {
         student: {
             subtitle: 'still learning...',
-            description: "I'm continuously learning everyday, I'm interested in breakthroughs in the field of technology, currently expanding knowledge in Cybersecurity",
+            description: "I'm continuously learning everyday, I'm interested in breakthroughs in the field of technology, currently expanding knowledge in Cybersecurity.",
             primaryAction: 'View Course Projects',
             secondaryAction: 'Study Notes'
         },
