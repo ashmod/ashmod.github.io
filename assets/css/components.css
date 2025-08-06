@@ -1358,6 +1358,16 @@
     border: 1px solid var(--border-primary);
     border-radius: var(--radius-xl);
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.additional-content {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .additional-content h2 {
@@ -2152,6 +2162,17 @@
     .projects-grid {
         grid-template-columns: 1fr;
     }
+    
+    /* Contact additional section responsive centering */
+    .contact-additional {
+        padding: var(--space-2xl);
+        margin-top: var(--space-2xl);
+    }
+    
+    .additional-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
 }
 
 @media (max-width: 640px) {
@@ -2165,6 +2186,21 @@
     
     .about-section, .sidebar-card, .contact-form, .contact-item {
         padding: var(--space-lg);
+    }
+    
+    /* Additional contact responsive adjustments */
+    .contact-additional {
+        padding: var(--space-lg);
+        margin-top: var(--space-lg);
+    }
+    
+    .additional-content h2 {
+        font-size: 1.75rem;
+    }
+    
+    .additional-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
     }
     
     .newsletter-form .form-group {

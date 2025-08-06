@@ -621,6 +621,11 @@ h1, h2, h3, h4, h5, h6 {
         max-width: 500px;
         margin: 0 auto;
     }
+    
+    /* Keep terminal content left-aligned even when hero is centered */
+    .terminal-body {
+        text-align: left;
+    }
 }
 
 @media (max-width: 768px) {
@@ -647,6 +652,11 @@ h1, h2, h3, h4, h5, h6 {
     
     .quick-nav-grid {
         grid-template-columns: 1fr;
+    }
+    
+    /* Ensure terminal content stays left-aligned on small screens */
+    .terminal-body {
+        text-align: left;
     }
     
     .footer-content {
