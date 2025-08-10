@@ -1160,7 +1160,6 @@ function renderResumeView(container, resumeData) {
                                 <img src="${org.orgLogo}" alt="${org.organization}" class="resume-org-logo" loading="lazy" />
                                 <h4>${org.organization}</h4>
                             </div>
-                            <span class="resume-contribution-count">${org.totalContributions} contribution${org.totalContributions !== 1 ? 's' : ''}</span>
                         </div>
                         <ul class="resume-achievements">
                             ${org.projects.map(project => `<li>◦ ${project}</li>`).join('')}
@@ -1375,10 +1374,6 @@ function renderContributionCard(org, orgIndex) {
                             <i data-lucide="external-link"></i>
                         </a>
                     </div>
-                </div>
-                <div class="contribution-count">
-                    <span class="count-number">${org.contributions.length}</span>
-                    <span class="count-label">contribution${org.contributions.length !== 1 ? 's' : ''}</span>
                 </div>
             </div>
             <div class="contributions-list">
