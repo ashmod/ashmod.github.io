@@ -269,12 +269,36 @@
 }
 
 .skill-list {
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: var(--text-secondary);
-    line-height: 1.6;
-    margin: 0;
-    display: inline;
-    margin-left: 0.5rem;
+    line-height: 1.7;
+}
+
+/* Resume Open Source Contributions Styles */
+.resume-org-info {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.resume-org-logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: contain;
+    background: white;
+    padding: 4px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-secondary);
+}
+
+.resume-contribution-count {
+    background: var(--persona-primary);
+    color: white;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    font-weight: 500;
 }
 
 /* Enhanced Project Image Styles */
@@ -592,8 +616,7 @@
     
     .design-projects-container {
         padding: 0 var(--space-xs);
-        max-w
-idth: 100vw;
+        max-width: 100vw;
         overflow-x: hidden;
     }
     
@@ -750,5 +773,361 @@ idth: 100vw;
 @media (max-width: 480px) {
     .behance-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* Developer Projects View Styles */
+.developer-projects-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.developer-section {
+    margin-bottom: 4rem;
+}
+
+.section-header {
+    text-align: left;
+    margin-bottom: var(--space-xl);
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.section-header h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+    padding-bottom: var(--space-sm);
+    border-bottom: 2px solid var(--accent-primary);
+}
+
+.section-header h2 i {
+    color: var(--accent-primary);
+}
+
+.section-header p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Open Source Contributions Styles */
+.contributions-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    margin-bottom: 2rem;
+}
+
+.contribution-org-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: none;
+    box-shadow: none;
+}
+
+.contribution-org-card:hover {
+    border-color: var(--border-primary);
+    transform: none;
+    box-shadow: none;
+}
+
+.org-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-xl);
+    background: var(--bg-tertiary);
+    border-bottom: 1px solid var(--border-primary);
+}
+
+.org-info {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.org-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    object-fit: contain;
+    background: white;
+    padding: 4px;
+    box-shadow: var(--shadow-sm);
+}
+
+.org-details h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 var(--space-xs) 0;
+}
+
+.project-name {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: 0.9rem;
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition-fast);
+}
+
+.project-name:hover {
+    color: var(--persona-primary);
+    text-decoration: underline;
+}
+
+.project-name i {
+    font-size: 0.6rem;
+}
+
+.project-name svg,
+.project-name [data-lucide="external-link"] {
+    width: 0.9rem;
+    height: 0.9rem;
+}
+
+.contribution-count {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.count-number {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    line-height: 1;
+}
+
+.count-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+}
+
+.contributions-list {
+    padding: var(--space-xl);
+}
+
+.contribution-item {
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-secondary);
+    background: var(--bg-primary);
+    margin-bottom: var(--space-md);
+    transition: var(--transition-fast);
+}
+
+.contribution-item:last-child {
+    margin-bottom: 0;
+}
+
+.contribution-item:hover {
+    border-color: var(--accent-primary);
+    background: var(--bg-secondary);
+}
+
+.contribution-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xs);
+}
+
+.contribution-type {
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+}
+
+.contribution-type.feat {
+    background: rgba(34, 197, 94, 0.1);
+    color: #22c55e;
+}
+
+.contribution-type.fix {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+.contribution-type.docs {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+}
+
+.contribution-type.style {
+    background: rgba(139, 92, 246, 0.1);
+    color: #8b5cf6;
+}
+
+.contribution-title {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.contribution-description {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Show More Button Styles */
+.show-more-container {
+    margin-top: var(--space-md);
+    text-align: center;
+    border-top: 1px solid var(--border-secondary);
+    padding-top: var(--space-md);
+}
+
+.show-more-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    width: 100%;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.show-more-btn:hover {
+    background: var(--bg-secondary);
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+}
+
+.show-more-btn:focus {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+}
+
+.show-more-btn i {
+    font-size: 0.75rem;
+    transition: var(--transition-fast);
+}
+
+.hidden-contributions {
+    margin-top: var(--space-sm);
+}
+
+/* Projects Grid for Developer */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--space-xl);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .org-header {
+        flex-direction: column;
+        gap: var(--space-md);
+        text-align: center;
+    }
+    
+    .org-info {
+        text-align: left;
+        width: 100%;
+    }
+    
+    .contribution-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-xs);
+    }
+    
+    .section-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .developer-section {
+        margin-bottom: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .developer-section {
+        margin-bottom: 2.5rem;
+    }
+    
+    .section-header {
+        margin-bottom: var(--space-lg);
+    }
+    
+    .contributions-grid {
+        gap: var(--space-md);
+    }
+    
+    .projects-grid {
+        gap: var(--space-lg);
+    }
+    
+    .contribution-org-card {
+        border-radius: var(--radius-md);
+    }
+    
+    .org-header {
+        padding: var(--space-lg);
+    }
+    
+    .contributions-list {
+        padding: var(--space-lg);
+    }
+    
+    .contribution-item {
+        padding: var(--space-sm);
+    }
+    
+    .section-header h2 {
+        font-size: 1.25rem;
+    }
+    
+    .show-more-btn {
+        font-size: 0.8rem;
+        padding: var(--space-xs) var(--space-sm);
+    }
+    
+    .resume-org-info {
+        flex-direction: row;
+        gap: var(--space-xs);
+    }
+    
+    .resume-org-logo {
+        width: 28px;
+        height: 28px;
     }
 }

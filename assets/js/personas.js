@@ -298,7 +298,45 @@ const personaContentData = {
                 "Core Competencies": ["Object-Oriented Programming", "Data Structures & Algorithms", "Machine Learning & Artificial Intelligence", "Software Development Life Cycle (SDLC)", "Software Testing & Quality Assurance", "Web Development", "Cybersecurity Fundamentals", "Penetration Testing", "Networking Fundamentals"],
                 "Design & Professional Skills": ["Adobe Creative Cloud Suite", "Canva", "Figma", "Team Leadership & Collaboration", "Project Management & Agile Methodologies", "Content Strategy", "Technical Documentation & Communication"],
                 "Languages": ["English (Fluent)", "Arabic (Native)", "French (Conversational)", "German (Elementary)"]
-            }
+            },
+            openSourceContributions: [
+                {
+                    organization: "Google",
+                    orgLogo: "images/orgs/google.png",
+                    projects: ["osv.dev (12 contributions)", "osv-scanner (1 contribution)"],
+                    totalContributions: 13
+                },
+                {
+                    organization: "Google Gemini",
+                    orgLogo: "images/orgs/google-gemini.png",
+                    projects: ["gemini-cli (1 contribution)"],
+                    totalContributions: 1
+                },
+                {
+                    organization: "LangChain",
+                    orgLogo: "images/orgs/langchain.png",
+                    projects: ["langgraph (1 contribution)"],
+                    totalContributions: 1
+                },
+                {
+                    organization: "Apache",
+                    orgLogo: "images/orgs/apache.png",
+                    projects: ["beam (1 contribution)"],
+                    totalContributions: 1
+                },
+                {
+                    organization: "Netflix",
+                    orgLogo: "images/orgs/netflix.png",
+                    projects: ["atlas-docs (1 contribution)"],
+                    totalContributions: 1
+                },
+                {
+                    organization: "Canonical",
+                    orgLogo: "images/orgs/canonical.png",
+                    projects: ["ubuntu-server-documentation (2 contributions)"],
+                    totalContributions: 2
+                }
+            ]
         }
     },
     developer: {
@@ -423,6 +461,159 @@ const personaContentData = {
                 icon: "layout",
                 image: "images/projects/dev/portfoliod.png",
                 status: "Completed"
+            }
+        ],
+        openSourceContributions: [
+            {
+                organization: "Google",
+                orgLogo: "images/orgs/google.png",
+                project: "osv.dev",
+                projectUrl: "https://github.com/google/osv.dev",
+                contributions: [
+                    {
+                        type: "feat",
+                        title: "Add search suggestions to OSV database",
+                        description: "Enhanced user experience by implementing a new search suggestions functionality"
+                    },
+                    {
+                        type: "feat",
+                        title: "Added search option to navbar",
+                        description: "Improved navigation accessibility with search integration"
+                    },
+                    {
+                        type: "feat",
+                        title: "Prevent horizontal overflow for affected packages",
+                        description: "Fixed responsive design issues for better mobile experience"
+                    },
+                    {
+                        type: "feat",
+                        title: "Added testcase with long ecosystem names for testing",
+                        description: "Improved test coverage for edge cases in frontend emulator"
+                    },
+                    {
+                        type: "feat",
+                        title: "Scope \"Fix available\" tag to active ecosystem filter",
+                        description: "Enhanced filtering functionality for better user experience"
+                    },
+                    {
+                        type: "feat",
+                        title: "Add helper to parse GitHub CNA version ranges",
+                        description: "Implemented vulnerability feeds parsing functionality"
+                    },
+                    {
+                        type: "fix",
+                        title: "Correct search dropdown position on scroll",
+                        description: "Fixed UI positioning issues for search functionality"
+                    },
+                    {
+                        type: "fix",
+                        title: "Prevent navbar search overflow",
+                        description: "Resolved responsive design issues in navigation"
+                    },
+                    {
+                        type: "fix",
+                        title: "Correct typos in deployment and post-v1-determineversion docs",
+                        description: "Improved documentation accuracy and clarity"
+                    },
+                    {
+                        type: "docs",
+                        title: "Warn users about API response size limit",
+                        description: "Enhanced API documentation with important usage guidelines"
+                    },
+                    {
+                        type: "fix",
+                        title: "Escape underscores in Markdown version strings",
+                        description: "Fixed rendering issues in documentation"
+                    },
+                    {
+                        type: "style",
+                        title: "Improve contrast on Jekyll note blocks",
+                        description: "Enhanced accessibility and readability of documentation"
+                    }
+                ]
+            },
+            {
+                organization: "Google",
+                orgLogo: "images/orgs/google.png",
+                project: "osv-scanner",
+                projectUrl: "https://github.com/google/osv-scanner",
+                contributions: [
+                    {
+                        type: "style",
+                        title: "Improve theme styling for Jekyll highlight blocks",
+                        description: "Enhanced documentation styling and readability"
+                    }
+                ]
+            },
+            {
+                organization: "Google Gemini",
+                orgLogo: "images/orgs/google-gemini.png",
+                project: "gemini-cli",
+                projectUrl: "https://github.com/google-gemini/gemini-cli",
+                contributions: [
+                    {
+                        type: "feat",
+                        title: "Allow Exiting Authentication Menu with CTRL+C (SIGINT)",
+                        description: "Improved user experience by adding graceful exit functionality"
+                    }
+                ]
+            },
+            {
+                organization: "LangChain",
+                orgLogo: "images/orgs/langchain.png",
+                project: "langgraph",
+                projectUrl: "https://github.com/langchain-ai/langgraph",
+                contributions: [
+                    {
+                        type: "fix",
+                        title: "Extended examples in graph API docs",
+                        description: "Fixed formatting and rendering issues in API docs"
+                    }
+                ]
+            },
+            {
+                organization: "Apache",
+                orgLogo: "images/orgs/apache.png",
+                project: "beam",
+                projectUrl: "https://github.com/apache/beam",
+                contributions: [
+                    {
+                        type: "docs",
+                        title: "Add documentation for Wait.On and WaitOn transforms",
+                        description: "Improved documentation coverage for Apache Beam transforms"
+                    }
+                ]
+            },
+            {
+                organization: "Netflix",
+                orgLogo: "images/orgs/netflix.png",
+                project: "atlas-docs",
+                projectUrl: "https://github.com/Netflix/atlas-docs",
+                contributions: [
+                    {
+                        type: "fix",
+                        title: "Fix syntactical issues and typos in heatmap.md and legends.md",
+                        description: "Improved documentation accuracy and clarity"
+                    }
+                ]
+            },
+            {
+                organization: "Canonical",
+                orgLogo: "images/orgs/canonical.png",
+                project: "ubuntu-server-documentation",
+                projectUrl: "https://github.com/canonical/ubuntu-server-documentation",
+                contributions: [
+                    {
+                        type: "docs",
+                        title: "Define the term \"LVM\" in Glossary",
+                        description: "Enhanced documentation with technical term definitions"
+                    },
+                    {
+                        type: "docs",
+                        title: "Linked glossary term (LVM)",
+                        description: "Improved documentation navigation and cross-references"
+                    }
+                ]
             }
         ]
     },
@@ -878,8 +1069,11 @@ function updateProjectsPageContent(persona) {
     } else if (persona === 'explorer') {
         // Show design projects in a map-like view
         renderDesignProjectsView(projectsGrid, data.projects);
+    } else if (persona === 'developer') {
+        // Show developer projects with open source contributions
+        renderDeveloperProjectsView(projectsGrid, data.projects, data.openSourceContributions);
     } else {
-        // Show regular project cards for students and developers
+        // Show regular project cards for students
         renderProjectCardsView(projectsGrid, data.projects);
     }
     
@@ -955,6 +1149,24 @@ function renderResumeView(container, resumeData) {
                         </ul>
                     </div>
                 `).join('')}
+            </div>
+            
+            <div class="resume-section">
+                <h3>Open Source Contributions</h3>
+                ${resumeData.openSourceContributions ? resumeData.openSourceContributions.map(org => `
+                    <div class="resume-item">
+                        <div class="resume-item-header">
+                            <div class="resume-org-info">
+                                <img src="${org.orgLogo}" alt="${org.organization}" class="resume-org-logo" loading="lazy" />
+                                <h4>${org.organization}</h4>
+                            </div>
+                            <span class="resume-contribution-count">${org.totalContributions} contribution${org.totalContributions !== 1 ? 's' : ''}</span>
+                        </div>
+                        <ul class="resume-achievements">
+                            ${org.projects.map(project => `<li>◦ ${project}</li>`).join('')}
+                        </ul>
+                    </div>
+                `).join('') : ''}
             </div>
             
             <div class="resume-section">
@@ -1069,6 +1281,161 @@ function renderProjectCardsView(container, projects) {
             </div>
         </div>
     `).join('');
+}
+
+// Render developer projects view with open source contributions
+function renderDeveloperProjectsView(container, projects, openSourceContributions) {
+    if (!projects && !openSourceContributions) return;
+    
+    const projectsSection = projects ? `
+        <div class="developer-section">
+            <div class="section-header">
+                <h2><i data-lucide="folder-code"></i> Personal Projects</h2>
+                <p>Passion projects and technical experiments</p>
+            </div>
+            <div class="projects-grid">
+                ${projects.map(project => `
+                    <div class="project-card ${project.featured ? 'featured-project' : ''}">
+                        <div class="project-image">
+                            ${project.image ? 
+                                `<img src="${project.image}" alt="${project.title}" class="project-thumbnail" loading="lazy" />` :
+                                `<i data-lucide="${project.icon}"></i>`
+                            }
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h3 class="project-title">${project.title}</h3>
+                                <span class="project-status ${project.status.toLowerCase().replace(' ', '-')}">${project.status}</span>
+                            </div>
+                            <p class="project-description">${project.description}</p>
+                            ${project.category ? `<div class="project-category-badge">${project.category}</div>` : ''}
+                            <div class="project-tech">
+                                ${project.tech.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                            </div>
+                            <div class="project-links">
+                                <a href="${project.link}" class="project-link primary" target="_blank" rel="noopener">
+                                    <i data-lucide="github"></i>
+                                    <span>View Code</span>
+                                </a>
+                                ${project.liveLink ? `
+                                    <a href="${project.liveLink}" class="project-link" target="_blank" rel="noopener">
+                                        <i data-lucide="external-link"></i>
+                                        <span>Live Demo</span>
+                                    </a>
+                                ` : ''}
+                            </div>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    ` : '';
+
+    const contributionsSection = openSourceContributions ? `
+        <div class="developer-section">
+            <div class="section-header">
+                <h2><i data-lucide="git-branch"></i> Open Source Contributions</h2>
+                <p>Contributing to the developer community</p>
+            </div>
+            <div class="contributions-grid">
+                ${openSourceContributions.map((org, orgIndex) => renderContributionCard(org, orgIndex)).join('')}
+            </div>
+        </div>
+    ` : '';
+    
+    container.innerHTML = `
+        <div class="developer-projects-container">
+            ${contributionsSection}
+            ${projectsSection}
+        </div>
+    `;
+    
+    // Setup event listeners for "Show More" buttons
+    if (openSourceContributions) {
+        setupContributionToggleListeners();
+    }
+}
+
+// Helper function to render a single contribution organization card
+function renderContributionCard(org, orgIndex) {
+    const maxInitialContributions = 3;
+    const hasMoreContributions = org.contributions.length > maxInitialContributions;
+    const visibleContributions = org.contributions.slice(0, maxInitialContributions);
+    const hiddenContributions = org.contributions.slice(maxInitialContributions);
+    
+    return `
+        <div class="contribution-org-card" data-org-index="${orgIndex}">
+            <div class="org-header">
+                <div class="org-info">
+                    <img src="${org.orgLogo}" alt="${org.organization}" class="org-logo" loading="lazy" />
+                    <div class="org-details">
+                        <h3 class="org-name">${org.organization}</h3>
+                        <a href="${org.projectUrl}" class="project-name" target="_blank" rel="noopener">
+                            ${org.project}
+                            <i data-lucide="external-link"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="contribution-count">
+                    <span class="count-number">${org.contributions.length}</span>
+                    <span class="count-label">contribution${org.contributions.length !== 1 ? 's' : ''}</span>
+                </div>
+            </div>
+            <div class="contributions-list">
+                <div class="visible-contributions">
+                    ${visibleContributions.map(contribution => renderContributionItem(contribution)).join('')}
+                </div>
+                ${hasMoreContributions ? `
+                    <div class="hidden-contributions" style="display: none;">
+                        ${hiddenContributions.map(contribution => renderContributionItem(contribution)).join('')}
+                    </div>
+                    <div class="show-more-container">
+                        <button class="show-more-btn" data-org-index="${orgIndex}">
+                            <span class="show-more-text">Show ${hiddenContributions.length} more</span>
+                        </button>
+                    </div>
+                ` : ''}
+            </div>
+        </div>
+    `;
+}
+
+// Helper function to render a single contribution item
+function renderContributionItem(contribution) {
+    return `
+        <div class="contribution-item">
+            <div class="contribution-header">
+                <span class="contribution-type ${contribution.type}">${contribution.type}</span>
+                <span class="contribution-title">${contribution.title}</span>
+            </div>
+            <p class="contribution-description">${contribution.description}</p>
+        </div>
+    `;
+}
+
+// Setup event listeners for contribution toggle buttons
+function setupContributionToggleListeners() {
+    document.querySelectorAll('.show-more-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const orgIndex = this.dataset.orgIndex;
+            const card = document.querySelector(`[data-org-index="${orgIndex}"]`);
+            const hiddenContributions = card.querySelector('.hidden-contributions');
+            const textElement = this.querySelector('.show-more-text');
+            
+            // Check if currently expanded by looking at computed style
+            const isCurrentlyHidden = window.getComputedStyle(hiddenContributions).display === 'none';
+            
+            if (isCurrentlyHidden) {
+                // Expand - show hidden contributions
+                hiddenContributions.style.display = 'block';
+                textElement.textContent = 'Show less';
+            } else {
+                // Collapse - hide contributions
+                hiddenContributions.style.display = 'none';
+                textElement.textContent = `Show ${hiddenContributions.children.length} more`;
+            }
+        });
+    });
 }
 
 // Helper function to update URL for resume view
