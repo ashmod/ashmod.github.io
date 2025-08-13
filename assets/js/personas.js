@@ -521,11 +521,6 @@ const personaContentData = {
                         description: "Enhanced API documentation with important usage guidelines"
                     },
                     {
-                        type: "fix",
-                        title: "Escape underscores in Markdown version strings",
-                        description: "Fixed rendering issues in documentation"
-                    },
-                    {
                         type: "style",
                         title: "Improve contrast on Jekyll note blocks",
                         description: "Enhanced accessibility and readability of documentation"

@@ -939,10 +939,10 @@
     margin-bottom: 0;
 }
 
-.contribution-item:hover {
+/* .contribution-item:hover {
     border-color: var(--accent-primary);
     background: var(--bg-secondary);
-}
+} */
 
 .contribution-header {
     display: flex;
