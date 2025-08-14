@@ -47,13 +47,18 @@
 /* Primary button styling for "View Code" */
 .project-link.primary {
     background: var(--persona-primary) !important;
-    color: white !important;
-    border: 2px solid var(--persona-primary) !important;
+    color: #1f2937 !important;
+    border: 1px solid var(--persona-primary) !important;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .project-link.primary:hover {
-    background: transparent !important;
-    color: var(--persona-primary) !important;
+    background: #1f2937 !important;
+    color: white !important;
+    border-color: var(--persona-primary) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Resume View Styles */
@@ -292,6 +297,40 @@
     border: 1px solid var(--border-secondary);
 }
 
+/* Compact Resume Open Source Contributions */
+.resume-item-compact {
+    margin-bottom: var(--space-md);
+}
+
+.resume-org-compact {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid var(--border-primary);
+    flex-wrap: wrap;
+}
+
+.resume-org-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+}
+
+.resume-separator {
+    color: var(--text-tertiary);
+    font-weight: 400;
+    margin: 0 var(--space-xs);
+}
+
+.resume-projects {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    flex: 1;
+    min-width: 0;
+}
+
 .resume-contribution-count {
     background: var(--persona-primary);
     color: white;
@@ -353,6 +392,9 @@
     overflow: hidden;
     transition: var(--transition-standard);
     box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .design-project-card:hover {
@@ -423,6 +465,9 @@
 
 .design-project-card .project-content {
     padding: var(--space-lg);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .design-project-card .project-header {
@@ -1129,5 +1174,131 @@
     .resume-org-logo {
         width: 28px;
         height: 28px;
+    }
+    
+    .resume-org-compact {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-xs);
+        padding: var(--space-md) 0;
+    }
+    
+    .resume-separator {
+        display: none;
+    }
+    
+    .resume-projects {
+        margin-left: calc(28px + var(--space-sm));
+        font-size: 0.85rem;
+    }
+}
+
+/* Compact Open Source Contributions Styles */
+.contributions-grid-compact {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-md);
+    margin-bottom: 2rem;
+}
+
+.contribution-org-card-compact {
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+}
+
+.contribution-org-card-compact:hover {
+    border-color: var(--persona-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.org-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+}
+
+.org-logo-compact {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    object-fit: contain;
+    background: white;
+    padding: 4px;
+    box-shadow: var(--shadow-sm);
+    flex-shrink: 0;
+}
+
+.org-details-compact {
+    flex: 1;
+    min-width: 0;
+}
+
+.org-name-compact {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 2px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.project-name-compact {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+.external-link-icon {
+    width: 14px;
+    height: 14px;
+    color: var(--text-tertiary);
+    transition: var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.org-link:hover .external-link-icon {
+    color: var(--persona-primary);
+}
+
+.org-link:hover .project-name-compact {
+    color: var(--persona-primary);
+}
+
+/* Responsive adjustments for compact layout */
+@media (max-width: 768px) {
+    .contributions-grid-compact {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+    }
+    
+    .org-link {
+        padding: var(--space-md);
+    }
+    
+    .org-logo-compact {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .org-name-compact {
+        font-size: 0.9rem;
+    }
+    
+    .project-name-compact {
+        font-size: 0.8rem;
     }
 }

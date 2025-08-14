@@ -303,37 +303,37 @@ const personaContentData = {
                 {
                     organization: "Google",
                     orgLogo: "images/orgs/google.png",
-                    projects: ["osv.dev (12 contributions)", "osv-scanner (1 contribution)"],
+                    projects: ["osv.dev", "osv-scanner"],
                     totalContributions: 13
                 },
                 {
                     organization: "Google Gemini",
                     orgLogo: "images/orgs/google-gemini.png",
-                    projects: ["gemini-cli (1 contribution)"],
+                    projects: ["gemini-cli"],
                     totalContributions: 1
                 },
                 {
                     organization: "LangChain",
                     orgLogo: "images/orgs/langchain.png",
-                    projects: ["langgraph (1 contribution)"],
+                    projects: ["langgraph"],
                     totalContributions: 1
                 },
                 {
                     organization: "Apache",
                     orgLogo: "images/orgs/apache.png",
-                    projects: ["beam (1 contribution)"],
+                    projects: ["beam"],
                     totalContributions: 1
                 },
                 {
                     organization: "Netflix",
                     orgLogo: "images/orgs/netflix.png",
-                    projects: ["atlas-docs (1 contribution)"],
+                    projects: ["atlas-docs"],
                     totalContributions: 1
                 },
                 {
                     organization: "Canonical",
                     orgLogo: "images/orgs/canonical.png",
-                    projects: ["ubuntu-server-documentation (2 contributions)"],
+                    projects: ["ubuntu-server-documentation"],
                     totalContributions: 2
                 }
             ]
@@ -553,19 +553,19 @@ const personaContentData = {
                     }
                 ]
             },
-            {
-                organization: "LangChain",
-                orgLogo: "images/orgs/langchain.png",
-                project: "langgraph",
-                projectUrl: "https://github.com/langchain-ai/langgraph",
-                contributions: [
-                    {
-                        type: "fix",
-                        title: "Extended examples in graph API docs",
-                        description: "Fixed formatting and rendering issues in API docs"
-                    }
-                ]
-            },
+            // {
+            //     organization: "LangChain",
+            //     orgLogo: "images/orgs/langchain.png",
+            //     project: "langgraph",
+            //     projectUrl: "https://github.com/langchain-ai/langgraph",
+            //     contributions: [
+            //         {
+            //             type: "fix",
+            //             title: "Extended examples in graph API docs",
+            //             description: "Fixed formatting and rendering issues in API docs"
+            //         }
+            //     ]
+            // },
             {
                 organization: "Apache",
                 orgLogo: "images/orgs/apache.png",
@@ -1149,16 +1149,13 @@ function renderResumeView(container, resumeData) {
             <div class="resume-section">
                 <h3>Open Source Contributions</h3>
                 ${resumeData.openSourceContributions ? resumeData.openSourceContributions.map(org => `
-                    <div class="resume-item">
-                        <div class="resume-item-header">
-                            <div class="resume-org-info">
-                                <img src="${org.orgLogo}" alt="${org.organization}" class="resume-org-logo" loading="lazy" />
-                                <h4>${org.organization}</h4>
-                            </div>
+                    <div class="resume-item-compact">
+                        <div class="resume-org-compact">
+                            <img src="${org.orgLogo}" alt="${org.organization}" class="resume-org-logo" loading="lazy" />
+                            <span class="resume-org-name">${org.organization}</span>
+                            <span class="resume-separator">|</span>
+                            <span class="resume-projects">${org.projects.join(', ')}</span>
                         </div>
-                        <ul class="resume-achievements">
-                            ${org.projects.map(project => `<li>◦ ${project}</li>`).join('')}
-                        </ul>
                     </div>
                 `).join('') : ''}
             </div>
@@ -1331,7 +1328,7 @@ function renderDeveloperProjectsView(container, projects, openSourceContribution
                 <h2><i data-lucide="git-branch"></i> Open Source Contributions</h2>
                 <p>Contributing to the developer community</p>
             </div>
-            <div class="contributions-grid">
+            <div class="contributions-grid-compact">
                 ${openSourceContributions.map((org, orgIndex) => renderContributionCard(org, orgIndex)).join('')}
             </div>
         </div>
@@ -1343,89 +1340,22 @@ function renderDeveloperProjectsView(container, projects, openSourceContribution
             ${projectsSection}
         </div>
     `;
-    
-    // Setup event listeners for "Show More" buttons
-    if (openSourceContributions) {
-        setupContributionToggleListeners();
-    }
 }
 
 // Helper function to render a single contribution organization card
 function renderContributionCard(org, orgIndex) {
-    const maxInitialContributions = 3;
-    const hasMoreContributions = org.contributions.length > maxInitialContributions;
-    const visibleContributions = org.contributions.slice(0, maxInitialContributions);
-    const hiddenContributions = org.contributions.slice(maxInitialContributions);
-    
     return `
-        <div class="contribution-org-card" data-org-index="${orgIndex}">
-            <div class="org-header">
-                <div class="org-info">
-                    <img src="${org.orgLogo}" alt="${org.organization}" class="org-logo" loading="lazy" />
-                    <div class="org-details">
-                        <h3 class="org-name">${org.organization}</h3>
-                        <a href="${org.projectUrl}" class="project-name" target="_blank" rel="noopener">
-                            ${org.project}
-                            <i data-lucide="external-link"></i>
-                        </a>
-                    </div>
+        <div class="contribution-org-card-compact" data-org-index="${orgIndex}">
+            <a href="${org.projectUrl}" class="org-link" target="_blank" rel="noopener">
+                <img src="${org.orgLogo}" alt="${org.organization}" class="org-logo-compact" loading="lazy" />
+                <div class="org-details-compact">
+                    <h3 class="org-name-compact">${org.organization}</h3>
+                    <span class="project-name-compact">${org.project}</span>
                 </div>
-            </div>
-            <div class="contributions-list">
-                <div class="visible-contributions">
-                    ${visibleContributions.map(contribution => renderContributionItem(contribution)).join('')}
-                </div>
-                ${hasMoreContributions ? `
-                    <div class="hidden-contributions" style="display: none;">
-                        ${hiddenContributions.map(contribution => renderContributionItem(contribution)).join('')}
-                    </div>
-                    <div class="show-more-container">
-                        <button class="show-more-btn" data-org-index="${orgIndex}">
-                            <span class="show-more-text">Show ${hiddenContributions.length} more</span>
-                        </button>
-                    </div>
-                ` : ''}
-            </div>
+                <i data-lucide="external-link" class="external-link-icon"></i>
+            </a>
         </div>
     `;
-}
-
-// Helper function to render a single contribution item
-function renderContributionItem(contribution) {
-    return `
-        <div class="contribution-item">
-            <div class="contribution-header">
-                <span class="contribution-type ${contribution.type}">${contribution.type}</span>
-                <span class="contribution-title">${contribution.title}</span>
-            </div>
-            <p class="contribution-description">${contribution.description}</p>
-        </div>
-    `;
-}
-
-// Setup event listeners for contribution toggle buttons
-function setupContributionToggleListeners() {
-    document.querySelectorAll('.show-more-btn').forEach(button => {
-        button.addEventListener('click', function() {
-            const orgIndex = this.dataset.orgIndex;
-            const card = document.querySelector(`[data-org-index="${orgIndex}"]`);
-            const hiddenContributions = card.querySelector('.hidden-contributions');
-            const textElement = this.querySelector('.show-more-text');
-            
-            // Check if currently expanded by looking at computed style
-            const isCurrentlyHidden = window.getComputedStyle(hiddenContributions).display === 'none';
-            
-            if (isCurrentlyHidden) {
-                // Expand - show hidden contributions
-                hiddenContributions.style.display = 'block';
-                textElement.textContent = 'Show less';
-            } else {
-                // Collapse - hide contributions
-                hiddenContributions.style.display = 'none';
-                textElement.textContent = `Show ${hiddenContributions.children.length} more`;
-            }
-        });
-    });
 }
 
 // Helper function to update URL for resume view
