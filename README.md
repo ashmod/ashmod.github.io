@@ -1,4 +1,4 @@
-# The dizzydroid Website
+# The ashmod Website
 
 A dynamic, persona-driven portfolio website that adapts to ***you***!
 <div align="center">
@@ -60,10 +60,10 @@ A **notebook-style interface** that warmly welcomes first-time visitors:
 ## 📁 Project Structure
 
 ```
-dizzydroid.github.io/
+ashmod.github.io/
 ├── 📄 index.html              # Homepage
 ├── 📄 about.html              # About page (taylors to different personas)
-├── 📄 blog.html               # The DizzyBlog
+├── 📄 blog.html               # The AshBlog
 ├── 📄 projects.html           # Projects showcase
 ├── 📄 contact.html            # Contact information
 ├── 📁 assets/
@@ -88,13 +88,13 @@ dizzydroid.github.io/
 
 ## 🚀 Quick Start
 
-The website is live at [dizzydroid.github.io](https://dizzydroid.github.io). You can also run it locally for development or testing purposes.
+The website is live at [ashmod.github.io](https://ashmod.github.io). You can also run it locally for development or testing purposes.
 To get started with the project, follow these steps:
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/dizzydroid/dizzydroid.github.io.git
-cd dizzydroid.github.io
+git clone https://github.com/ashmod/ashmod.github.io.git
+cd ashmod.github.io
 ```
 
 ### 2. Local Development
@@ -255,7 +255,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👨‍💻 About the Developer
 
-This portfolio was built by **Shehab Mahmoud** (dizzydroid):
+This portfolio was built by **Shehab Mahmoud** (ashmod):
 - 🎓 Computer Engineering Student
 - 💻 Passionate Developer
 - 🌟 Open Source Enthusiast
@@ -274,6 +274,6 @@ This portfolio was built by **Shehab Mahmoud** (dizzydroid):
 
 **⭐ Star this repo if you found it interesting!**
 
-*Made with ❤️ and lots of coffee by dizzydroid*
+*Made with ❤️ and lots of coffee by ashmod*
 
 </div>

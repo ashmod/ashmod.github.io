@@ -28,7 +28,7 @@ class BlogManager {
                 url: "https://drive.google.com/file/d/19qE0GULc0QBZ7pHO0XIFj_GkTRuBpd5v/view",
                 externalLinks: {
                     book: "https://drive.google.com/file/d/19qE0GULc0QBZ7pHO0XIFj_GkTRuBpd5v/view",
-                    repo: "https://github.com/dizzydroid/DesignPatternsNutshell"
+                    repo: "https://github.com/ashmod/DesignPatternsNutshell"
                 },
                 popularity: 24
             },
@@ -55,10 +55,10 @@ class BlogManager {
                 date: "Sept. 29, 2023",
                 readTime: "Interactive",
                 featured: false,
-                url: "https://dizzydroid.github.io/skimble",
+                url: "https://ashmod.github.io/skimble",
                 externalLinks: {
-                    play: "https://dizzydroid.github.io/skimble",
-                    repo: "https://github.com/dizzydroid/skimble"
+                    play: "https://ashmod.github.io/skimble",
+                    repo: "https://github.com/ashmod/skimble"
                 },
                 popularity: 12
             },
@@ -72,10 +72,10 @@ class BlogManager {
                 date: "Aug. 16, 2023",
                 readTime: "5 min read",
                 featured: false,
-                url: "https://dizzydroid.github.io/portfoliod",
+                url: "https://ashmod.github.io/portfoliod",
                 externalLinks: {
-                    site: "https://dizzydroid.github.io/portfoliod",
-                    repo: "https://github.com/dizzydroid/portfoliod"
+                    site: "https://ashmod.github.io/portfoliod",
+                    repo: "https://github.com/ashmod/portfoliod"
                 },
                 popularity: 8
             },
@@ -89,10 +89,10 @@ class BlogManager {
                 date: "May 26, 2023",
                 readTime: "Interactive",
                 featured: false,
-                url: "https://dizzydroid.github.io/quotes",
+                url: "https://ashmod.github.io/quotes",
                 externalLinks: {
-                    site: "https://dizzydroid.github.io/quotes",
-                    repo: "https://www.github.com/dizzydroid/quotes"
+                    site: "https://ashmod.github.io/quotes",
+                    repo: "https://www.github.com/ashmod/quotes"
                 },
                 popularity: 6
             },
@@ -106,10 +106,10 @@ class BlogManager {
                 date: "Apr. 22, 2023",
                 readTime: "Interactive",
                 featured: false,
-                url: "https://dizzydroid.github.io/earth-day-quiz",
+                url: "https://ashmod.github.io/earth-day-quiz",
                 externalLinks: {
-                    quiz: "https://dizzydroid.github.io/earth-day-quiz",
-                    repo: "https://github.com/dizzydroid/earth-day-quiz"
+                    quiz: "https://ashmod.github.io/earth-day-quiz",
+                    repo: "https://github.com/ashmod/earth-day-quiz"
                 },
                 popularity: 4
             }

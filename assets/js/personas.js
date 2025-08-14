@@ -64,7 +64,7 @@ const personaContentData = {
                 description: "Java-based desktop application: An educational platform with different roles, and dynamic pages.",
                 tech: ["Java", "JavaFX", "OOP", "GUI Design"],
                 category: "Software Engineering",
-                link: "https://github.com/dizzydroid/ByteWise",
+                link: "https://github.com/ashmod/ByteWise",
                 icon: "graduation-cap",
                 image: "images/projects/student/BW.png",
                 status: "Completed",
@@ -75,7 +75,7 @@ const personaContentData = {
                 description: "Python toolkit for audio signal manipulation with time/frequency domain visualizations and custom filtering.",
                 tech: ["Python", "NumPy", "Signal Processing", "Matplotlib"],
                 category: "Signal Processing",
-                link: "https://github.com/dizzydroid/ASU_DigitalAudioFilteringPrjct",
+                link: "https://github.com/ashmod/ASU_DigitalAudioFilteringPrjct",
                 icon: "music",
                 image: "images/projects/student/audiofilter.png",
                 status: "Completed"
@@ -85,7 +85,7 @@ const personaContentData = {
                 description: "Machine learning model assessment for COVID-19 outcome prediction, comparing different classification algorithms.",
                 tech: ["Python", "Scikit-learn", "Pandas", "Machine Learning"],
                 category: "Machine Learning",
-                link: "https://github.com/dizzydroid/ASU_SeniorProject_ML",
+                link: "https://github.com/ashmod/ASU_SeniorProject_ML",
                 icon: "brain",
                 image: "images/projects/student/covid19.png",
                 status: "Completed"
@@ -95,7 +95,7 @@ const personaContentData = {
                 description: "Desktop application visualizing CPU scheduling algorithms with interactive Gantt charts.",
                 tech: ["Python", "Tkinter", "OS Concepts", "Algorithms"],
                 category: "Operating Systems",
-                link: "https://github.com/dizzydroid/Chronos",
+                link: "https://github.com/ashmod/Chronos",
                 icon: "cpu",
                 image: "images/projects/student/OS.png",
                 status: "Completed"
@@ -105,7 +105,7 @@ const personaContentData = {
                 description: "Python-based XML editor and graph visualizer for efficient file management and data analysis.",
                 tech: ["Python", "XML", "Graph Theory", "Data Structures"],
                 category: "Data Structures",
-                link: "https://github.com/dizzydroid/NodeScope",
+                link: "https://github.com/ashmod/NodeScope",
                 icon: "network",
                 image: "images/projects/student/NS.png",
                 status: "Completed",
@@ -116,7 +116,7 @@ const personaContentData = {
                 description: "Interactive visualizations and solvers for six classic algorithmic puzzles, implemented in Java.",
                 tech: ["Java", "Swing", "Algorithms", "Visualization"],
                 category: "Computer Science",
-                link: "https://github.com/dizzydroid/ASU_SeniorProject_Algorithms",
+                link: "https://github.com/ashmod/ASU_SeniorProject_Algorithms",
                 icon: "zap",
                 image: "images/projects/student/Algo.png",
                 status: "Completed"
@@ -126,7 +126,7 @@ const personaContentData = {
                 description: "Complete solutions for ASU CSE131s and CSE231s programming course assignments and exercises.",
                 tech: ["C++", "Java", "Problem Solving", "Education"],
                 category: "Academic Resources",
-                link: "https://github.com/dizzydroid/ASU_Sheets-Solutions",
+                link: "https://github.com/ashmod/ASU_Sheets-Solutions",
                 icon: "book-open",
                 image: "images/projects/student/sheets.png",
                 status: "Completed"
@@ -136,7 +136,7 @@ const personaContentData = {
                 description: "C++ terminal-based electric circuit solver.",
                 tech: ["C++", "Software Engineering"],
                 category: "Academic",
-                link: "https://github.com/dizzydroid/ASU_SophomoreProject",
+                link: "https://github.com/ashmod/ASU_SophomoreProject",
                 icon: "code",
                 image: "images/projects/student/sophprjct.png",
                 status: "Completed"
@@ -146,7 +146,7 @@ const personaContentData = {
                 description: "Solutions for programming problems, as part of the Programming course curriculum.",
                 tech: ["C++", "Python", "Data Structures", "Problem Solving"],
                 category: "Academic",
-                link: "https://github.com/dizzydroid/ASU_CodeForces-Tasks",
+                link: "https://github.com/ashmod/ASU_CodeForces-Tasks",
                 icon: "trophy",
                 image: "images/projects/student/CF.png",
                 status: "Completed",
@@ -186,10 +186,10 @@ const personaContentData = {
                 name: "Shehab Mahmoud",
                 location: "Cairo, EG",
                 email: "shehabmahmoud2003@gmail.com",
-                website: "dizzydroid.github.io",
+                website: "ashmod.github.io",
                 linkedin: "ShehabMahmoud",
-                github: "dizzydroid", 
-                behance: "dizzydroid"
+                github: "ashmod", 
+                behance: "ashmod"
             },
             summary: "A Computer Engineer with 4 years of experience in Software Engineering (Java, Python) and 2 years of hands-on Machine Learning project experience. Leverages a 6-year background in Graphic Design to build intuitive and effective applications. Currently expanding knowledge in Cybersecurity.",
             education: {
@@ -202,7 +202,7 @@ const personaContentData = {
                     title: "ReelRec: Movie Recommendation System",
                     type: "Software Testing Project | Team Lead",
                     period: "Mar. 2025",
-                    githubUrl: "https://github.com/dizzydroid/ReelRec",
+                    githubUrl: "https://github.com/ashmod/ReelRec",
                     achievements: [
                         "Built a movie recommendation system with a Swing-based GUI and a CLI.",
                         "Used Maven for build automation and Jira for project and bug management.",
@@ -213,7 +213,7 @@ const personaContentData = {
                     title: "Design Patterns in a Nutshell",
                     type: "Personal Project",
                     period: "2025",
-                    githubUrl: "https://github.com/dizzydroid/DesignPatternsNutshell",
+                    githubUrl: "https://github.com/ashmod/DesignPatternsNutshell",
                     achievements: [
                         "Authored a comprehensive handbook on Software Design Patterns."
                     ]
@@ -222,7 +222,7 @@ const personaContentData = {
                     title: "Nodescope: XML Editor and Visualizer",
                     type: "DSA Project | Team Lead",
                     period: "Dec. 2024",
-                    githubUrl: "https://github.com/dizzydroid/NodeScope",
+                    githubUrl: "https://github.com/ashmod/NodeScope",
                     achievements: [
                         "Applied advanced Data Structures and Algorithms for XML data processing.",
                         "Developed a GUI and CLI for rapid file and directory operations, enhancing user workflow.",
@@ -233,7 +233,7 @@ const personaContentData = {
                     title: "ByteWise: Course Management System",
                     type: "Object-Oriented Programming Project | Team Lead",
                     period: "Apr. 2024",
-                    githubUrl: "https://github.com/dizzydroid/ByteWise",
+                    githubUrl: "https://github.com/ashmod/ByteWise",
                     achievements: [
                         "Led the development of the \"ByteWise\" educational platform.",
                         "Implemented Object-Oriented Programming (OOP) principles for a maintainable and flexible system design.",
@@ -373,7 +373,7 @@ const personaContentData = {
                 description: "Python implementation of Chung & Lee's 2023 fraud detection ensemble approach with 93%+ recall on PaySim dataset.",
                 tech: ["Python", "Scikit-learn", "Ensemble Methods", "Data Science"],
                 category: "Machine Learning",
-                link: "https://github.com/dizzydroid/fraud-detection",
+                link: "https://github.com/ashmod/fraud-detection",
                 icon: "shield",
                 image: "images/projects/dev/fraudDet.png",
                 status: "Completed",
@@ -383,7 +383,7 @@ const personaContentData = {
                 description: "PyTorch implementation of adversarial approach to mitigate dataset bias in deep neural networks.",
                 tech: ["PyTorch", "Deep Learning", "Adversarial Training", "Research"],
                 category: "AI Research",
-                link: "https://github.com/dizzydroid/learning-not-to-learn",
+                link: "https://github.com/ashmod/learning-not-to-learn",
                 icon: "brain",
                 image: "images/projects/dev/learningNotToLearn.png",
                 status: "Completed"
@@ -393,7 +393,7 @@ const personaContentData = {
                 description: "Java-based movie recommendation system with genre-based filtering and user preference learning for Software Testing course.",
                 tech: ["Java", "Recommendation Systems", "Testing", "Software Engineering"],
                 category: "Software",
-                link: "https://github.com/dizzydroid/ReelRec",
+                link: "https://github.com/ashmod/ReelRec",
                 icon: "film",
                 image: "images/projects/dev/reelrec.png",
                 status: "Completed"
@@ -403,7 +403,7 @@ const personaContentData = {
                 description: "PyQt-based inventory management application with order processing, refunds, and performance tracking.",
                 tech: ["Python", "PyQt", "Database", "Desktop App"],
                 category: "Desktop Software",
-                link: "https://github.com/dizzydroid/InvMan",
+                link: "https://github.com/ashmod/InvMan",
                 icon: "package",
                 image:"images/projects/dev/invman.png",
                 status: "Completed"
@@ -413,7 +413,7 @@ const personaContentData = {
                 description: "Comprehensive Java examples for my design patterns handbook with practical implementations of all major patterns.",
                 tech: ["Java", "Design Patterns", "OOP", "Documentation"],
                 category: "Educational",
-                link: "https://github.com/dizzydroid/DesignPatternsNutshell",
+                link: "https://github.com/ashmod/DesignPatternsNutshell",
                 icon: "book",
                 image: "images/projects/dev/dpnutshell.png",
                 status: "Completed"
@@ -423,8 +423,8 @@ const personaContentData = {
                 description: "Simple arcade-style web game with great personality :D",
                 tech: ["JavaScript", "HTML5 Canvas", "Game Development", "Animation"],
                 category: "Game Development",
-                link: "https://github.com/dizzydroid/skimble",
-                liveLink: "https://dizzydroid.github.io/skimble",
+                link: "https://github.com/ashmod/skimble",
+                liveLink: "https://ashmod.github.io/skimble",
                 icon: "gamepad-2",
                 status: "Completed",
                 image: "images/projects/dev/skmbl.png"
@@ -434,8 +434,8 @@ const personaContentData = {
                 description: "Simple website that generates random quotes.",
                 tech: ["JavaScript", "CSS3", "Typography", "API"],
                 category: "Web Experiment",
-                link: "https://github.com/dizzydroid/quotes",
-                liveLink: "https://dizzydroid.github.io/quotes",
+                link: "https://github.com/ashmod/quotes",
+                liveLink: "https://ashmod.github.io/quotes",
                 icon: "quote",
                 status: "Completed",
                 image: "images/projects/dev/quotes.png"
@@ -445,8 +445,8 @@ const personaContentData = {
                 description: "Interactive 15-question quiz for Earth Day 2023.",
                 tech: ["JavaScript", "HTML5", "CSS3", "Interactive Quiz"],
                 category: "Web Experiment",
-                link: "https://github.com/dizzydroid/earth-day-quiz",
-                liveLink: "https://dizzydroid.github.io/earth-day-quiz",
+                link: "https://github.com/ashmod/earth-day-quiz",
+                liveLink: "https://ashmod.github.io/earth-day-quiz",
                 icon: "earth",
                 image:"images/projects/dev/earthday.png",
                 status: "Completed"
@@ -456,8 +456,8 @@ const personaContentData = {
                 description: "Customizable portfolio template built with basic HTML/CSS knowledge requirements - get portfolio-ing now!",
                 tech: ["HTML5", "CSS3", "Template", "Responsive"],
                 category: "Web Template",
-                link: "https://github.com/dizzydroid/portfoliod",
-                liveLink: "https://dizzydroid.github.io/portfoliod",
+                link: "https://github.com/ashmod/portfoliod",
+                liveLink: "https://ashmod.github.io/portfoliod",
                 icon: "layout",
                 image: "images/projects/dev/portfoliod.png",
                 status: "Completed"
@@ -1213,7 +1213,7 @@ function renderDesignProjectsView(container, projects) {
                 <i data-lucide="telescope"></i>
                 <h2>Featured Creative Work</h2>
                 <p>Here's a selection of my recent creative projects. You can view my full portfolio on Behance.</p>
-                <a href="https://www.behance.net/dizzydroid" class="btn btn-primary" target="_blank" rel="noopener">
+                <a href="https://www.behance.net/ashmod" class="btn btn-primary" target="_blank" rel="noopener">
                     <span>View Full Portfolio</span>
                     <i data-lucide="external-link"></i>
                 </a>
