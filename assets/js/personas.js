@@ -1213,7 +1213,7 @@ function renderDesignProjectsView(container, projects) {
                 <i data-lucide="telescope"></i>
                 <h2>Featured Creative Work</h2>
                 <p>Here's a selection of my recent creative projects. You can view my full portfolio on Behance.</p>
-                <a href="https://www.behance.net/ashmod" class="btn btn-primary" target="_blank" rel="noopener">
+                <a href="https://www.behance.net/dizzydroid" class="btn btn-primary" target="_blank" rel="noopener">
                     <span>View Full Portfolio</span>
                     <i data-lucide="external-link"></i>
                 </a>
