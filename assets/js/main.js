@@ -283,7 +283,7 @@ function initializeContactForm() {
             formDataToSend.append('subject', data.subject);
             formDataToSend.append('message', data.message);
             formDataToSend.append('from_name', data.name);
-            formDataToSend.append('to', 'shehabmahmoud2003@gmail.com');
+            formDataToSend.append('to', 'shehab@ashmod.dev');
             
             // Send to Web3Forms
             fetch('https://api.web3forms.com/submit', {
@@ -301,7 +301,7 @@ function initializeContactForm() {
             })
             .catch(error => {
                 console.error('Error:', error);
-                showNotification('Sorry, there was an error sending your message. Please try again or email me directly at shehabmahmoud2003@gmail.com', 'error');
+                showNotification('Sorry, there was an error sending your message. Please try again or email me directly at shehab@ashmod.dev', 'error');
             })
             .finally(() => {
                 submitButton.innerHTML = originalText;

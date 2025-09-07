@@ -185,7 +185,7 @@ const personaContentData = {
             contact: {
                 name: "Shehab Mahmoud",
                 location: "Cairo, EG",
-                email: "shehabmahmoud2003@gmail.com",
+                email: "shehab@ashmod.dev",
                 website: "ashmod.github.io",
                 linkedin: "ShehabMahmoud",
                 github: "ashmod", 
