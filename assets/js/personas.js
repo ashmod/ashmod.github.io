@@ -369,6 +369,16 @@ const personaContentData = {
         ],
         projects: [
             {
+                title: "Metasweep",
+                description: "Local metadata inspector & cleaner for images, PDFs, audio, and archives.",
+                tech: ["C++", "CMake", "Exiv2", "TagLib", "CLI", "Privacy Tools"],
+                category: "Security & Privacy",
+                link: "https://github.com/ashmod/metasweep",
+                icon: "shield-check",
+                image: "images/projects/dev/metasweep.png",
+                status: "Completed",
+            },
+            {
                 title: "Fraud Detection System",
                 description: "Python implementation of Chung & Lee's 2023 fraud detection ensemble approach with 93%+ recall on PaySim dataset.",
                 tech: ["Python", "Scikit-learn", "Ensemble Methods", "Data Science"],
@@ -452,7 +462,7 @@ const personaContentData = {
                 status: "Completed"
             },
             {
-                title: "Portfoliod Template",
+                title: "Portfoliod",
                 description: "Customizable portfolio template built with basic HTML/CSS knowledge requirements - get portfolio-ing now!",
                 tech: ["HTML5", "CSS3", "Template", "Responsive"],
                 category: "Web Template",
