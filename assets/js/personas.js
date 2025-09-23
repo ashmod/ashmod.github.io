@@ -889,7 +889,7 @@ function updateHeroContent(persona) {
         },
         explorer: {
             subtitle: 'a curious individual.',
-            description: 'Passionate about technology, design, and innovation. I believe that just the way "Necessity is the mother of invention", Curiosity is the mother of learning.',
+            description: 'Passionate about technology, design, and innovation. I believe that just the way "Necessity is the mother of invention", Curiosity is the mother of everything great.',
             primaryAction: 'Explore Projects',
             secondaryAction: 'See Creative Work'
         }
