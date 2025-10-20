@@ -733,6 +733,7 @@ h1, h2, h3, h4, h5, h6 {
     caret-color: #f1fa8c; /* Yellow cursor to match text */
     vertical-align: baseline; /* Fix Firefox cursor alignment */
     line-height: inherit; /* Inherit parent line-height for proper alignment */
+    white-space: pre; /* Preserve spaces and prevent collapsing */
 }
 
 .user-input:focus {

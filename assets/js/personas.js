@@ -643,7 +643,7 @@ const personaContentData = {
     },
     explorer: {
         profileTitle: 'Explorer/Learner',
-        intro: "I've tried things, many things! I've dabbled in Graphic Design, starting from MS Paint, and even MS Office, till I've become comfortable with complex tools like Adobe Photoshop and Illustrator. I've also tried Game Development, Hacking (the good kind), Creative Writing (I wrote a book!). Even though I major in Computer Engineering and Software Development, I love exploring new areas, that usually starts by the words 'I'd like to', and the rest is history.",
+        intro: "I've tried things, many things! I've dabbled in Graphic Design, starting from MS Paint, and even MS Office, until I've become comfortable with complex tools like Adobe Photoshop and Illustrator. I've also tried Game Development, Hacking (the good kind), Creative Writing (I wrote a book!). Even though I major in Computer Engineering and Software Development, I love exploring new areas. That usually starts by the words 'I'd like to', and the rest is history.",
         favorites: {
             'Inspiration': 'Behance',
             'Tools': 'Adobe CC',
@@ -908,7 +908,7 @@ function updateHeroContent(persona) {
         },
         explorer: {
             subtitle: 'a curious individual.',
-            description: 'Passionate about technology, design, and innovation. I believe that just the way "Necessity is the mother of invention", Curiosity is the mother of everything great.',
+            description: 'Passionate about technology, design, and innovation. I believe that just how "Necessity is the mother of invention", Curiosity is the mother of everything great.',
             primaryAction: 'Explore Projects',
             secondaryAction: 'See Creative Work'
         }

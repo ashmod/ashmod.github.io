@@ -162,7 +162,9 @@ class InteractiveTerminal {
         const range = selection.getRangeAt(0);
         range.deleteContents();
         
-        const textNode = document.createTextNode(text);
+        // Replace spaces with non-breaking spaces for proper rendering
+        const processedText = text.replace(/ /g, '\u00A0');
+        const textNode = document.createTextNode(processedText);
         range.insertNode(textNode);
         
         // Move cursor to end of inserted text
