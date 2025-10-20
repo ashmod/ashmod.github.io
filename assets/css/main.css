@@ -72,7 +72,7 @@ body {
 
 @media (max-width: 768px) {
     .container {
-        padding: 0 var(--space-md);
+        padding: 0 var(--space-lg);
     }
 }
 
@@ -285,19 +285,26 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Hero Section */
 .hero {
-    padding: 8rem 0 2rem;
+    padding: 6rem 0 1rem;
     position: relative;
 }
 
 .hero .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-3xl);
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    gap: var(--space-xl);
+    margin-bottom: var(--space-md);
+    text-align: center;
 }
 
 .hero-content {
-    max-width: 600px;
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: var(--space-xl);
 }
 
 .greeting {
@@ -323,31 +330,68 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-title {
     font-family: var(--font-mono);
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(2.5rem, 5vw, 4.25rem);
     font-weight: 700;
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-md);
     line-height: 1.1;
 }
 
 .hero-subtitle {
     display: block;
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-size: clamp(1.125rem, 2.5vw, 1.6rem);
     font-weight: 400;
     color: var(--text-secondary);
-    margin-top: var(--space-md);
+    margin-top: var(--space-sm);
 }
 
 .hero-description {
     font-size: 1.125rem;
     color: var(--text-secondary);
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-lg);
     line-height: 1.7;
 }
 
 .hero-actions {
     display: flex;
     gap: var(--space-lg);
-    margin-bottom: var(--space-2xl);
+    margin-bottom: 0;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Hero Social Links */
+.hero-social-links {
+    display: flex;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+    justify-content: center;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    color: var(--text-secondary);
+    transition: all var(--transition-normal);
+    font-size: 22px;
+}
+
+.social-icon:hover {
+    background: var(--bg-tertiary);
+    border-color: var(--persona-primary, var(--accent-primary));
+    color: var(--persona-primary, var(--accent-primary));
+    opacity: 0.8;
+}
+
+.social-icon i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn {
@@ -409,6 +453,9 @@ h1, h2, h3, h4, h5, h6 {
 /* Terminal */
 .hero-visual {
     position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .terminal {
@@ -419,6 +466,18 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: var(--shadow-lg);
 }
 
+/* Retro Terminal Enhancement - Unix Style */
+.retro-terminal {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+    background: var(--bg-card, #0a0e14);
+    border: 3px solid var(--border-primary, #2d3748);
+    border-radius: 6px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 
+                inset 0 1px 0 rgba(255, 255, 255, 0.05),
+                0 0 0 1px rgba(0, 0, 0, 0.8);
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
 .terminal-header {
     display: flex;
     align-items: center;
@@ -426,6 +485,76 @@ h1, h2, h3, h4, h5, h6 {
     padding: var(--space-md);
     background: var(--bg-tertiary);
     border-bottom: 1px solid var(--border-primary);
+}
+
+/* Unix-style terminal header */
+.retro-terminal .terminal-header {
+    background: linear-gradient(180deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
+    border-bottom: 2px solid var(--bg-primary);
+    padding: 0.5rem 0.75rem;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.terminal-titlebar {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.terminal-user {
+    color: var(--persona-primary, #50fa7b);
+}
+
+.terminal-separator {
+    color: #6272a4;
+}
+
+.terminal-dir {
+    color: var(--persona-primary, #8be9fd);
+}
+
+/* Unix-style window controls */
+.terminal-window-controls {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.window-btn {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: bold;
+    background: var(--bg-tertiary, #1e2330);
+    border: 1px solid var(--border-primary, #3d4556);
+    color: #6272a4;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: monospace;
+    line-height: 1;
+}
+
+.window-btn:hover {
+    background: var(--bg-card, #2d3748);
+    color: #e5e5e5;
+    border-color: var(--border-secondary, #4a5568);
+}
+
+.window-btn.close:hover {
+    background: #ff5555;
+    color: #fff;
+    border-color: #ff5555;
+}
+
+.window-btn.minimize {
+    padding-bottom: 2px;
 }
 
 .terminal-controls {
@@ -449,15 +578,64 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-secondary);
 }
 
+/* Retro terminal title */
+.retro-terminal .terminal-title {
+    font-weight: 600;
+    color: var(--persona-primary, #8be9fd);
+    letter-spacing: 0.02em;
+}
+
 .terminal-body {
     padding: var(--space-lg);
     font-family: var(--font-mono);
     font-size: 0.875rem;
     line-height: 1.6;
+    text-align: left;
+}
+
+/* Retro terminal body */
+.retro-terminal .terminal-body {
+    padding: 1rem 1.25rem;
+    background: var(--bg-primary, #0a0e14);
+    font-size: 0.85rem;
+    line-height: 1.7;
+    min-height: 300px;
+    cursor: text;
+    text-align: left;
+    transition: background 0.3s ease;
+}
+
+/* Maximized terminal styling */
+.retro-terminal.maximized .terminal-body {
+    min-height: calc(100vh - 8rem);
+    max-height: calc(100vh - 8rem);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Custom scrollbar for terminal */
+.retro-terminal.maximized .terminal-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.retro-terminal.maximized .terminal-body::-webkit-scrollbar-track {
+    background: var(--bg-primary, #0a0e14);
+}
+
+.retro-terminal.maximized .terminal-body::-webkit-scrollbar-thumb {
+    background: #2d3748;
+    border-radius: 4px;
+}
+
+.retro-terminal.maximized .terminal-body::-webkit-scrollbar-thumb:hover {
+    background: #4a5568;
 }
 
 .terminal-line {
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-sm);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .prompt {
@@ -465,18 +643,161 @@ h1, h2, h3, h4, h5, h6 {
     margin-right: var(--space-sm);
 }
 
+/* Retro prompt styling */
+.retro-terminal .prompt {
+    color: #6272a4;
+    font-weight: 500;
+}
+
+.prompt-symbol {
+    color: #50fa7b;
+    font-weight: 700;
+    margin-right: 0.5rem;
+    text-shadow: 0 0 8px rgba(80, 250, 123, 0.4);
+}
+
 .command {
     color: var(--text-primary);
+}
+
+/* Retro command styling */
+.retro-terminal .command {
+    color: #f1fa8c;
+    font-weight: 500;
 }
 
 .terminal-output {
     color: var(--text-secondary);
     margin-left: calc(var(--space-sm) + 1ch);
+    text-align: left;
+    width: 100%;
+}
+
+/* Retro output styling */
+.retro-terminal .terminal-output {
+    color: var(--persona-accent, #bd93f9);
+    margin-left: 0;
+    padding-left: 1.5rem;
+    text-align: left;
+    width: 100%;
+}
+
+/* Terminal ls output styling */
+.terminal-ls-output {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.25rem;
+    font-size: 0.85em;
+}
+
+/* Simple ls output (one line) */
+.terminal-output .ls-file {
+    display: inline;
+    margin-right: 1rem;
+}
+
+.ls-permissions {
+    color: #6272a4;
+    font-family: var(--font-mono);
+    font-size: 1em;
+    min-width: 5.5rem;
+}
+
+.ls-size {
+    color: #f1fa8c;
+    min-width: 3rem;
+    text-align: right;
+}
+
+.ls-file {
+    color: var(--persona-primary, #8be9fd) !important;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.ls-file:hover {
+    color: var(--persona-secondary, #ff79c6) !important;
+    text-shadow: 0 0 5px rgba(255, 121, 198, 0.5);
+}
+
+/* Interactive terminal features */
+.interactive-line {
+    position: relative;
+}
+
+.user-input {
+    color: #f1fa8c;
+    outline: none;
+    min-width: 2ch;
+    display: inline-block;
+    caret-color: #f1fa8c; /* Yellow cursor to match text */
+    vertical-align: baseline; /* Fix Firefox cursor alignment */
+    line-height: inherit; /* Inherit parent line-height for proper alignment */
+}
+
+.user-input:focus {
+    outline: none;
+    caret-color: #f1fa8c;
+}
+
+/* Firefox-specific fix for empty contenteditable cursor position */
+.user-input:empty::before {
+    content: '\200B'; /* Zero-width space to anchor cursor */
+    color: transparent;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Retro monospace touches for select elements */
+.hero-title,
+.nav-brand,
+.footer-brand-text {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', var(--font-mono) !important;
+    letter-spacing: -0.02em;
+}
+
+.stat-number {
+    font-family: var(--font-mono);
+}
+
+/* Enhanced code-style elements */
+.code-accent {
+    font-family: var(--font-mono);
+    color: var(--accent-primary);
+    background: rgba(229, 231, 235, 0.1);
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    border: 1px solid rgba(229, 231, 235, 0.2);
+}
+
+/* Quick Navigation */
+.hero-title,
+.nav-brand,
+.footer-brand-text {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', var(--font-mono) !important;
+    letter-spacing: -0.02em;
+}
+
+.stat-number {
+    font-family: var(--font-mono);
+}
+
+/* Enhanced code-style elements */
+.code-accent {
+    font-family: var(--font-mono);
+    color: var(--accent-primary);
+    background: rgba(229, 231, 235, 0.1);
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    border: 1px solid rgba(229, 231, 235, 0.2);
 }
 
 /* Quick Navigation */
 .quick-nav {
-    padding: var(--space-3xl) 0;
+    padding: var(--space-md) 0 var(--space-2xl) 0;
 }
 
 .quick-nav-grid {
@@ -608,18 +929,46 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.875rem;
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
+/* Desktop Layout - Side by Side */
+@media (min-width: 1025px) {
     .hero .container {
-        grid-template-columns: 1fr;
+        flex-direction: row;
+        align-items: flex-start;
         gap: var(--space-2xl);
-        text-align: center;
+        text-align: left;
+        max-width: 1200px;
+    }
+    
+    .hero-content {
+        flex: 0 1 500px;
+        max-width: 500px;
+        align-items: flex-start;
+        padding-top: 0;
     }
     
     .hero-visual {
-        order: -1;
-        max-width: 500px;
-        margin: 0 auto;
+        flex: 1 1 auto;
+        max-width: 650px;
+    }
+    
+    .hero-actions {
+        justify-content: flex-start;
+    }
+    
+    .hero-social-links {
+        justify-content: flex-start;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .hero .container {
+        gap: var(--space-xl);
+        margin-bottom: var(--space-xl);
+    }
+    
+    .hero-visual {
+        max-width: 600px;
     }
     
     /* Keep terminal content left-aligned even when hero is centered */
@@ -630,12 +979,17 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 768px) {
     .hero {
-        padding: 5rem 0 var(--space-2xl);
+        padding: 5rem 0 2rem;
+    }
+    
+    .hero .container {
+        gap: var(--space-lg);
     }
     
     .hero-actions {
         flex-direction: column;
         align-items: center;
+        gap: var(--space-md);
     }
     
     .btn {
@@ -644,10 +998,11 @@ h1, h2, h3, h4, h5, h6 {
         max-width: 300px;
     }
     
-    .stats {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: var(--space-lg);
+    /* Social icons smaller on mobile */
+    .social-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
     }
     
     .quick-nav-grid {
@@ -657,6 +1012,13 @@ h1, h2, h3, h4, h5, h6 {
     /* Ensure terminal content stays left-aligned on small screens */
     .terminal-body {
         text-align: left;
+        font-size: 0.75rem;
+        padding: 1rem;
+    }
+    
+    .retro-terminal .terminal-body {
+        padding: 1rem;
+        min-height: 250px;
     }
     
     .footer-content {
@@ -664,7 +1026,52 @@ h1, h2, h3, h4, h5, h6 {
         gap: var(--space-lg);
         text-align: center;
     }
+    
+    /* Terminal adjustments for mobile */
+    .terminal-ls-output {
+        flex-direction: row;
+        gap: 0.5rem;
+        font-size: 0.75em;
+    }
+    
+    .ls-permissions {
+        font-size: 1em;
+        min-width: 4.5rem;
+    }
+    
+    .ls-size {
+        min-width: 2.5rem;
+    }
+    
+    /* Terminal header mobile */
+    .terminal-titlebar {
+        font-size: 0.7rem;
+    }
+    
+    .window-btn {
+        width: 14px;
+        height: 14px;
+        font-size: 9px;
+    }
+    
+    /* Terminal adjustments for mobile */
+    .terminal-ls-output {
+        flex-direction: row;
+        gap: 0.5rem;
+        font-size: 0.75em;
+    }
+    
+    .ls-permissions {
+        font-size: 1em;
+        min-width: 4.5rem;
+    }
+    
+    .ls-size {
+        min-width: 2.5rem;
+    }
 }
+
+/* Accessibility */
 
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {

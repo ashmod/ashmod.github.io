@@ -313,6 +313,12 @@ const personaContentData = {
                     totalContributions: 1
                 },
                 {
+                    organization: "Facebook",
+                    orgLogo: "images/orgs/facebook.png",
+                    projects: ["lexical"],
+                    totalContributions: 1
+                },
+                {
                     organization: "LangChain",
                     orgLogo: "images/orgs/langchain.png",
                     projects: ["langgraph"],
@@ -563,19 +569,32 @@ const personaContentData = {
                     }
                 ]
             },
-            // {
-            //     organization: "LangChain",
-            //     orgLogo: "images/orgs/langchain.png",
-            //     project: "langgraph",
-            //     projectUrl: "https://github.com/langchain-ai/langgraph",
-            //     contributions: [
-            //         {
-            //             type: "fix",
-            //             title: "Extended examples in graph API docs",
-            //             description: "Fixed formatting and rendering issues in API docs"
-            //         }
-            //     ]
-            // },
+            {
+                organization: "Facebook",
+                orgLogo: "images/orgs/facebook.png",
+                project: "lexical",
+                projectUrl: "https://github.com/facebook/lexical",
+                contributions: [
+                    {
+                        type: "fix",
+                        title: "Fix rendering issue on code blocks",
+                        description: "Fixed rendering of RTL codeblocks in lexical playground"
+                    }
+                ]
+            },
+            {
+                organization: "LangChain",
+                orgLogo: "images/orgs/langchain.png",
+                project: "langgraph",
+                projectUrl: "https://github.com/langchain-ai/langgraph",
+                contributions: [
+                    {
+                        type: "fix",
+                        title: "Extended examples in graph API docs",
+                        description: "Fixed formatting and rendering issues in API docs"
+                    }
+                ]
+            },
             {
                 organization: "Apache",
                 orgLogo: "images/orgs/apache.png",
