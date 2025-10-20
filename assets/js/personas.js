@@ -189,7 +189,7 @@ const personaContentData = {
                 website: "ashmod.github.io",
                 linkedin: "ShehabMahmoud",
                 github: "ashmod", 
-                behance: "ashmod"
+                behance: "dizzydroid"
             },
             summary: "A Computer Engineer with 4 years of experience in Software Engineering (Java, Python) and 2 years of hands-on Machine Learning project experience. Leverages a 6-year background in Graphic Design to build intuitive and effective applications. Currently expanding knowledge in Cybersecurity.",
             education: {
