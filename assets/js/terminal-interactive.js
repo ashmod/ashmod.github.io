@@ -286,7 +286,8 @@ class InteractiveTerminal {
     }
     
     executeCommand() {
-        const input = this.userInput.textContent.trim();
+        // Get input and normalize spaces
+        const input = this.userInput.textContent.replace(/\u00A0/g, ' ').trim();
         
         if (!input) {
             this.addNewPrompt();
