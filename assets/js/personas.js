@@ -291,10 +291,9 @@ const personaContentData = {
                 }
             ],
             skills: {
-                "Programming Languages": ["Java", "Python", "C++", "C", "JavaScript", "Go", "HTML", "CSS", "SQL"],
-                "Frameworks & Libraries": ["React", "JUnit", "Matplotlib", "Numpy", "Scikit-learn", "PyTorch", "Tensorflow"],
-                "Developer Tools & DevOps": ["Git", "GitHub", "Docker", "Kubernetes", "Maven", "Jira", "GitHub Actions"],
-                "Operating Systems": ["Linux", "Windows", "macOS"],
+                "Programming Languages": ["Java", "Python", "C++", "C", "JavaScript", "TypeScript", "Go", "HTML", "CSS", "SQL"],
+                "Frameworks & Libraries": ["React", "Node.js", "Next.js", "JUnit", "Matplotlib", "Numpy", "Scikit-learn", "PyTorch", "Tensorflow"],
+                "Developer Tools & DevOps": ["Git", "GitHub", "Docker", "Maven", "Jira", "GitHub Actions"],
                 "Core Competencies": ["Object-Oriented Programming", "Data Structures & Algorithms", "Machine Learning & Artificial Intelligence", "Software Development Life Cycle (SDLC)", "Software Testing & Quality Assurance", "Web Development", "Cybersecurity Fundamentals", "Penetration Testing", "Networking Fundamentals"],
                 "Design & Professional Skills": ["Adobe Creative Cloud Suite", "Canva", "Figma", "Team Leadership & Collaboration", "Project Management & Agile Methodologies", "Content Strategy", "Technical Documentation & Communication"],
                 "Languages": ["English (Fluent)", "Arabic (Native)", "French (Conversational)", "German (Elementary)"]
