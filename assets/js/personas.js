@@ -556,6 +556,19 @@ const personaContentData = {
                 ]
             },
             {
+                organization: "Google",
+                orgLogo: "images/orgs/google.png",
+                project: "magika",
+                projectUrl: "https://github.com/google/magika",
+                contributions: [
+                    {
+                        type: "docs",
+                        title: "Fix docs rendering",
+                        description: "Fix rendering on main repository entry docs."
+                    }
+                ]
+            },
+            {
                 organization: "Google Gemini",
                 orgLogo: "images/orgs/google-gemini.png",
                 project: "gemini-cli",
