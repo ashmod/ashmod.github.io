@@ -1,0 +1,50 @@
+[
+  {
+    "title": "osv.dev",
+    "year": 2025,
+    "link": "https://github.com/google/osv.dev",
+    "org_logo": "/assets/images/orgs/google.png"
+  },
+  {
+    "title": "osv-scanner",
+    "year": 2025,
+    "link": "https://github.com/google/osv-scanner",
+    "org_logo": "/assets/images/orgs/google.png"
+  },
+  {
+    "title": "magika",
+    "year": 2025,
+    "link":"https://github.com/google/magika",
+    "org_logo":"/assets/images/orgs/google.png"
+  },
+  {
+    "title": "gemini-cli",
+    "year": 2025,
+    "link": "https://github.com/google-gemini/gemini-cli",
+    "org_logo":"/assets/images/orgs/google-gemini.png"
+  },
+  {
+    "title": "lexical",
+    "year": 2025,
+    "link": "https://github.com/facebook/lexical",
+    "org_logo": "/assets/images/orgs/facebook.png"
+  },
+  {
+    "title": "beam",
+    "year": 2025,
+    "link": "https://github.com/apache/beam",
+    "org_logo": "/assets/images/orgs/apache.png"
+  },
+  {
+    "title": "atlas-docs",
+    "year": 2025,
+    "link": "https://github.com/netflix/atlas-docs",
+    "org_logo": "/assets/images/orgs/netflix.png"
+  },
+  {
+    "title": "ubuntu-server-docs",
+    "year": 2025,
+    "link": "https://github.com/canonical/ubuntu-server-documentation",
+    "org_logo": "/assets/images/orgs/canonical.png"
+  }
+]

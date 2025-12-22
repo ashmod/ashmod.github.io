@@ -1,0 +1,28 @@
+/* Custom Giscus Dark Theme */
+@import url('https://giscus.app/themes/dark.css');
+
+/* Make reactions horizontal and compact */
+.gsc-reactions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #30363d;
+    margin-bottom: 1rem;
+}
+
+.gsc-reactions-count {
+    margin-bottom: 0;
+}
+
+.gsc-reactions-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.gsc-social-reaction-summary-item {
+    margin: 0;
+}
