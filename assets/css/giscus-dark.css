@@ -1,28 +1,31 @@
-/* Custom Giscus Dark Theme */
 @import url('https://giscus.app/themes/dark.css');
 
-/* Make reactions horizontal and compact */
+/* Make reactions section horizontal and compact */
 .gsc-reactions {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    padding: 0.75rem 0;
-    border-bottom: 1px solid #30363d;
-    margin-bottom: 1rem;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    padding: 0.75rem 0 !important;
 }
 
-.gsc-reactions-count {
-    margin-bottom: 0;
+.gsc-reactions > .gsc-reactions-count {
+    margin: 0 !important;
+    flex-shrink: 0;
 }
 
-.gsc-reactions-buttons {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+.gsc-reactions > .gsc-direct-reaction-buttons {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+    margin: 0 !important;
 }
 
-.gsc-social-reaction-summary-item {
-    margin: 0;
+.gsc-direct-reaction-buttons > button {
+    margin: 0 !important;
+}
+
+.gsc-reactions-button {
+    margin: 0 !important;
 }
