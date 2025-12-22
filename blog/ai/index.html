@@ -103,14 +103,10 @@ And this is, in layman&#39;s terms, really bad.</p>
                     </div>
                     
                     <section class="post-comments">
-                        <h2>Comments</h2>
                         <div class="giscus"></div>
                         <script>
                             (function() {
-                                const isDark = localStorage.getItem('theme') === 'dark';
-                                const theme = isDark
-                                    ? 'https://www.ashmod.dev/assets/css/giscus-dark.css'
-                                    : 'https://www.ashmod.dev/assets/css/giscus-light.css';
+                                const theme = localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
                                 const script = document.createElement('script');
                                 script.src = 'https://giscus.app/client.js';
                                 script.setAttribute('data-repo', 'ashmod/ashmod.github.io');
@@ -132,10 +128,7 @@ And this is, in layman&#39;s terms, really bad.</p>
                                 new MutationObserver(function() {
                                     const iframe = document.querySelector('iframe.giscus-frame');
                                     if (iframe) {
-                                        const newIsDark = localStorage.getItem('theme') === 'dark';
-                                        const newTheme = newIsDark
-                                            ? 'https://www.ashmod.dev/assets/css/giscus-dark.css'
-                                            : 'https://www.ashmod.dev/assets/css/giscus-light.css';
+                                        const newTheme = localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
                                         iframe.contentWindow.postMessage(
                                             { giscus: { setConfig: { theme: newTheme } } },
                                             'https://giscus.app'
