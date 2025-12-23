@@ -5,6 +5,7 @@
     --bg-color: #f4f1ea;
     --text-color: #1a1a1a;
     --accent-color: #ff4500;
+    --sub-color: #666666;
     --highlight-color: #ffd700;
     --border-color: #000000;
     --border-width: 2px;
@@ -122,13 +123,9 @@ a {
 }
 
 .profile-tagline {
-    color: #666;
+    color: var(--sub-color);
     font-size: 1rem;
     margin-bottom: 1rem;
-}
-
-body.dark-mode .profile-tagline {
-    color: #999;
 }
 
 .social-icons {
@@ -139,20 +136,12 @@ body.dark-mode .profile-tagline {
 }
 
 .social-icons a {
-    color: #666;
+    color: var(--sub-color);
     font-size: 1.5rem;
     transition: color 0.15s ease;
 }
 
 .social-icons a:hover {
-    color: var(--accent-color);
-}
-
-body.dark-mode .social-icons a {
-    color: #999;
-}
-
-body.dark-mode .social-icons a:hover {
     color: var(--accent-color);
 }
 
@@ -348,12 +337,8 @@ body.dark-mode .social-icons a:hover {
 .project-desc {
     font-style: italic;
     font-size: 0.95rem;
-    color: #555;
+    color: var(--sub-color);
     margin-top: 0.2rem;
-}
-
-body.dark-mode .project-desc {
-    color: #aaa;
 }
 
 .project-category {
@@ -734,19 +719,10 @@ body.dark-mode .project-desc {
 }
 
 /* =========================================
-   DARK MODE & CONTACT
+   THEME PICKER & TOGGLE
    ========================================= */
 
-/* Dark Mode Variables */
-body.dark-mode {
-    --bg-color: #1a1a1a;
-    --text-color: #f4f1ea;
-    --border-color: #f4f1ea;
-    --highlight-color: #333333;
-    /* Darker highlight */
-}
-
-/* Toggle Switch Styles */
+/* Toggle Button Styles */
 .theme-toggle {
     background: transparent;
     border: none;
@@ -764,6 +740,131 @@ body.dark-mode {
     transform: rotate(15deg) scale(1.1);
 }
 
+/* Theme Modal */
+.theme-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+        opacity 0.15s,
+        visibility 0.15s;
+}
+
+.theme-modal.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.theme-modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.theme-modal-content {
+    position: relative;
+    background: var(--bg-color);
+    border-radius: 8px;
+    max-width: 350px;
+    width: 90%;
+    max-height: 70vh;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    transform: translateY(-10px);
+    transition: transform 0.15s;
+    will-change: transform;
+}
+
+.theme-modal.open .theme-modal-content {
+    transform: translateY(0);
+}
+
+.theme-modal-list {
+    max-height: 70vh;
+    overflow-y: auto;
+    padding: 0.5rem 0;
+    overscroll-behavior: contain;
+}
+
+.theme-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.6rem 1rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-stack);
+    font-size: 0.9rem;
+    color: var(--sub-color);
+    text-align: left;
+}
+
+.theme-list-item:hover {
+    background: var(--accent-color);
+    color: var(--bg-color);
+}
+
+.theme-list-item.active {
+    color: var(--text-color);
+}
+
+.theme-list-item.active .theme-list-label {
+    font-weight: 700;
+}
+
+.theme-list-label {
+    flex: 1;
+}
+
+.theme-list-colors {
+    display: flex;
+}
+
+.color-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid var(--bg-color);
+    margin-left: -4px;
+}
+
+.color-dot:first-child {
+    margin-left: 0;
+}
+
+.theme-modal-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.theme-modal-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.theme-modal-list::-webkit-scrollbar-thumb {
+    background: var(--sub-color);
+    border-radius: 4px;
+}
+
+.theme-modal-list::-webkit-scrollbar-thumb:hover {
+    background: var(--text-color);
+}
+
+/* =========================================
+   CONTACT
+   ========================================= */
 .contact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

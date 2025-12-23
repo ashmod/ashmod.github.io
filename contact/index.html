@@ -1,63 +1,101 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Contact | ashmod.dev</title>
+        <meta name="description" content="Get in touch." />
+        <link rel="canonical" href="https://www.ashmod.dev/contact" />
+        <link rel="stylesheet" href="../assets/css/style.css" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | ashmod.dev</title>
-    <meta name="description" content="Get in touch.">
-    <link rel="canonical" href="https://www.ashmod.dev/contact">
-    <link rel="stylesheet" href="../assets/css/style.css">
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Contact | ashmod.dev" />
+        <meta property="og:description" content="Get in touch." />
+        <meta property="og:image" content="../assets/images/banner.png" />
+        <meta property="og:url" content="https://www.ashmod.dev/contact" />
 
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Contact | ashmod.dev">
-    <meta property="og:description" content="Get in touch.">
-    <meta property="og:image" content="../assets/images/banner.png">
-    <meta property="og:url" content="https://www.ashmod.dev/contact">
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact | ashmod.dev" />
+        <meta name="twitter:description" content="Get in touch." />
+        <meta name="twitter:image" content="../assets/images/banner.png" />
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Contact | ashmod.dev">
-    <meta name="twitter:description" content="Get in touch.">
-    <meta name="twitter:image" content="../assets/images/banner.png">
+        <link
+            rel="icon"
+            href="../assets/images/favicon.ico"
+            sizes="any"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="../assets/images/favicon-32.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="../assets/images/apple-touch-icon.png"
+        />
 
-    <link rel="icon" href="../assets/images/favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
+        
 
-    
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+        />
+        <script src="../assets/js/themes.js"></script>
+        <script>
+            (function () {
+                const saved = localStorage.getItem("theme");
+                if (
+                    saved &&
+                    window.ThemeSystem &&
+                    window.ThemeSystem.THEMES[saved]
+                ) {
+                    const theme = window.ThemeSystem.THEMES[saved];
+                    const root = document.documentElement;
+                    for (const [prop, val] of Object.entries(theme.colors)) {
+                        root.style.setProperty(prop, val);
+                    }
+                }
+            })();
+        </script>
+    </head>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
-    <script>
-        if (localStorage.getItem('theme') === 'dark') {
-            document.documentElement.classList.add('dark-mode');
-        }
-    </script>
-</head>
+    <body>
+        <div class="layout-wrapper">
+            <header class="site-header">
+                <nav class="main-nav">
+                    <a href="../" class="nav-brand">ashmod.dev</a>
+                    <div class="nav-links">
+                        <button
+                            id="theme-toggle"
+                            class="theme-toggle"
+                            aria-label="Choose Theme"
+                            style="margin-right: 0.5rem"
+                        >
+                            <i class="fas fa-palette"></i>
+                        </button>
+                        <a href="../projects" class="nav-link"
+                            >PROJECTS</a
+                        >
+                        <a href="../blog" class="nav-link">BLOG</a>
+                        <a href="../about" class="nav-link">ABOUT</a>
+                        <a href="../contact" class="nav-link">CONTACT</a>
+                    </div>
+                </nav>
+            </header>
 
-<body>
-    <div class="layout-wrapper">
-        <header class="site-header">
-            <nav class="main-nav">
-                <a href="../" class="nav-brand">ashmod.dev</a>
-                <div class="nav-links">
-                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode"
-                        style="margin-right: 0.5rem;">
-                        <i class="fas fa-sun"></i>
-                    </button>
-                    <a href="../projects" class="nav-link">PROJECTS</a>
-                    <a href="../blog" class="nav-link">BLOG</a>
-                    <a href="../about" class="nav-link">ABOUT</a>
-                    <a href="../contact" class="nav-link">CONTACT</a>
-                </div>
-            </nav>
-        </header>
-
-        <main class="site-main">
-            <h1>Connect</h1>
+            <main class="site-main"><h1>Connect</h1>
 <p>I&#39;m always open to discussing new projects, creative ideas, or opportunities to be part of your visions.</p>
 <div class="contact-grid">
 <a href="mailto:shehab@ashmod.dev" class="contact-card">
@@ -207,43 +245,30 @@ form.addEventListener('submit', function(e) {
     });
 });
 </script>
+</main>
 
-        </main>
-
-        <footer class="site-footer">
-            <div class="footer-line"></div>
-            <p>&copy; 2025 Shehab Mahmoud.</p>
-        </footer>
-    </div>
-    <script>
-        const toggle = document.getElementById('theme-toggle');
-        const icon = toggle.querySelector('i');
-
-        function updateIcon() {
-            if (document.body.classList.contains('dark-mode')) {
-                icon.className = 'fas fa-moon';
-            } else {
-                icon.className = 'fas fa-sun';
+            <footer class="site-footer">
+                <div class="footer-line"></div>
+                <p>&copy; 2025 Shehab Mahmoud.</p>
+            </footer>
+        </div>
+        <script>
+            if (window.ThemeSystem) {
+                window.ThemeSystem.initTheme();
             }
-        }
 
-        if (localStorage.getItem('theme') === 'dark') {
-            document.body.classList.add('dark-mode');
-            updateIcon();
-        }
-
-        toggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            const isDark = document.body.classList.contains('dark-mode');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-            updateIcon();
-        });
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
-</body>
-
+            document
+                .getElementById("theme-toggle")
+                .addEventListener("click", () => {
+                    if (window.ThemeSystem) {
+                        window.ThemeSystem.showThemePicker();
+                    }
+                });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+    </body>
 </html>
