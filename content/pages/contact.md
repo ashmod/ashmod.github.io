@@ -12,9 +12,9 @@ I'm always open to discussing new projects, creative ideas, or opportunities to 
 <i class="fas fa-envelope"></i>
 <span>shehab@ashmod.dev</span>
 </a>
-<a href="https://github.com/dizzydroid" target="_blank" class="contact-card">
+<a href="https://github.com/ashmod" target="_blank" class="contact-card">
 <i class="fab fa-github"></i>
-<span>@dizzydroid</span>
+<span>@ashmod</span>
 </a>
 <a href="https://www.x.com/shehabtweets" target="_blank" class="contact-card">
 <i class="fab fa-x-twitter"></i>
@@ -28,10 +28,8 @@ I'm always open to discussing new projects, creative ideas, or opportunities to 
 
 ## Send a Message
 <form action="https://api.web3forms.com/submit" method="POST" id="contact-form" class="contact-form">
-<!-- Web3Forms Access Key -->
 <input type="hidden" name="access_key" value="0c92db70-79b4-4ced-8ce3-1c1d96e0335a">
 
-<!-- Honeypot -->
 <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 <input type="hidden" name="from_name" value="Portfolio Contact Form">
 <input type="hidden" name="subject" value="New Contact Form Message from Portfolio">
@@ -81,7 +79,6 @@ const form = document.getElementById('contact-form');
 const result = document.getElementById('form-result');
 const btnText = document.getElementById('btn-text');
 
-// Custom Select Logic
 const selectWrapper = document.getElementById('custom-select');
 const selectTrigger = selectWrapper.querySelector('.custom-select-trigger');
 const selectValue = document.getElementById('select-value');
