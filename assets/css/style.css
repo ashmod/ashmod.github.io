@@ -3,15 +3,10 @@
    ========================================= */
 :root {
     --bg-color: #f4f1ea;
-    /* Warm off-white paper */
     --text-color: #1a1a1a;
-    /* Near black ink */
     --accent-color: #ff4500;
-    /* Red-Orange */
     --highlight-color: #ffd700;
-    /* Yellow */
     --border-color: #000000;
-    /* Pure black */
     --border-width: 2px;
     --font-stack: "IBM Plex Mono", "Courier New", Courier, monospace;
 }
@@ -27,7 +22,6 @@ body {
     color: var(--text-color);
     font-family: var(--font-stack);
     line-height: 1.5;
-    /* cursor: crosshair; Removed per user request */
     overflow-x: hidden;
     min-height: 100vh;
 }
@@ -43,7 +37,6 @@ a {
    ========================================= */
 .layout-wrapper {
     max-width: 1200px;
-    /* Widened from 900px */
     margin: 0 auto;
     padding: 2rem;
     min-height: 100vh;
@@ -53,7 +46,7 @@ a {
 }
 
 /* =========================================
-   NAVIGATION (Global)
+   NAVIGATION
    ========================================= */
 .site-header {
     margin-bottom: 1.5rem;
@@ -100,7 +93,7 @@ a {
 }
 
 /* =========================================
-   HOME PAGE (Cover)
+   HOME PAGE
    ========================================= */
 .home-body {
     display: flex;
@@ -191,7 +184,6 @@ body.dark-mode .social-icons a:hover {
     transition: color 0.2s steps(2);
 }
 
-/* Interaction: Hover "internet corner" */
 .internet-corner-banner:hover .corner-text-large {
     color: var(--accent-color);
 }
@@ -214,9 +206,7 @@ body.dark-mode .social-icons a:hover {
     padding: 0.5rem 1rem;
     background: transparent;
     transition: all 0.1s ease-out;
-    /* Slight movement */
     box-shadow: 4px 4px 0 var(--border-color);
-    /* Hard shadow */
 }
 
 .home-nav-btn:hover {
@@ -240,13 +230,9 @@ body.dark-mode .social-icons a:hover {
 /* =========================================
    PROJECTS LIST
    ========================================= */
-/* =========================================
-   PROJECTS LIST
-   ========================================= */
 .project-list {
     display: flex;
     flex-direction: column;
-    /* border-top: var(--border-width) solid var(--border-color); Removed top border for groups */
     margin-bottom: 3rem;
 }
 
@@ -312,10 +298,6 @@ body.dark-mode .social-icons a:hover {
 }
 
 @media (min-width: 600px) {
-    /* Keep stack on desktop to allow desc under title */
-    /* Update: User might want side-by-side but description usually long.
-       Let's keep block layout for info content but row for year/category.
-    */
     .project-info {
         display: flex;
         flex-direction: column;
@@ -334,9 +316,7 @@ body.dark-mode .social-icons a:hover {
     height: 24px;
     object-fit: contain;
     border-radius: 4px;
-    /* Optional rounded corners */
     filter: grayscale(100%);
-    /* Retro feel */
     transition: filter 0.2s;
 }
 
@@ -555,7 +535,6 @@ body.dark-mode .project-desc {
     margin-bottom: 1.5rem;
 }
 
-/* Post Navigation */
 .post-nav {
     margin-top: 3rem;
     padding-top: 2rem;
@@ -786,7 +765,6 @@ body.dark-mode {
     transform: rotate(15deg) scale(1.1);
 }
 
-/* Contact Grid */
 .contact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -819,7 +797,6 @@ body.dark-mode {
     font-size: 1.5rem;
 }
 
-/* Form Styles */
 .contact-form {
     margin-top: 2rem;
     border: var(--border-width) solid var(--border-color);
@@ -848,10 +825,8 @@ body.dark-mode {
     font-size: 1rem;
     color: var(--text-color);
     border-radius: 0;
-    /* Strict square corners */
 }
 
-/* Custom Select Styling */
 .custom-select-wrapper {
     position: relative;
     user-select: none;
@@ -877,7 +852,6 @@ body.dark-mode {
     color: var(--bg-color);
 }
 
-/* Rotate arrow when open */
 .custom-select-wrapper.open .custom-select-trigger i {
     transform: rotate(180deg);
 }
@@ -934,7 +908,6 @@ body.dark-mode {
     font-weight: 700;
     font-size: 1.2rem;
     color: var(--text-color);
-    /* Ensure contrast in dark mode */
     cursor: pointer;
     text-transform: uppercase;
     transition: all 0.1s steps(1);
@@ -953,7 +926,6 @@ body.dark-mode {
     box-shadow: none;
 }
 
-/* Form Result Message */
 .form-result {
     display: none;
     margin-top: 1rem;

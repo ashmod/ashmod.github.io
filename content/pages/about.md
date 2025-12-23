@@ -16,9 +16,8 @@ When I'm not coding, you'll find me reading on new technologies, gaming, or writ
 My goal is to build anything meaningful that makes a positive impact, big or small.
 
 ## Why "ashmod"?
-I wanted a short, easy-to-write name that just works. The "Ash" part comes from my old nickname, "AshKetchup" which in turn was inspired by "Ash Ketchum" from Pokémon. It can also be interpreted as short for "shehab", in a way. The "mod" part can also be seen as "modded", as in modified or improved, and is also short for "Mahmoud", my last name.
-
-If you're curious what "Shehab" means, it's Arabic for "shooting star". So if you see me somewhere you could make a wish! It'll do nothing at all, but you just can.
+I wanted a short, easy-to-write name that just works. The "Ash" part comes from my old nickname, "AshKetchup" which in turn was inspired by "Ash Ketchum" from Pokémon. It can also be interpreted as short for "shehab", in a way. The "mod" part can be seen as "modded", as in modified or improved, and is also short for "Mahmoud", my last name.<br><br>
+If you're curious what "Shehab" means, it's Arabic for "shooting star". So if you see me somewhere you could make a wish! It'll do absolutely nothing at all, but you just can.
 
 ## Skills & Technologies
 
