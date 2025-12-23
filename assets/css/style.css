@@ -13,7 +13,7 @@
     --border-color: #000000;
     /* Pure black */
     --border-width: 2px;
-    --font-stack: 'IBM Plex Mono', 'Courier New', Courier, monospace;
+    --font-stack: "IBM Plex Mono", "Courier New", Courier, monospace;
 }
 
 * {
@@ -56,7 +56,7 @@ a {
    NAVIGATION (Global)
    ========================================= */
 .site-header {
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
     border-bottom: var(--border-width) solid var(--border-color);
     padding-bottom: 1rem;
 }
@@ -312,7 +312,6 @@ body.dark-mode .social-icons a:hover {
 }
 
 @media (min-width: 600px) {
-
     /* Keep stack on desktop to allow desc under title */
     /* Update: User might want side-by-side but description usually long.
        Let's keep block layout for info content but row for year/category.
@@ -406,7 +405,9 @@ body.dark-mode .project-desc {
     height: 2rem;
     color: var(--accent-color);
     border-radius: 999px;
-    transition: background-color 0.1s ease-out, transform 0.1s ease-out;
+    transition:
+        background-color 0.1s ease-out,
+        transform 0.1s ease-out;
 }
 
 .rss-link:hover {
@@ -649,8 +650,8 @@ body.dark-mode .project-desc {
 }
 
 .site-footer {
-    margin-top: 4rem;
-    padding-top: 2rem;
+    margin-top: 2rem;
+    padding-top: 1rem;
     font-size: 0.8rem;
     text-align: center;
 }
@@ -662,18 +663,33 @@ body.dark-mode .project-desc {
 
 /* Mobile Responsiveness */
 @media (max-width: 600px) {
+    .site-header {
+        position: relative;
+        margin-bottom: 1rem;
+        padding-bottom: 0.75rem;
+    }
+
     .main-nav {
-        align-items: flex-start;
+        display: block;
     }
 
     .nav-brand {
-        width: 100%;
+        display: inline-block;
+        margin-right: 1rem;
     }
 
     .nav-links {
-        width: 100%;
-        justify-content: flex-start;
+        display: flex;
+        flex-wrap: wrap;
         gap: 0.75rem;
+        justify-content: flex-start;
+        margin-top: 0.5rem;
+    }
+
+    .nav-links .theme-toggle {
+        position: absolute;
+        top: 0;
+        right: 0;
     }
 
     .nav-link {
@@ -717,6 +733,11 @@ body.dark-mode .project-desc {
     .layout-wrapper {
         border: none;
         padding: 1rem;
+    }
+
+    .site-footer {
+        margin-top: 1.5rem;
+        padding-top: 0.75rem;
     }
 
     .blog-row {
