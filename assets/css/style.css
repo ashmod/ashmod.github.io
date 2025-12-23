@@ -392,7 +392,6 @@ body.dark-mode .project-desc {
 
 .rss-link:hover {
     background-color: rgba(0, 0, 0, 0.06);
-    transform: translate(0, 1px);
 }
 
 .blog-list {

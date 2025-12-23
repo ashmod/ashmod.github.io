@@ -25,10 +25,10 @@ If you're curious what "Shehab" means, it's Arabic for "shooting star". So if yo
 Java, C, C++, Python, JavaScript, HTML/CSS, Bash, SQL, Go, TypeScript
 
 ### Frameworks & Tools
-Git, Maven, Docker, Figma, VS Code, IntelliJ IDEA, Android Studio, React, Node.js, Linux, Adobe Creative Suite
+Git, Maven, Docker, Kubernetes, VS Code, Vim, React, Next.js, GitHub Actions, Linux/Bash, PyTorch, PostgreSQL, CMake
 
 ### Interests
-Software Development, Machine Learning, Artificial Intelligence, Cybersecurity, Data Science, Web Development, Open Source, Software Testing
+Software Development, Machine Learning, Artificial Intelligence, Cybersecurity, Distributed Systems, Web Development, Open Source, Writing
 
 ## Fun Facts
 * Pokémon nerd.
