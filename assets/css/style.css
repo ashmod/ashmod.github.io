@@ -67,6 +67,7 @@ a {
     font-size: 1.2rem;
     font-weight: 700;
     text-transform: lowercase;
+    margin-left: 0.5rem;
 }
 
 .nav-links {
@@ -376,7 +377,7 @@ a {
 }
 
 .rss-link:hover {
-    background-color: rgba(0, 0, 0, 0.06);
+    background-color: var(--highlight-color);
 }
 
 .blog-list {
