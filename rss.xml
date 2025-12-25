@@ -7,7 +7,7 @@
         <link>https://www.ashmod.dev/blog</link>
         <description>Blog posts from ashmod.dev</description>
         <language>en</language>
-        <lastBuildDate>Wed, 24 Dec 2025 09:47:29 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 25 Dec 2025 10:26:51 GMT</lastBuildDate>
         <atom:link href="https://www.ashmod.dev/rss.xml" rel="self" type="application/rss+xml" />
         
     <item>
@@ -30,7 +30,8 @@ I believe it&#39;s neither.</p>
 <p>However, AI has grown in availability and usability at an unprecedented rate. ChatGPT was officially released in late 2022; I&#39;m writing this in late 2025. In just three years, it jumped from a conversational bot to a full-fledged multimodal agentic system capable of complex execution.</p>
 <p>This rate of growth is unusual, to say the least. Mobile phones and internet took their sweet time to reach that &quot;mainstream&quot; status. AI is already there. It has been there for a while, and that, while seemingly exciting, is also terrifying.</p>
 <h2>The elephant in the room</h2>
-<p>AI is here to stay. It&#39;s not going away, and it&#39;s not a bubble. It&#39;s the next big thing.
+<p><img src="/content/blog/ai/elephant.png" alt="The elephant in the room">
+AI is here to stay. It&#39;s not going away, and it&#39;s not a bubble. It&#39;s the next big thing.
 And this is, in layman&#39;s terms, really bad.</p>
 <p>To understand why this is bad, let&#39;s take a look at the impact of each previous big thing, and yes, order matters.</p>
 <p><strong>Telephones</strong> made communication easier, faster, and more accessible. While this sounds dreamy, it also reduced physical proximity. It wasn&#39;t horrible, but it was a start.</p>

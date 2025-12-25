@@ -30,6 +30,7 @@ However, AI has grown in availability and usability at an unprecedented rate. Ch
 This rate of growth is unusual, to say the least. Mobile phones and internet took their sweet time to reach that "mainstream" status. AI is already there. It has been there for a while, and that, while seemingly exciting, is also terrifying.
 
 ## The elephant in the room
+![The elephant in the room](/content/blog/ai/elephant.png)
 AI is here to stay. It's not going away, and it's not a bubble. It's the next big thing.
 And this is, in layman's terms, really bad.
 

@@ -324,7 +324,8 @@ async function build() {
                             (function() {
                                 function isThemeDark() {
                                     const darkThemes = ['default_dark', 'serika_dark', 'dracula', 'nord', 'gruvbox_dark', 'monokai',
-                                        'catppuccin', 'rose_pine', 'solarized_dark', 'carbon', 'vscode', 'terminal', 'matrix'];
+                                        'catppuccin', 'rose_pine', 'solarized_dark', 'carbon', 'vscode', 'terminal', 'matrix',
+                                        'onedark', 'sonokai', 'eighties_after_dark', 'github', 'everblush', 'arch'];
                                     const saved = localStorage.getItem('theme');
                                     return darkThemes.includes(saved);
                                 }
