@@ -83,8 +83,7 @@ a {
     text-transform: uppercase;
     padding: 0.25rem 0.5rem;
     border: var(--border-width) solid transparent;
-    transition: all 0.1s steps(1);
-    /* Instant snap */
+    transition: all 0.15s ease-out;
 }
 
 .nav-link:hover {
@@ -880,9 +879,8 @@ a {
     padding: 1rem;
     border: var(--border-width) solid var(--border-color);
     text-decoration: none;
-    /* Ensure no underline on card itself */
     font-weight: 700;
-    transition: all 0.1s steps(1);
+    transition: all 0.15s ease-out;
     background: var(--bg-color);
     color: var(--text-color);
 }
