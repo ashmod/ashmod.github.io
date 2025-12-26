@@ -11,6 +11,7 @@ const THEMES = {
             "--sub-color": "#666666",
             "--highlight-color": "#ffd700",
             "--border-color": "#000000",
+            "--icon-color": "#000000",
         },
     },
     serika: {
@@ -24,6 +25,7 @@ const THEMES = {
             "--sub-color": "#646669",
             "--highlight-color": "#e2b714",
             "--border-color": "#323437",
+            "--icon-color": "#000000",
         },
     },
     paper: {
@@ -37,6 +39,7 @@ const THEMES = {
             "--sub-color": "#b2b2b2",
             "--highlight-color": "#dddddd",
             "--border-color": "#444444",
+            "--icon-color": "#000000",
         },
     },
     nord_light: {
@@ -50,6 +53,7 @@ const THEMES = {
             "--sub-color": "#aebacf",
             "--highlight-color": "#d8dee9",
             "--border-color": "#2e3440",
+            "--icon-color": "#000000",
         },
     },
 
@@ -65,6 +69,7 @@ const THEMES = {
             "--sub-color": "#999999",
             "--highlight-color": "#333333",
             "--border-color": "#f4f1ea",
+            "--icon-color": "#ffffff",
         },
     },
     serika_dark: {
@@ -78,6 +83,7 @@ const THEMES = {
             "--sub-color": "#646669",
             "--highlight-color": "#2c2e31",
             "--border-color": "#d1d0c5",
+            "--icon-color": "#ffffff",
         },
     },
     dracula: {
@@ -91,6 +97,7 @@ const THEMES = {
             "--sub-color": "#6272a4",
             "--highlight-color": "#44475a",
             "--border-color": "#f8f8f2",
+            "--icon-color": "#ffffff",
         },
     },
     nord: {
@@ -104,6 +111,7 @@ const THEMES = {
             "--sub-color": "#617b94",
             "--highlight-color": "#2e3440",
             "--border-color": "#d8dee9",
+            "--icon-color": "#ffffff",
         },
     },
     gruvbox_dark: {
@@ -117,6 +125,7 @@ const THEMES = {
             "--sub-color": "#665c54",
             "--highlight-color": "#3c3836",
             "--border-color": "#ebdbb2",
+            "--icon-color": "#ffffff",
         },
     },
     monokai: {
@@ -130,6 +139,7 @@ const THEMES = {
             "--sub-color": "#75715e",
             "--highlight-color": "#3e3d32",
             "--border-color": "#f8f8f2",
+            "--icon-color": "#ffffff",
         },
     },
     catppuccin: {
@@ -143,6 +153,7 @@ const THEMES = {
             "--sub-color": "#6c7086",
             "--highlight-color": "#313244",
             "--border-color": "#cdd6f4",
+            "--icon-color": "#ffffff",
         },
     },
     rose_pine: {
@@ -156,6 +167,7 @@ const THEMES = {
             "--sub-color": "#6e6a86",
             "--highlight-color": "#26233a",
             "--border-color": "#e0def4",
+            "--icon-color": "#ffffff",
         },
     },
     solarized_dark: {
@@ -169,6 +181,7 @@ const THEMES = {
             "--sub-color": "#586e75",
             "--highlight-color": "#073642",
             "--border-color": "#839496",
+            "--icon-color": "#ffffff",
         },
     },
     carbon: {
@@ -182,6 +195,7 @@ const THEMES = {
             "--sub-color": "#c1c1c1",
             "--highlight-color": "#232323",
             "--border-color": "#f5e6c8",
+            "--icon-color": "#ffffff",
         },
     },
     vscode: {
@@ -195,6 +209,7 @@ const THEMES = {
             "--sub-color": "#858585",
             "--highlight-color": "#2d2d2d",
             "--border-color": "#d4d4d4",
+            "--icon-color": "#ffffff",
         },
     },
     terminal: {
@@ -208,6 +223,7 @@ const THEMES = {
             "--sub-color": "#3f4d1e",
             "--highlight-color": "#1e2420",
             "--border-color": "#79a617",
+            "--icon-color": "#ffffff",
         },
     },
     matrix: {
@@ -221,6 +237,7 @@ const THEMES = {
             "--sub-color": "#003b00",
             "--highlight-color": "#0d0d0d",
             "--border-color": "#15ff00",
+            "--icon-color": "#ffffff",
         },
     },
     milkshake: {
@@ -234,6 +251,7 @@ const THEMES = {
             "--sub-color": "#62cfe6",
             "--highlight-color": "#ddeff3",
             "--border-color": "#212b43",
+            "--icon-color": "#000000",
         },
     },
     modern_ink: {
@@ -247,6 +265,7 @@ const THEMES = {
             "--sub-color": "#b7b7b7",
             "--highlight-color": "#ececec",
             "--border-color": "#000000",
+            "--icon-color": "#000000",
         },
     },
     ms_cupcakes: {
@@ -260,6 +279,7 @@ const THEMES = {
             "--sub-color": "#5ed5f3",
             "--highlight-color": "#edf8fa",
             "--border-color": "#0a282f",
+            "--icon-color": "#000000",
         },
     },
     sewing_tin_light: {
@@ -273,6 +293,7 @@ const THEMES = {
             "--sub-color": "#385eca",
             "--highlight-color": "#c8cedf",
             "--border-color": "#2d2076",
+            "--icon-color": "#000000",
         },
     },
     soaring_skies: {
@@ -286,6 +307,7 @@ const THEMES = {
             "--sub-color": "#1e107a",
             "--highlight-color": "#e5ddd4",
             "--border-color": "#1d1e1e",
+            "--icon-color": "#000000",
         },
     },
     onedark: {
@@ -299,6 +321,7 @@ const THEMES = {
             "--sub-color": "#eceff4",
             "--highlight-color": "#262b34",
             "--border-color": "#98c379",
+            "--icon-color": "#ffffff",
         },
     },
     sonokai: {
@@ -312,6 +335,7 @@ const THEMES = {
             "--sub-color": "#e7c664",
             "--highlight-color": "#232429",
             "--border-color": "#e2e2e3",
+            "--icon-color": "#ffffff",
         },
     },
     eighties_after_dark: {
@@ -325,6 +349,7 @@ const THEMES = {
             "--sub-color": "#99d6ea",
             "--highlight-color": "#17182c",
             "--border-color": "#e1e7ec",
+            "--icon-color": "#ffffff",
         },
     },
     github: {
@@ -338,6 +363,7 @@ const THEMES = {
             "--sub-color": "#788386",
             "--highlight-color": "#141b23",
             "--border-color": "#ccdae6",
+            "--icon-color": "#ffffff",
         },
     },
     everblush: {
@@ -351,6 +377,7 @@ const THEMES = {
             "--sub-color": "#838887",
             "--highlight-color": "#232a2d",
             "--border-color": "#dadada",
+            "--icon-color": "#ffffff",
         },
     },
     arch: {
@@ -364,6 +391,7 @@ const THEMES = {
             "--sub-color": "#454864",
             "--highlight-color": "#171a25",
             "--border-color": "#f6f5f5",
+            "--icon-color": "#ffffff",
         },
     },
 };
@@ -428,6 +456,7 @@ function applyThemeColors(theme) {
         --sub-color: ${colors["--sub-color"]};
         --highlight-color: ${colors["--highlight-color"]};
         --border-color: ${colors["--border-color"]};
+        --icon-color: ${colors["--icon-color"]};
     `;
 
     document.body.setAttribute("data-theme", theme.name);

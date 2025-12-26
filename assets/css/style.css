@@ -8,6 +8,7 @@
     --sub-color: #666666;
     --highlight-color: #ffd700;
     --border-color: #000000;
+    --icon-color: #000000;
     --border-width: 2px;
     --font-stack: "IBM Plex Mono", "Courier New", Courier, monospace;
 }
@@ -118,12 +119,12 @@ a {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    border: 2px solid #999;
+    border: var(--border-width) solid var(--border-color);
     margin-bottom: 0.5rem;
 }
 
 .profile-tagline {
-    color: var(--sub-color);
+    color: var(--icon-color);
     font-size: 1rem;
     margin-bottom: 1rem;
 }
@@ -136,7 +137,7 @@ a {
 }
 
 .social-icons a {
-    color: var(--sub-color);
+    color: var(--icon-color);
     font-size: 1.5rem;
     transition: color 0.15s ease;
 }
@@ -267,6 +268,7 @@ a {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     overflow: hidden;
 }
 
