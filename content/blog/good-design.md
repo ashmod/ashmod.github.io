@@ -30,7 +30,10 @@ Bad design on the other hand creates friction. Cluttered layouts, mismatched fon
 
 That's why a beautifully typeset, (literal) book cover makes us assume the story inside is worth reading.
 
-![Examples of elegant book covers that influence reader perceptions](/content/blog/good-design/books.png)
+<figure class="image-with-caption">
+  <img src="/content/blog/good-design/books.png" alt="Examples of elegant book covers that influence reader perceptions">
+  <figcaption>Books I'm judging entirely by cover design and sentenced to my 'maybe later' pile.</figcaption>
+</figure>
 
 ## Design is everywhere
 Whatever you're doing in life, you most certainly make design choices everyday. If you're a writer, fonts, spacing and page design matters. If you're a developer, clean code matters, UI matters, those promote good Developer Experience, *and* User Experience. And if you're the guy behind IKEA, whatever you're doing is probably good.

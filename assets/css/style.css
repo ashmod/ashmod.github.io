@@ -498,6 +498,31 @@ a {
     border: var(--border-width) solid var(--border-color);
 }
 
+.post-content .image-with-caption {
+    margin: 1.5rem auto;
+    max-width: 100%;
+    text-align: center;
+}
+
+.post-content .image-with-caption img {
+    margin: 0 auto;
+}
+
+.post-content .image-with-caption figcaption {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--sub-color);
+    margin-top: 0.5rem;
+    padding: 0.25rem 0.5rem 0;
+    display: inline-block;
+}
+
+@media (min-width: 601px) {
+    .post-content .image-with-caption figcaption {
+        max-width: 60%;
+    }
+}
+
 .post-content a {
     color: var(--accent-color);
     text-decoration: none;
