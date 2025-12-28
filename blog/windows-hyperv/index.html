@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Getting HyperV to coexist with VMs | ashmod.dev</title>
+        <meta name="description" content="Scripting a workaround for the Windows virtualization conflict." />
+        <link rel="canonical" href="https://www.ashmod.dev/blog/windows-hyperv" />
+        <link rel="stylesheet" href="../../assets/css/style.css" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Getting HyperV to coexist with VMs | ashmod.dev" />
+        <meta property="og:description" content="Scripting a workaround for the Windows virtualization conflict." />
+        <meta property="og:image" content="../../assets/images/banner.png" />
+        <meta property="og:url" content="https://www.ashmod.dev/blog/windows-hyperv" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Getting HyperV to coexist with VMs | ashmod.dev" />
+        <meta name="twitter:description" content="Scripting a workaround for the Windows virtualization conflict." />
+        <meta name="twitter:image" content="../../assets/images/banner.png" />
+
+        <link
+            rel="icon"
+            href="../../assets/images/favicon.ico"
+            sizes="any"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="../../assets/images/favicon-32.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="../../assets/images/apple-touch-icon.png"
+        />
+
+        <link rel="alternate" type="application/rss+xml" title="ashmod.dev RSS" href="../../rss.xml">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+        />
+        <script src="../../assets/js/themes.js"></script>
+        <script>
+            (function () {
+                const saved = localStorage.getItem("theme");
+                if (
+                    saved &&
+                    window.ThemeSystem &&
+                    window.ThemeSystem.THEMES[saved]
+                ) {
+                    const theme = window.ThemeSystem.THEMES[saved];
+                    const root = document.documentElement;
+                    for (const [prop, val] of Object.entries(theme.colors)) {
+                        root.style.setProperty(prop, val);
+                    }
+                }
+            })();
+        </script>
+    </head>
+
+    <body>
+        <div class="layout-wrapper">
+            <header class="site-header">
+                <nav class="main-nav">
+                    <a href="../../" class="nav-brand" aria-label="Home"><i class="fas fa-home"></i></a>
+                    <div class="nav-links">
+                        <button
+                            id="theme-toggle"
+                            class="theme-toggle"
+                            aria-label="Choose Theme"
+                            style="margin-right: 0.5rem"
+                        >
+                            <i class="fas fa-palette"></i>
+                        </button>
+                        <a href="../../projects" class="nav-link"
+                            >PROJECTS</a
+                        >
+                        <a href="../../blog" class="nav-link">BLOG</a>
+                        <a href="../../about" class="nav-link">ABOUT</a>
+                        <a href="../../contact" class="nav-link">CONTACT</a>
+                    </div>
+                </nav>
+            </header>
+
+            <main class="site-main">
+                <article class="blog-post">
+                    <header class="post-header">
+                        <h1>Getting HyperV to coexist with VMs</h1>
+                        <div class="post-meta">
+                            <time>2025-12-29</time>
+                            <a href="../../rss.xml" class="rss-link" aria-label="RSS feed">
+                                <i class="fas fa-rss" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </header>
+                    <div class="post-content">
+                        <h2>The Calm before the Storm</h2>
+<p>It all started on a Sunday afternoon when I, for God knows why, decided to free up space from my Windows C disk.</p>
+<p>A bit of needed context first:
+I primarily use Windows 10 as my host OS, and I use a Linux VM for development. Additionally, I had a WSL Ubuntu instance on my host, for quick tasks and whatnot.
+If you&#39;re not familiar with WSL, that&#39;s <a href="https://learn.microsoft.com/en-us/windows/wsl/about">Windows Subsystem for Linux</a>. It&#39;s a system component that allows you to have a Linux VM alongside your host OS, but without having to switch (from boot menu, or to a VM). It&#39;s as convenient as double clicking an icon and, voila! A Linux machine has spawned <em>into</em> your Windows device.</p>
+<p>WSL is nothing new, it&#39;s been around for quite some time. In fact, it&#39;s been around long enough that it has undergone a massive do-over around the release of Win11. For a good few years, WSL was running on what is now known as WSL1, the older version frankly did the job but lacked in a few areas, for example you couldn&#39;t do anything GUI-related with it, or heavily dependent on a Linux kernel - because it did not really have one, it used a translation layer to convert Linux system calls into Windows kernel calls, effectively simulating a Linux environment.</p>
+<p>WSL2, on the other hand, has a complete Linux kernel. So, it&#39;s essentially a lightweight VM you can run on your Windows machine with no problems. Unless you already run VMs.</p>
+<p>So, back to how I wanted to free up space on my C drive. Essentially the problem is, my Ubuntu WSL machine has been living in my C drive taking up a good amount of space. I looked around on how one can move a WSL distro from one drive to another, and found out there is a really simple way to do it:</p>
+<pre><code class="language-bash">wsl --manage Ubuntu --move NewDrive:\WSL\Ubuntu
+</code></pre>
+<p>One tiny problem: This is a WSL2 specific command. I was running WSL1.</p>
+<h2>The upgrade</h2>
+<p>It was long overdue anyway, so I decided to upgrade my WSL to version 2. Big mistake.
+So the first problem was, the machine initially reported an error that it couldn&#39;t upgrade due to missing virtualization dependencies, which makes no sense because I double checked the enabled features and all was good. </p>
+<p>I decided to turn the Microsoft Virtualization Platform feature off, reboot (it&#39;s required), then turn it back on, reboot again, and sure enough, it worked. What the hell Microsoft.</p>
+<figure class="image-with-caption">
+  <img src="https://y.yarn.co/1ab70c93-fce1-460d-8575-3bac5a666e96_text.gif" alt="Roy from IT Crowd: Have you tried turning it on and off again?">
+  <figcaption>Roy from "IT Crowd" was onto something.</figcaption>
+</figure>
+
+<p>Anyway, after a good 2 hours of moving the system, it was time to test it out. Thankfully, it worked (slower, but that was expected since it&#39;s a complete Linux kernel).</p>
+<p>One thing I did notice, however, was that upgrading to WSL2 enabled the Windows hypervisor components under the hood (required for its lightweight VM). This, in turn, enforced Virtualization-Based Security (VBS).</p>
+<p>This is bad news for two reasons: my existing non-Microsoft VMs might face performance hits, and more importantly, some video games no longer work properly because many kernel-level anti-cheat systems conflict with VBS enabled.</p>
+<h2>Windows is a pain</h2>
+<p>The fact that there is no way to actually disable VBS (Virtualization-Based Security) still makes no sense to me. Even though there are settings to disable it, they effectively do nothing at all!</p>
+<p>I&#39;ve updated settings, policies, and even changed (and created) registry entries. Nothing worked.</p>
+<p><img src="/content/blog/windows-hyperv/wisdom.png" alt="XKCD-612: Wisdom Of the Ancients"></p>
+<h2>The Script</h2>
+<p>I knew the workaround was to toggle the Windows hypervisor off entirely,</p>
+<pre><code class="language-bash">bcdedit /set hypervisorlaunchtype off
+</code></pre>
+<p>This essentially turns hyperV off on the next system boot, giving better VM performance and video game compatibility. But it breaks WSL2, so if you wanted it back you&#39;d have to do:</p>
+<pre><code class="language-bash">bcdedit /set hypervisorlaunchtype auto
+</code></pre>
+<p>It works great, but manually running commands (and remembering the current state) every time I want to switch is a hassle.</p>
+<p>So I whipped up this simple batch script to handle the toggle automatically, and check the current status:</p>
+<pre><code class="language-bash">@echo off
+title HyperVisor Toggle
+cls
+
+:: --- admin check ---
+net session &gt;nul 2&gt;&amp;1
+if %errorLevel% neq 0 (
+    echo ========================================================
+    echo  ERROR: PERMISSION DENIED
+    echo ========================================================
+    echo  You must Right-Click this file and choose
+    echo  &quot;Run as Administrator&quot; for it to work.
+    echo.
+    pause
+    exit
+)
+
+:: --- check current status ---
+for /f &quot;tokens=2&quot; %%a in (&#39;bcdedit /enum ^| findstr &quot;hypervisorlaunchtype&quot;&#39;) do set CURRENT_STATUS=%%a
+
+if /i &quot;%CURRENT_STATUS%&quot;==&quot;off&quot; goto :SET_HYPERV_ON
+goto :SET_HYPERV_OFF
+
+
+:SET_HYPERV_ON
+    echo ========================================================
+    echo   CURRENT STATE: [ HYPERV OFF ]
+    echo   (Hypervisor: OFF - Games OK, WSL2 Broken)
+    echo ========================================================
+    echo.
+    set /p CHOICE=&quot;Turn HyperV ON (Enable WSL2)? (Y/N): &quot;
+    if /i &quot;%CHOICE%&quot; neq &quot;Y&quot; goto :NO_CHANGE
+
+    :: user said Yes, proceed
+    bcdedit /set hypervisorlaunchtype auto
+    echo.
+    echo [OK] HyperV is now ON.
+    goto :FINISH
+
+
+:SET_HYPERV_OFF
+    echo ========================================================
+    echo   CURRENT STATE: [ HYPERV ON ]
+    echo   (Hypervisor: ON - WSL2 OK, Games Broken)
+    echo ========================================================
+    echo.
+    set /p CHOICE=&quot;Turn HyperV OFF (Enable Games)? (Y/N): &quot;
+    if /i &quot;%CHOICE%&quot; neq &quot;Y&quot; goto :NO_CHANGE
+
+    :: User said Yes, proceed
+    bcdedit /set hypervisorlaunchtype off
+    echo.
+    echo [OK] HyperV is now OFF.
+    goto :FINISH
+
+
+:NO_CHANGE
+    echo.
+    echo No changes made. Exiting...
+    timeout /t 3 &gt;nul
+    exit
+
+
+:FINISH
+    echo.
+    echo ========================================================
+    echo   DONE. A RESTART IS REQUIRED.
+    echo ========================================================
+    set /p REBOOT=&quot;Restart computer now? (Y/N): &quot;
+    if /i &quot;%REBOOT%&quot;==&quot;Y&quot; (
+        shutdown /r /t 0
+    ) else (
+        echo Please restart manually later.
+        pause
+    )
+</code></pre>
+<p>You can have this script living anywhere as a <code>.bat</code> file and run it whenever you want to toggle HyperV or just check if it&#39;s on or off.</p>
+<h2>Wrapping Up</h2>
+<p>In the end, this little toggle script has been a lifesaver for me - letting me use WSL2 for development without sacrificing gaming performance or dealing with VBS headaches. Windows virtualization features are incredibly powerful, but the conflicts (especially around security like VBS and anti-cheat) can be frustrating. This workaround isn&#39;t perfect; it requires a reboot each time—but it&#39;s simple, reliable, and doesn&#39;t mess with deeper system settings.</p>
+<p>If you&#39;re in the same boat, give the script a try. Save it as <code>HyperV-Toggle.bat</code>, right-click &gt; Run as Administrator, and toggle away.</p>
+<p>Have a better solution, improvements to the script, or your own horror stories with Hyper-V/WSL2? Drop a comment below, I&#39;d love to hear them!</p>
+
+                    </div>
+                    
+                    <section class="post-comments">
+                        <div class="giscus"></div>
+                        <script>
+                            (function() {
+                                function isThemeDark() {
+                                    const darkThemes = ['default_dark', 'serika_dark', 'dracula', 'nord', 'gruvbox_dark', 'monokai',
+                                        'catppuccin', 'rose_pine', 'solarized_dark', 'carbon', 'vscode', 'terminal', 'matrix',
+                                        'onedark', 'sonokai', 'eighties_after_dark', 'github', 'everblush', 'arch'];
+                                    const saved = localStorage.getItem('theme');
+                                    return darkThemes.includes(saved);
+                                }
+
+                                const theme = isThemeDark() ? 'dark' : 'light';
+                                const script = document.createElement('script');
+                                script.src = 'https://giscus.app/client.js';
+                                script.setAttribute('data-repo', 'ashmod/ashmod.github.io');
+                                script.setAttribute('data-repo-id', 'R_kgDOJXyyjg');
+                                script.setAttribute('data-category', 'Announcements');
+                                script.setAttribute('data-category-id', 'DIC_kwDOJXyyjs4C0JOP');
+                                script.setAttribute('data-mapping', 'pathname');
+                                script.setAttribute('data-strict', '0');
+                                script.setAttribute('data-reactions-enabled', '1');
+                                script.setAttribute('data-emit-metadata', '0');
+                                script.setAttribute('data-input-position', 'bottom');
+                                script.setAttribute('data-theme', theme);
+                                script.setAttribute('data-lang', 'en');
+                                script.crossOrigin = 'anonymous';
+                                script.async = true;
+                                document.querySelector('.giscus').appendChild(script);
+
+                                new MutationObserver(function() {
+                                    const iframe = document.querySelector('iframe.giscus-frame');
+                                    if (iframe) {
+                                        const newTheme = isThemeDark() ? 'dark' : 'light';
+                                        iframe.contentWindow.postMessage(
+                                            { giscus: { setConfig: { theme: newTheme } } },
+                                            'https://giscus.app'
+                                        );
+                                    }
+                                }).observe(document.body, { attributes: true, attributeFilter: ['data-theme'] });
+                            })();
+                        </script>
+                    </section>
+                    <nav class="post-nav"><a href="../" class="post-nav-back"><i class="fas fa-arrow-left"></i> All Posts</a><div class="post-nav-links"><a href="../good-design" class="post-nav-link post-nav-prev"><i class="fas fa-chevron-left"></i> Why we judge books by their covers</a><span class="post-nav-link post-nav-disabled"></span></div></nav>
+                </article>
+            </main>
+
+            <footer class="site-footer">
+                <div class="footer-line"></div>
+                <p>&copy; 2025 Shehab Mahmoud.</p>
+            </footer>
+        </div>
+        <script>
+            if (window.ThemeSystem) {
+                window.ThemeSystem.initTheme();
+            }
+
+            document
+                .getElementById("theme-toggle")
+                .addEventListener("click", () => {
+                    if (window.ThemeSystem) {
+                        window.ThemeSystem.showThemePicker();
+                    }
+                });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+    </body>
+</html>
