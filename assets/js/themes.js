@@ -460,6 +460,7 @@ function applyThemeColors(theme) {
     `;
 
     document.body.setAttribute("data-theme", theme.name);
+    document.body.setAttribute("data-theme-mode", theme.isDark ? "dark" : "light");
 }
 
 function applyTheme(theme, save = true) {

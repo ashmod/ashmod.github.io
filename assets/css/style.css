@@ -465,12 +465,13 @@ a {
 }
 
 .post-content blockquote {
-    border-left: 4px solid var(--border-color);
+    border-left: 4px solid var(--accent-color);
     padding-left: 1rem;
     margin: 1.5rem 0;
     font-style: italic;
-    background: rgba(0, 0, 0, 0.05);
+    background: var(--highlight-color);
     padding: 1rem;
+    color: var(--text-color);
 }
 
 .post-content pre[class*="language-"] {
@@ -484,10 +485,135 @@ a {
 }
 
 .post-content code {
-    background: rgba(0, 0, 0, 0.08);
+    background: var(--highlight-color);
+    color: var(--text-color);
     padding: 0.15rem 0.4rem;
     font-size: 0.9em;
     border-radius: 3px;
+}
+
+.post-content pre[class*="language-"] code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+}
+
+.post-content pre[class*="language-"] {
+    background: color-mix(in srgb, var(--bg-color) 85%, var(--text-color) 15%);
+    background: color-mix(in srgb, var(--text-color) 8%, transparent);
+}
+
+[data-theme-mode="light"] .post-content pre[class*="language-"],
+[data-theme-mode="light"] .post-content code[class*="language-"] {
+    color: var(--text-color);
+}
+
+[data-theme-mode="light"] .post-content .token.comment,
+[data-theme-mode="light"] .post-content .token.prolog,
+[data-theme-mode="light"] .post-content .token.doctype,
+[data-theme-mode="light"] .post-content .token.cdata {
+    color: #708090;
+}
+
+[data-theme-mode="light"] .post-content .token.punctuation {
+    color: #5f6364;
+}
+
+[data-theme-mode="light"] .post-content .token.property,
+[data-theme-mode="light"] .post-content .token.tag,
+[data-theme-mode="light"] .post-content .token.boolean,
+[data-theme-mode="light"] .post-content .token.number,
+[data-theme-mode="light"] .post-content .token.constant,
+[data-theme-mode="light"] .post-content .token.symbol,
+[data-theme-mode="light"] .post-content .token.deleted {
+    color: #c92c2c;
+}
+
+[data-theme-mode="light"] .post-content .token.selector,
+[data-theme-mode="light"] .post-content .token.attr-name,
+[data-theme-mode="light"] .post-content .token.string,
+[data-theme-mode="light"] .post-content .token.char,
+[data-theme-mode="light"] .post-content .token.builtin,
+[data-theme-mode="light"] .post-content .token.inserted {
+    color: #2f9c0a;
+}
+
+[data-theme-mode="light"] .post-content .token.operator,
+[data-theme-mode="light"] .post-content .token.entity,
+[data-theme-mode="light"] .post-content .token.url,
+[data-theme-mode="light"] .post-content .language-css .token.string,
+[data-theme-mode="light"] .post-content .style .token.string {
+    color: #a67f59;
+}
+
+[data-theme-mode="light"] .post-content .token.atrule,
+[data-theme-mode="light"] .post-content .token.attr-value,
+[data-theme-mode="light"] .post-content .token.keyword {
+    color: #07a;
+}
+
+[data-theme-mode="light"] .post-content .token.function,
+[data-theme-mode="light"] .post-content .token.class-name {
+    color: #dd4a68;
+}
+
+[data-theme-mode="light"] .post-content .token.regex,
+[data-theme-mode="light"] .post-content .token.important,
+[data-theme-mode="light"] .post-content .token.variable {
+    color: #e90;
+}
+
+.post-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+}
+
+.post-content th,
+.post-content td {
+    border: 1px solid var(--border-color);
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.post-content th {
+    background: var(--border-color);
+    color: var(--bg-color);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.post-content tr:nth-child(even) {
+    background: var(--highlight-color);
+}
+
+.post-content tr:hover {
+    background: var(--highlight-color);
+}
+
+.post-content hr {
+    border: none;
+    height: 2px;
+    background: var(--border-color);
+    margin: 2rem 0;
+}
+
+.post-content kbd {
+    background: var(--border-color);
+    color: var(--bg-color);
+    padding: 0.15rem 0.4rem;
+    font-size: 0.85em;
+    border-radius: 3px;
+    font-family: var(--font-stack);
+    box-shadow: 0 2px 0 var(--sub-color);
+}
+
+.post-content mark {
+    background: var(--highlight-color);
+    color: var(--text-color);
+    padding: 0.1rem 0.2rem;
 }
 
 .post-content img {
@@ -1015,7 +1141,7 @@ a {
 .custom-option:hover,
 .custom-option.selected {
     background: var(--accent-color);
-    color: #fff;
+    color: var(--bg-color);
 }
 
 .form-input:focus,
@@ -1042,7 +1168,7 @@ a {
 
 .submit-btn:hover {
     background: var(--accent-color);
-    color: #fff;
+    color: var(--bg-color);
     box-shadow: 4px 4px 0 var(--border-color);
     transform: translate(-2px, -2px);
 }
@@ -1058,7 +1184,7 @@ a {
     padding: 1rem;
     border: 2px solid var(--border-color);
     font-weight: 700;
-    background: rgba(0, 0, 0, 0.05);
+    background: var(--highlight-color);
 }
 
 .form-result.success {
