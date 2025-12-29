@@ -7,13 +7,13 @@ layout: post
 ---
 
 ## The Calm before the Storm
-It all started on a Sunday afternoon when I, for God knows why, decided to free up space from my Windows C disk.
+It all started on a Sunday afternoon when I, for God knows why, decided to free up space from my Windows C drive.
 
 A bit of needed context first:
 I primarily use Windows 10 as my host OS, and I use a Linux VM for development. Additionally, I had a WSL Ubuntu instance on my host, for quick tasks and whatnot.
 If you're not familiar with WSL, that's [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/about). It's a system component that allows you to have a Linux VM alongside your host OS, but without having to switch (from boot menu, or to a VM). It's as convenient as double clicking an icon and, voila! A Linux machine has spawned *into* your Windows device.
 
-WSL is nothing new, it's been around for quite some time. In fact, it's been around long enough that it has undergone a massive do-over around the release of Win11. For a good few years, WSL was running on what is now known as WSL1, the older version frankly did the job but lacked in a few areas, for example you couldn't do anything GUI-related with it, or heavily dependent on a Linux kernel - because it did not really have one, it used a translation layer to convert Linux system calls into Windows kernel calls, effectively simulating a Linux environment.
+WSL is nothing new, it's been around for quite some time. In fact, it's been around long enough that it has undergone a massive do-over around the release of Win11. For a good few years, WSL was running on what is now known as WSL1, the older version that frankly did the job but lacked in a few areas, for example you couldn't do anything GUI-related with it, or that is heavily dependent on a Linux kernel - because it did not really have one, it used a translation layer to convert Linux system calls into Windows kernel calls, effectively simulating a Linux environment.
 
 WSL2, on the other hand, has a complete Linux kernel. So, it's essentially a lightweight VM you can run on your Windows machine with no problems. Unless you already run VMs.
 
@@ -30,8 +30,8 @@ So the first problem was, the machine initially reported an error that it couldn
 I decided to turn the Microsoft Virtualization Platform feature off, reboot (it's required), then turn it back on, reboot again, and sure enough, it worked. What the hell Microsoft.
 
 <figure class="image-with-caption">
-  <img src="https://y.yarn.co/1ab70c93-fce1-460d-8575-3bac5a666e96_text.gif" alt="Roy from IT Crowd: Have you tried turning it on and off again?">
-  <figcaption>Roy from "IT Crowd" was onto something.</figcaption>
+  <img src="https://y.yarn.co/1ab70c93-fce1-460d-8575-3bac5a666e96_text.gif" alt="Roy from The IT Crowd: Have you tried turning it on and off again?">
+  <figcaption>Roy from "The IT Crowd" was onto something.</figcaption>
 </figure>
 
 Anyway, after a good 2 hours of moving the system, it was time to test it out. Thankfully, it worked (slower, but that was expected since it's a complete Linux kernel).
@@ -143,7 +143,7 @@ You can have this script living anywhere as a `.bat` file and run it whenever yo
 
 ## Wrapping Up
 
-In the end, this little toggle script has been a lifesaver for me - letting me use WSL2 for development without sacrificing gaming performance or dealing with VBS headaches. Windows virtualization features are incredibly powerful, but the conflicts (especially around security like VBS and anti-cheat) can be frustrating. This workaround isn't perfect; it requires a reboot each time—but it's simple, reliable, and doesn't mess with deeper system settings.
+In the end, this little toggle script has been doing the job for me without having to resort to VBS headaches. Windows virtualization features are definitely powerful, but the conflicts (especially around security like VBS and anti-cheat) can be frustrating. This workaround isn't perfect; it requires a reboot each time—but it's simple, reliable, and doesn't mess with deeper system settings.
 
 If you're in the same boat, give the script a try. Save it as `HyperV-Toggle.bat`, right-click > Run as Administrator, and toggle away.
 
