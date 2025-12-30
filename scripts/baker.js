@@ -111,11 +111,6 @@ function generateProjectListHtml(projects) {
                 ? `<a href="${p.link}" target="_blank" class="project-title-link">${p.title}</a>`
                 : `<span class="project-title-static">${p.title}</span>`;
 
-            const categoryLabel = getCategory(p);
-            const category = categoryLabel
-                ? `<span class="project-category">[${categoryLabel}]</span>`
-                : "";
-
             let logoHtml = "";
             if (groupName === "OPEN SOURCE" && p.org_logo) {
                 const logoPath = p.org_logo.startsWith("/")
@@ -129,11 +124,14 @@ function generateProjectListHtml(projects) {
                 ? `<span class="project-desc">${description}</span>`
                 : "";
 
+            const tagsHtml = Array.isArray(p.tags) && p.tags.length > 0
+                ? `<div class="project-tags">${p.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}</div>`
+                : "";
+
             const hideMeta = isOpenSourceGroup || isMiscGroup;
             const yearHtml = hideMeta
                 ? ""
                 : `<span class="project-year">${p.year || "----"}</span>`;
-            const categoryHtml = hideMeta ? "" : category;
             const rowClass = isOpenSourceGroup
                 ? "project-row project-row-oss"
                 : isMiscGroup
@@ -149,8 +147,8 @@ function generateProjectListHtml(projects) {
                         ${titleHtml}
                     </div>
                     ${descriptionHtml}
+                    ${tagsHtml}
                 </div>
-                ${categoryHtml}
             </div>`;
         });
         html += "</div>";
@@ -228,7 +226,7 @@ function generateRssXml(posts) {
 }
 
 async function build() {
-    console.log("🚧 Starting build...");
+    console.log("Starting build...");
 
     await fs.ensureDir(path.join(CONFIG.publicDir, "blog"));
 
@@ -292,7 +290,7 @@ async function build() {
         const htmlContent = marked.parse(post.content);
         let template = templates.default;
 
-        // Relative Root for Blog Posts (they are in /blog/slug/, so root is ../..)
+        // relative root for Blog Posts (they are in /blog/slug/, so root is ../..)
         const rootPath = "../..";
 
         const ogImage = post.image
@@ -376,7 +374,8 @@ async function build() {
                     <header class="post-header">
                         <h1>${post.title}</h1>
                         <div class="post-meta">
-                            <time>${formatDate(post.date)}</time>
+                            <time><i class="fas fa-calendar-alt" aria-hidden="true"></i> ${formatDate(post.date)}</time>
+                            ${Array.isArray(post.tags) && post.tags.length > 0 ? `<div class="post-tags">${post.tags.map(tag => `<span class="post-tag">${tag}</span>`).join('')}</div>` : ''}
                             <a href="${rootPath}/rss.xml" class="rss-link" aria-label="RSS feed">
                                 <i class="fas fa-rss" aria-hidden="true"></i>
                             </a>
@@ -396,11 +395,11 @@ async function build() {
             finalHtml,
         );
     }
-    console.log(`✅ Generated ${posts.length} blog posts.`);
+    console.log(`√ Generated ${posts.length} blog posts.`);
 
     const rss = generateRssXml(posts);
     await fs.outputFile(path.join(CONFIG.publicDir, "rss.xml"), rss);
-    console.log("✅ Generated rss.xml");
+    console.log("√ Generated rss.xml");
 
     const pageFiles = await fs.glob(path.join(CONFIG.contentDir, "pages/*.md"));
 
@@ -443,7 +442,7 @@ async function build() {
 
         await fs.outputFile(path.join(CONFIG.publicDir, outPath), finalHtml);
     }
-    console.log(`✅ Generated ${pageFiles.length} pages.`);
+    console.log(`√ Generated ${pageFiles.length} pages.`);
 
     const urls = [
         ...pageFiles.map((f) => {
@@ -468,12 +467,12 @@ async function build() {
 </urlset>`;
 
     await fs.outputFile(path.join(CONFIG.publicDir, "sitemap.xml"), sitemap);
-    console.log("✅ Generated sitemap.xml");
+    console.log("√ Generated sitemap.xml");
 
-    console.log("🎉 Build complete!");
+    console.log("i Build complete!");
 }
 
 build().catch((err) => {
-    console.error("❌ Build failed:", err);
+    console.error("⚠ Build failed:", err);
     process.exit(1);
 });

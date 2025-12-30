@@ -343,16 +343,26 @@ a {
     margin-top: 0.2rem;
 }
 
-.project-category {
+.project-tags {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+    margin-top: 0.35rem;
+}
+
+.project-tag {
     font-size: 0.7rem;
-    font-weight: 700;
-    color: var(--accent-color);
-    border: 1px solid var(--accent-color);
-    padding: 0.1rem 0.3rem;
-    margin-left: auto;
+    font-weight: 600;
+    color: var(--sub-color);
+    border: 1px solid var(--sub-color);
+    padding: 0.05rem 0.35rem;
     white-space: nowrap;
-    align-self: flex-start;
-    /* Align top */
+    transition: all 0.1s ease;
+}
+
+.project-row:hover .project-tag {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
 }
 
 /* =========================================
@@ -448,6 +458,26 @@ a {
 
 .post-meta .rss-link {
     margin-left: auto;
+}
+
+.post-meta time i {
+    opacity: 0.6;
+    margin-right: 0.25rem;
+}
+
+.post-tags {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+
+.post-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    padding: 0.1rem 0.4rem;
+    white-space: nowrap;
 }
 
 .post-content h2 {
