@@ -64,7 +64,7 @@ I'm always open to discussing new projects, creative ideas, or opportunities to 
 
 <div class="form-group">
 <label for="message" class="form-label">Message</label>
-<textarea id="message" name="message" class="form-textarea" rows="6" required placeholder="Tell me about your project..."></textarea>
+<textarea id="message" name="message" class="form-textarea" rows="6" required placeholder="What's cookin' good lookin'?"></textarea>
 </div>
 
 <button type="submit" class="submit-btn">
