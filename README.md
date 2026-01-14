@@ -6,7 +6,7 @@ Personal portfolio and blog built with a custom Static Site Generator.
 
 - Custom Node.js-based SSG for generating static HTML from Markdown
 - Responsive design with light/dark mode toggle
-- Markdown content management for blog posts and projects
+- Markdown content management for blog posts and work/projects
 - Simple templating system without heavy frameworks
 - Hosted on GitHub Pages
 
@@ -71,7 +71,7 @@ layout: post
 Your content here...
 ```
 
-#### Projects
+#### Work/Projects
 Create `content/projects/my-project.md`:
 ```markdown
 ---
@@ -79,11 +79,14 @@ title: My Project
 year: 2025
 description: A short description.
 category: TOOL
+tags: ["Python", "CLI"]
 link: https://github.com/...
 layout: project
 ---
 Details about the project...
 ```
+
+Categories: `TOOL`, `WEB`, `GAME`, `ACADEMIC`, `MISC`, or `OPEN SOURCE` (via `open-source.json`).
 
 ## Project Structure
 
@@ -93,7 +96,7 @@ Details about the project...
 ├── content/            # Source content (Markdown)
 │   ├── blog/           # Blog posts
 │   ├── pages/          # Static pages
-│   └── projects/       # Project entries
+│   └── projects/       # Work/project entries
 ├── scripts/            # Build scripts
 │   └── baker.js        # Static Site Generator
 ├── templates/          # HTML templates

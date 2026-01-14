@@ -50,7 +50,7 @@ async function loadJsonArrayIfExists(filePath) {
     return data;
 }
 
-function generateProjectListHtml(projects) {
+function generateWorkListHtml(projects, rootPath = "..") {
     const getCategory = (p) => String(p?.category ?? "").toUpperCase();
     const toYearNumber = (p) => {
         const value = Number(p?.year);
@@ -88,7 +88,7 @@ function generateProjectListHtml(projects) {
             .sort((a, b) => {
                 const aAcademic = isAcademic(a);
                 const bAcademic = isAcademic(b);
-                if (aAcademic !== bAcademic) return aAcademic ? 1 : -1; // Academic projects at bottom
+                if (aAcademic !== bAcademic) return aAcademic ? 1 : -1;
                 return compareYearDescThenTitle(a, b);
             }),
         MISC: projects
@@ -96,50 +96,50 @@ function generateProjectListHtml(projects) {
             .sort(compareYearDescThenTitle),
     };
 
+    const ITEMS_PER_PAGE = 8;
+    const projectsCount = groups.PROJECTS.length;
+    const totalPages = Math.ceil(projectsCount / ITEMS_PER_PAGE);
+
     let html = '<div class="project-list-container">';
 
-    for (const [groupName, groupProjects] of Object.entries(groups)) {
-        if (groupProjects.length === 0) continue;
+    const generateRow = (p, groupName, index = null) => {
+        const isOpenSourceGroup = groupName === "OPEN SOURCE";
+        const isMiscGroup = groupName === "MISC";
+        const titleHtml = p.link
+            ? `<a href="${p.link}" target="_blank" class="project-title-link">${p.title}</a>`
+            : `<span class="project-title-static">${p.title}</span>`;
 
-        html += `<h2 class="project-group-title">${groupName}</h2>`;
-        html += `<div class="project-list" data-group="${groupName}">`;
+        let logoHtml = "";
+        if (groupName === "OPEN SOURCE" && p.org_logo) {
+            const logoPath = p.org_logo.startsWith("/")
+                ? rootPath + p.org_logo
+                : rootPath + "/" + p.org_logo;
+            logoHtml = `<img src="${logoPath}" alt="${p.title} logo" class="project-org-logo">`;
+        }
 
-        groupProjects.forEach((p) => {
-            const isOpenSourceGroup = groupName === "OPEN SOURCE";
-            const isMiscGroup = groupName === "MISC";
-            const titleHtml = p.link
-                ? `<a href="${p.link}" target="_blank" class="project-title-link">${p.title}</a>`
-                : `<span class="project-title-static">${p.title}</span>`;
+        const description = String(p.description ?? "").trim();
+        const descriptionHtml = description
+            ? `<span class="project-desc">${description}</span>`
+            : "";
 
-            let logoHtml = "";
-            if (groupName === "OPEN SOURCE" && p.org_logo) {
-                const logoPath = p.org_logo.startsWith("/")
-                    ? ".." + p.org_logo
-                    : "../" + p.org_logo;
-                logoHtml = `<img src="${logoPath}" alt="${p.title} logo" class="project-org-logo">`;
-            }
+        const tagsHtml = Array.isArray(p.tags) && p.tags.length > 0
+            ? `<div class="project-tags">${p.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}</div>`
+            : "";
 
-            const description = String(p.description ?? "").trim();
-            const descriptionHtml = description
-                ? `<span class="project-desc">${description}</span>`
-                : "";
+        const hideMeta = isOpenSourceGroup || isMiscGroup;
+        const yearHtml = hideMeta
+            ? ""
+            : `<span class="project-year">${p.year || "----"}</span>`;
+        const rowClass = isOpenSourceGroup
+            ? "project-row project-row-oss"
+            : isMiscGroup
+              ? "project-row project-row-misc"
+              : "project-row";
 
-            const tagsHtml = Array.isArray(p.tags) && p.tags.length > 0
-                ? `<div class="project-tags">${p.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}</div>`
-                : "";
+        const dataIndex = index !== null ? ` data-index="${index}"` : "";
 
-            const hideMeta = isOpenSourceGroup || isMiscGroup;
-            const yearHtml = hideMeta
-                ? ""
-                : `<span class="project-year">${p.year || "----"}</span>`;
-            const rowClass = isOpenSourceGroup
-                ? "project-row project-row-oss"
-                : isMiscGroup
-                  ? "project-row project-row-misc"
-                  : "project-row";
-
-            html += `
-            <div class="${rowClass}">
+        return `
+            <div class="${rowClass}"${dataIndex}>
                 ${yearHtml}
                 <div class="project-info">
                     <div class="project-title-row">
@@ -150,11 +150,87 @@ function generateProjectListHtml(projects) {
                     ${tagsHtml}
                 </div>
             </div>`;
+    };
+
+    if (groups["OPEN SOURCE"].length > 0) {
+        html += `<h2 class="project-group-title">OPEN SOURCE</h2>`;
+        html += `<div class="project-list" data-group="OPEN SOURCE">`;
+        groups["OPEN SOURCE"].forEach((p) => {
+            html += generateRow(p, "OPEN SOURCE");
+        });
+        html += "</div>";
+    }
+
+    if (groups.PROJECTS.length > 0) {
+        html += `<h2 class="project-group-title">PROJECTS</h2>`;
+        html += `<div class="project-list" data-group="PROJECTS" data-page="1" data-total-pages="${totalPages}" data-items-per-page="${ITEMS_PER_PAGE}">`;
+        groups.PROJECTS.forEach((p, index) => {
+            html += generateRow(p, "PROJECTS", index);
+        });
+        html += "</div>";
+        if (totalPages > 1) {
+            html += `<div class="projects-pagination">`;
+            html += `<button class="pagination-btn pagination-prev" disabled>&lt;&lt;</button>`;
+            html += `<span class="pagination-info"><span class="pagination-current">1</span> / ${totalPages}</span>`;
+            html += `<button class="pagination-btn pagination-next">&gt;&gt;</button>`;
+            html += `</div>`;
+        }
+    }
+
+    if (groups.MISC.length > 0) {
+        html += `<h2 class="project-group-title">MISC</h2>`;
+        html += `<div class="project-list" data-group="MISC">`;
+        groups.MISC.forEach((p) => {
+            html += generateRow(p, "MISC");
         });
         html += "</div>";
     }
 
     html += "</div>";
+
+    if (totalPages > 1) {
+        html += `
+<script>
+(function() {
+    const container = document.querySelector('.project-list[data-group="PROJECTS"]');
+    if (!container) return;
+
+    const itemsPerPage = parseInt(container.dataset.itemsPerPage, 10);
+    const totalPages = parseInt(container.dataset.totalPages, 10);
+    const items = container.querySelectorAll('.project-row[data-index]');
+    const prevBtn = document.querySelector('.projects-pagination .pagination-prev');
+    const nextBtn = document.querySelector('.projects-pagination .pagination-next');
+    const currentSpan = document.querySelector('.projects-pagination .pagination-current');
+
+    let currentPage = 1;
+
+    function showPage(page) {
+        currentPage = page;
+        const start = (page - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+
+        items.forEach((item, index) => {
+            item.style.display = (index >= start && index < end) ? '' : 'none';
+        });
+
+        currentSpan.textContent = page;
+        prevBtn.disabled = page === 1;
+        nextBtn.disabled = page === totalPages;
+    }
+
+    prevBtn.addEventListener('click', () => {
+        if (currentPage > 1) showPage(currentPage - 1);
+    });
+
+    nextBtn.addEventListener('click', () => {
+        if (currentPage < totalPages) showPage(currentPage + 1);
+    });
+
+    showPage(1);
+})();
+<\/script>`;
+    }
+
     return html;
 }
 
@@ -419,8 +495,8 @@ async function build() {
                 ? `<link rel="alternate" type="application/rss+xml" title="${CONFIG.siteTitle} RSS" href="${rootPath}/rss.xml">`
                 : "";
 
-        if (layout === "projects-index") {
-            htmlContent += generateProjectListHtml(projects);
+        if (layout === "work-index") {
+            htmlContent += generateWorkListHtml(projects, rootPath);
         } else if (layout === "blog-index") {
             htmlContent += generateBlogListHtml(posts);
         }
