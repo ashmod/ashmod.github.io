@@ -394,6 +394,20 @@ const THEMES = {
             "--icon-color": "#ffffff",
         },
     },
+    alexis: {
+        name: "alexis",
+        label: "Alexis",
+        isDark: true,
+        colors: {
+            "--bg-color": "#000000ff",
+            "--text-color": "#f6f5f5",
+            "--accent-color": "#ff2777", 
+            "--sub-color": "#9c5b8eff",
+            "--highlight-color": "#3b0026ff",
+            "--border-color": "#ffffff",
+            "--icon-color": "#ffffff",
+        }
+    }
 };
 
 const THEME_ORDER = [
@@ -409,6 +423,7 @@ const THEME_ORDER = [
     "soaring_skies",
     // Dark themes
     "default_dark",
+    "alexis",
     "arch",
     "carbon",
     "catppuccin",
