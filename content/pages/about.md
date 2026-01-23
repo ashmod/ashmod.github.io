@@ -17,6 +17,7 @@ My goal is to build anything meaningful that makes a positive impact, big or sma
 
 ## Why "ashmod"?
 I wanted a short, easy-to-write name that just works. The "Ash" part comes from my old nickname, "AshKetchup" which in turn was inspired by "Ash Ketchum" from Pokémon. It can also be interpreted as short for "shehab", in a way. The "mod" part can be seen as "modded", as in modified or improved, and is also short for "Mahmoud", my last name.<br><br>
+<div class="themed-svg" role="img" aria-label="why 'ashmod'?"></div>
 If you're curious what "Shehab" means, it's Arabic for "shooting star". So if you see me somewhere you could make a wish! It'll do absolutely nothing at all, but you just can.
 
 ## Skills & Technologies
@@ -31,7 +32,7 @@ Git, Maven, Docker, Kubernetes, VS Code, Vim, React, Next.js, GitHub Actions, Li
 Software Development, Machine Learning, Artificial Intelligence, Cybersecurity, Distributed Systems, Web Development, Open Source, Writing
 
 ## Fun Facts
-* Pokémon nerd.
-* Huge fan of indie games.
+* Nintendo nerd.
+* Huge fan of indie games (and many indie things).
 * I read books. A lot.
 * Ask me about AI!

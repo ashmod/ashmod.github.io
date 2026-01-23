@@ -1298,3 +1298,22 @@ a {
     border-color: var(--accent-color);
     border-left: 10px solid var(--accent-color);
 }
+
+/* =========================================
+   THEMED SVG
+   ========================================= */
+.themed-svg {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1668 / 842;
+    margin: 1.5rem 0;
+    background-color: var(--text-color);
+    -webkit-mask-image: url('/assets/svg/name.svg');
+    mask-image: url('/assets/svg/name.svg');
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+}
