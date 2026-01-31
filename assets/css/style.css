@@ -1305,11 +1305,13 @@ a {
 .themed-svg {
     display: block;
     width: 100%;
-    aspect-ratio: 1668 / 842;
+    --themed-svg-url: url('/assets/svg/name.svg');
+    --themed-svg-aspect: 1668 / 842;
+    aspect-ratio: var(--themed-svg-aspect);
     margin: 1.5rem 0;
     background-color: var(--text-color);
-    -webkit-mask-image: url('/assets/svg/name.svg');
-    mask-image: url('/assets/svg/name.svg');
+    -webkit-mask-image: var(--themed-svg-url);
+    mask-image: var(--themed-svg-url);
     -webkit-mask-size: 100% 100%;
     mask-size: 100% 100%;
     -webkit-mask-repeat: no-repeat;
