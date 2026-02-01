@@ -39,7 +39,7 @@ No light.
 No sound.
 No real body movement.
 
-And yet… you see. You hear. You feel fear, joy, embarrassment. You talk to people who aren’t there. It all feels *real*.
+And yet... you see. You hear. You feel fear, joy, embarrassment. You talk to people who aren’t there. It all feels *real*.
 
 Apparently, our brains don't need the outside world to create a convincing one. It's all about patterns..
 
@@ -53,13 +53,25 @@ Apparently, our brains don't need the outside world to create a convincing one. 
     "
   ></div>
 
-Dreams are what happen when our brain goes offline from reality and keeps doing what it does best: predictions, storytelling, and emotion.
+Dreams are what happens when our brain goes offline from reality and keeps doing what it does best: predictions, storytelling, and emotion.
 
 Walking life is the same thing, just with live data plugged in.
 
+## Feelings run the show
+
+We like to think we're logical creatures. We're not.
+
+We're emotional systems that occassionally do math. Your brain uses feelings as shortcuts. Good or bad. Safe or risky. Familiar or strange. Logic usually comes later, if all.
+
+That’s why dreams stick with you emotionally even when they make no sense.
+The plot doesn’t matter. The feeling does.
+
+Your brain cares about what matters, not what’s tidy.
+This is a pivotal point for the way brains are wired, from our early age. But this is a topic for another time.
+
 ## You think you're in control. You're mostly not.
 
-"Decision-making" is hoax. A lot of decision start before you're consciously aware of them. Your brain commits, then your conscious mind shows up to explain why it "chose" that option.
+"Decision-making" is hoax. A lot of decisions start before you're consciously aware of them. Your brain commits, then your conscious mind shows up to explain why it "chose" that option.
 
 One of my favorite manifestations of this is the fact that if you're deciding between two things, and toss a coin, you'll actually make your decision before the coin lands. The coin flip is merely a spur.
 
@@ -78,19 +90,7 @@ You feel hungry *after* your body decides it needs food.
 You reach for your phone *before* you notice boredom.
 You say something, then you instantly justify it for yourself.
 
-This is more helpful than you think, imagine if you had to consciously approve every tiny action before committing. You'd never get anything done.
-
-## Feelings run the show
-
-We like to think we're logical creatures. We're not.
-
-We're emotional systems that occassionally do math. Your brain uses feelings as shortcuts. Good or bad. Safe or risky. Familiar or strange. Logic usually comes later, if all.
-
-That’s why dreams stick with you emotionally even when they make no sense.
-The plot doesn’t matter. The feeling does.
-
-Your brain cares about what matters, not what’s tidy.
-This is a pivotal point for the way brains are wired, from our early age. But this is a topic for another time.
+This is more helpful than you think, imagine if you had to consciously approve every tiny action before doing it. You'd never get anything done.
 
 ## Your brain wasn't built for this world
 
@@ -110,13 +110,9 @@ Modern life pushes all the wrong buttons, all the time.
 
 ## So why is this actually good?
 
-Because the same system that bends reality also gives you:
+Because the same system that bends reality also gives you **imagination**, it gives you **creativity**, it gives you **empathy**. It gives you the ability to **learn**, **adapt**, and **invent** futures that don’t exist yet. 
 
-- imagination
-- empathy
-- creativity
-- the ability to learn, adapt, and invent futures that don’t exist yet
-- Dreams, stories, art, science - they all come from the brain’s talent for simulation.
+It's also the same talented, complex system that comes up with **dreams**, **stories**, **art**, and **science**.
 
 If your brain only showed you cold, objective reality, you wouldn’t be human.
 You’d be a sensor.

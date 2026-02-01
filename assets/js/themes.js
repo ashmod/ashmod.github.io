@@ -394,9 +394,9 @@ const THEMES = {
             "--icon-color": "#ffffff",
         },
     },
-    alexis: {
-        name: "alexis",
-        label: "Alexis",
+    Alexine: {
+        name: "Alexine",
+        label: "Alexine",
         isDark: true,
         colors: {
             "--bg-color": "#000000ff",
@@ -423,7 +423,7 @@ const THEME_ORDER = [
     "soaring_skies",
     // Dark themes
     "default_dark",
-    "alexis",
+    "Alexine",
     "arch",
     "carbon",
     "catppuccin",
