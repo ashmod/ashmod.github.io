@@ -655,7 +655,7 @@ a {
 }
 
 .post-content .image-with-caption {
-    margin: 1.5rem auto;
+    margin: 1.5rem auto 0.75rem;
     max-width: 100%;
     text-align: center;
 }
@@ -668,14 +668,14 @@ a {
     font-size: 0.9rem;
     font-style: italic;
     color: var(--sub-color);
-    margin-top: 0.5rem;
+    margin-top: 0.75rem;
     padding: 0.25rem 0.5rem 0;
     display: inline-block;
 }
 
 @media (min-width: 601px) {
     .post-content .image-with-caption figcaption {
-        max-width: 60%;
+        max-width: 100%;
     }
 }
 

@@ -31,6 +31,11 @@ Friend or threat?
 
 Hesitation was expensive.
 
+<figure class="image-with-caption">
+  <img src="/content/blog/brain/fraser.png" alt="Fraser Spiral Illusion">
+  <figcaption><b>The Fraser Spiral Illusion:</b> At first glance, you'd think this is an image of a spiral pattern, but that's not the case. The brain sees incomplete data and automatically predicts a pattern that isn't there. True image is a series of concentric circles.</figcaption>
+</figure>
+
 ## Dreams prove the point
 
 I've always found dreams really fascinating. Every night, your brain runs a full simulation with zero external input.
@@ -48,7 +53,7 @@ Apparently, our brains don't need the outside world to create a convincing one. 
     role="img"
     aria-label="Dreams visual"
     style="
-      --themed-svg-url: url('/blog/brain/dreams.svg');
+      --themed-svg-url: url('/content/blog/brain/dreams.svg');
       --themed-svg-aspect: 2816.07 / 732.97;
     "
   ></div>
@@ -80,7 +85,7 @@ One of my favorite manifestations of this is the fact that if you're deciding be
     role="img"
     aria-label="Coin toss visual"
     style="
-      --themed-svg-url: url('/blog/brain/toss.svg');
+      --themed-svg-url: url('/content/blog/brain/toss.svg');
       --themed-svg-aspect: 1981.12 / 802.93;
     "
   ></div>
