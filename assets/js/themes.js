@@ -395,7 +395,7 @@ const THEMES = {
         },
     },
     Alexine: {
-        name: "Alexine",
+        name: "alexine",
         label: "Alexine",
         isDark: true,
         colors: {
@@ -423,7 +423,7 @@ const THEME_ORDER = [
     "soaring_skies",
     // Dark themes
     "default_dark",
-    "Alexine",
+    "alexine",
     "arch",
     "carbon",
     "catppuccin",

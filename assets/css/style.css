@@ -481,27 +481,63 @@ a {
 }
 
 .post-content h2 {
-    margin-top: 2rem;
     margin-bottom: 1rem;
     font-size: 1.4rem;
     border-bottom: 2px solid var(--border-color);
     display: inline-block;
 }
 
+.post-content blockquote + h2,
+.post-content .image-with-caption + h2 {
+    margin-top: 0;
+}
+
 .post-content p {
     margin-bottom: 1.2rem;
     text-align: justify;
-    /* Newspaper column style */
 }
 
 .post-content blockquote {
-    border-left: 4px solid var(--accent-color);
-    padding-left: 1rem;
-    margin: 1.5rem 0;
+    font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
     font-style: italic;
-    background: var(--highlight-color);
-    padding: 1rem;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    text-align: center;
     color: var(--text-color);
+    border: none;
+    background: none;
+    max-width: 75%;
+    margin: 2.5rem auto;
+    padding: 0;
+    position: relative;
+}
+
+.post-content blockquote::before {
+    content: "\201C";
+    font-family: "IBM Plex Serif", Georgia, serif;
+    font-size: 4rem;
+    font-style: normal;
+    color: var(--accent-color);
+    position: absolute;
+    top: -1.2rem;
+    left: -1.5rem;
+    line-height: 1;
+    opacity: 0.6;
+}
+
+.post-content blockquote p {
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.post-content blockquote cite {
+    display: block;
+    font-style: normal;
+    font-size: 0.9rem;
+    margin-top: 0.75rem;
+    color: var(--sub-color);
+    font-family: var(--font-stack);
+    letter-spacing: 0.02em;
 }
 
 .post-content pre[class*="language-"] {
@@ -654,6 +690,10 @@ a {
     border: var(--border-width) solid var(--border-color);
 }
 
+.post-content img.no-border {
+    border: none;
+}
+
 .post-content .image-with-caption {
     margin: 1.5rem auto 0.75rem;
     max-width: 100%;
@@ -669,7 +709,7 @@ a {
     font-style: italic;
     color: var(--sub-color);
     margin-top: 0.75rem;
-    padding: 0.25rem 0.5rem 0;
+    padding: 0.25rem 0.5rem 1.5rem;
     display: inline-block;
 }
 
