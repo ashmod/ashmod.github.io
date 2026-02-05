@@ -394,7 +394,7 @@ const THEMES = {
             "--icon-color": "#ffffff",
         },
     },
-    Alexine: {
+    alexine: {
         name: "alexine",
         label: "Alexine",
         isDark: true,

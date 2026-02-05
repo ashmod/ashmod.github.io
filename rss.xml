@@ -7,7 +7,7 @@
         <link>https://www.ashmod.dev/blog</link>
         <description>Blog posts from ashmod.dev</description>
         <language>en</language>
-        <lastBuildDate>Thu, 05 Feb 2026 23:21:01 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 05 Feb 2026 23:32:08 GMT</lastBuildDate>
         <atom:link href="https://www.ashmod.dev/rss.xml" rel="self" type="application/rss+xml" />
         
     <item>
@@ -58,7 +58,7 @@ I&#39;m also grateful to those who got me into the open source landscape in the 
 <h2>Is this fixable?</h2>
 <p>Change won&#39;t happen overnight, and would need a <strong>paradigm shift</strong> and collaborative effort from everyone to appreciate Open Source again. Stop listening to baseless claims, pushing code will not land you your dream job, it will not make you a 10x Engineer, the way things have been are the ways they always will be, just a little bit easier and a little bit faster.</p>
 <p>If people could start thinking more on ‘how to make software better’ and less on ‘how do I make my profile fancy af’, only then things may start to change for the better. </p>
-<p>But if you&#39;re currently thinking that with the current pattern it would get worse before it gets better, if you think that open source may fundamentally change because of this and that we&#39;re on the verge of witnessing the very bad consequences of our actions, well... You&#39;re absolutely right.</p>
+<p>But if you&#39;re currently thinking that with the current pattern it would get worse before it gets better, if you think that open source may fundamentally change because of this and that we&#39;re on the verge of witnessing the very bad consequences of our actions, well... <strong>You&#39;re absolutely right.</strong></p>
 ]]></content:encoded>
         <category>github</category>
         <category>open-source</category>
