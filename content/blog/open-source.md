@@ -23,7 +23,7 @@ We started slowly losing the narrative. People forgot what it means to 'contribu
 
 Contributing to OSS has always been the same as contributing to basically anything, you don't volunteer for something by asking someone to do the volunteering for you. Why do it in the first place?
 
-This problem is definitely more tangled than I can describe, but the sure thing is, there's a fundamentally wrong viewpoint that "contributing to OSS means you're a cracked dev." 
+This problem is definitely more nuanced than I can describe, but the sure thing is, there's a fundamentally wrong viewpoint that "contributing to OSS means you're a cracked dev." 
 
 > It literally doesn't.
 > <cite>- A really uncracked dev</cite>
@@ -70,4 +70,4 @@ Change won't happen overnight, and would need a **paradigm shift** and collabora
 
 If people could start thinking more on ‘how to make software better’ and less on ‘how do I make my profile fancy af’, only then things may start to change for the better. 
 
-But if you're currently thinking that with the current pattern it would get worse before it gets better, if you think that open source may fundamentally change because of this and that we're on the verge of witnessing the very bad consequences of our actions, well... **You're absolutely right.**
+But if you're currently thinking that with the ongoing pattern, it would get worse before it gets better, if you think that open source may fundamentally change because of this and that we're on the verge of witnessing the very bad consequences of our actions, well... **You're absolutely right.**

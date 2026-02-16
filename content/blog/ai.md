@@ -2,7 +2,7 @@
 title: Let's talk about AI
 date: 2025-12-22
 description: Addressing the elephant in the room.
-tags: [AI, thoughts, history]
+tags: [ai, thoughts, history]
 layout: post
 ---
 

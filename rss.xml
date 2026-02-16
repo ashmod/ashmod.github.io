@@ -7,7 +7,7 @@
         <link>https://www.ashmod.dev/blog</link>
         <description>Blog posts from ashmod.dev</description>
         <language>en</language>
-        <lastBuildDate>Thu, 05 Feb 2026 23:32:08 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 16 Feb 2026 18:55:44 GMT</lastBuildDate>
         <atom:link href="https://www.ashmod.dev/rss.xml" rel="self" type="application/rss+xml" />
         
     <item>
@@ -26,7 +26,7 @@ I started my GitHub journey with open sourcing several personal projects and exp
 <p>This resulted in a good percentage of developers (and others who are most definitely not), to start abusing those agentic systems to &#39;contribute&#39; to OSS by simply feeding those agentic tools with entire repositories, pushing whatever slop comes out and calling it a day. </p>
 <p>We started slowly losing the narrative. People forgot what it means to &#39;contribute&#39;, or maybe it wasn&#39;t really clear for them from the get-go and now they&#39;re just finding it easier to do it - even if it&#39;s in a horridly wrong way.</p>
 <p>Contributing to OSS has always been the same as contributing to basically anything, you don&#39;t volunteer for something by asking someone to do the volunteering for you. Why do it in the first place?</p>
-<p>This problem is definitely more tangled than I can describe, but the sure thing is, there&#39;s a fundamentally wrong viewpoint that &quot;contributing to OSS means you&#39;re a cracked dev.&quot; </p>
+<p>This problem is definitely more nuanced than I can describe, but the sure thing is, there&#39;s a fundamentally wrong viewpoint that &quot;contributing to OSS means you&#39;re a cracked dev.&quot; </p>
 <blockquote>
 <p>It literally doesn&#39;t.
 <cite>- A really uncracked dev</cite></p>
@@ -58,7 +58,7 @@ I&#39;m also grateful to those who got me into the open source landscape in the 
 <h2>Is this fixable?</h2>
 <p>Change won&#39;t happen overnight, and would need a <strong>paradigm shift</strong> and collaborative effort from everyone to appreciate Open Source again. Stop listening to baseless claims, pushing code will not land you your dream job, it will not make you a 10x Engineer, the way things have been are the ways they always will be, just a little bit easier and a little bit faster.</p>
 <p>If people could start thinking more on ‘how to make software better’ and less on ‘how do I make my profile fancy af’, only then things may start to change for the better. </p>
-<p>But if you&#39;re currently thinking that with the current pattern it would get worse before it gets better, if you think that open source may fundamentally change because of this and that we&#39;re on the verge of witnessing the very bad consequences of our actions, well... <strong>You&#39;re absolutely right.</strong></p>
+<p>But if you&#39;re currently thinking that with the ongoing pattern, it would get worse before it gets better, if you think that open source may fundamentally change because of this and that we&#39;re on the verge of witnessing the very bad consequences of our actions, well... <strong>You&#39;re absolutely right.</strong></p>
 ]]></content:encoded>
         <category>github</category>
         <category>open-source</category>
@@ -365,7 +365,7 @@ And this is, in layman&#39;s terms, really bad.</p>
 <p>One of my all time favorite quotes that pretty much sums all this up is author <a href="https://x.com/AuthorJMac">@AuthorJMac</a>&#39;s tweet:</p>
 <p><img src="/content/blog/ai/jmactweet.png" alt="Tweet by Author J Mac on AI"></p>
 ]]></content:encoded>
-        <category>AI</category>
+        <category>ai</category>
         <category>thoughts</category>
         <category>history</category>
     </item>
