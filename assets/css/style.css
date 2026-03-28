@@ -152,7 +152,9 @@ a {
 .internet-corner-banner {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    width: fit-content;
+    margin: 0 auto;
     user-select: none;
 }
 
@@ -161,6 +163,7 @@ a {
     font-weight: 500;
     letter-spacing: -1px;
     line-height: 1;
+    align-self: flex-end;
 }
 
 .corner-text-large {
@@ -170,9 +173,12 @@ a {
     letter-spacing: -3px;
     color: var(--text-color);
     transition: color 0.2s steps(2);
+    text-align: left;
 }
 
 .corner-highlight {
+    display: block;
+    text-align: right;
     color: var(--text-color);
     transition: color 0.2s steps(2);
 }
@@ -970,6 +976,20 @@ a {
 
     .corner-text-large {
         font-size: 3rem;
+        text-align: center;
+    }
+
+    .internet-corner-banner {
+        align-items: center;
+        width: auto;
+    }
+
+    .corner-text-small {
+        align-self: auto;
+    }
+
+    .corner-highlight {
+        display: inline;
     }
 
     .project-header {
