@@ -5,7 +5,7 @@ layout: page
 ---
 
 # Shehab Mahmoud
-**Software Engineer**
+**Software Engineer, FOSS lover, Doer of things**
 
 ## Hi there!
 
@@ -18,7 +18,7 @@ My goal is to build anything meaningful that makes a positive impact, big or sma
 ## Why "ashmod"?
 I wanted a short, easy-to-write name that just works. The "Ash" part comes from my old nickname, "AshKetchup" which in turn was inspired by "Ash Ketchum" from Pokémon. It can also be interpreted as short for "shehab", in a way. The "mod" part can be seen as "modded", as in modified or improved, and is also short for "Mahmoud", my last name.<br><br>
 <div class="themed-svg" role="img" aria-label="why 'ashmod'?"></div>
-If you're curious what "Shehab" means, it's Arabic for "shooting star". So if you see me somewhere you could make a wish! It'll do absolutely nothing at all, but you just can.
+<p>If you're curious what "Shehab" means, it's Arabic for "shooting star". So if you see me somewhere you could make a wish! It'll do absolutely nothing at all, but you just can.</p>
 
 ## Skills & Technologies
 

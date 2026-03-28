@@ -498,7 +498,9 @@ a {
 
 .post-content p {
     margin-bottom: 1.2rem;
-    text-align: justify;
+    text-align: left;
+    font-weight: 500;
+    overflow-wrap: break-word;
 }
 
 .post-content blockquote {
@@ -892,6 +894,11 @@ a {
     margin-bottom: 1rem;
 }
 
+.site-main p,
+.site-main li {
+    font-weight: 500;
+}
+
 .site-main ul,
 .site-main ol {
     margin: 1rem 0;
@@ -1031,11 +1038,11 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.2s;
+    transition: color 0.2s;
 }
 
 .theme-toggle:hover {
-    transform: rotate(15deg) scale(1.1);
+    color: color-mix(in srgb, var(--accent-color) 70%, var(--text-color));
 }
 
 /* Theme Modal */

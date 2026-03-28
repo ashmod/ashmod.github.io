@@ -154,11 +154,11 @@
 
 <div class="form-group">
 <label for="message" class="form-label">Message</label>
-<textarea id="message" name="message" class="form-textarea" rows="6" required placeholder="What's cookin' good lookin'?"></textarea>
+<textarea id="message" name="message" class="form-textarea" rows="6" required placeholder="What's cookin'?"></textarea>
 </div>
 
 <button type="submit" class="submit-btn">
-<span id="btn-text">[ TRANSMIT ]</span>
+<span id="btn-text">SEND</span>
 </button>
 
 <div id="form-result" class="form-result"></div>
@@ -208,7 +208,7 @@ form.addEventListener('submit', function(e) {
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
 
-    btnText.innerHTML = "[ TRANSMITTING... ]";
+    btnText.innerHTML = "SENDING...";
     result.style.display = "none";
 
     fetch('https://api.web3forms.com/submit', {
@@ -222,26 +222,26 @@ form.addEventListener('submit', function(e) {
     .then(async (response) => {
         let json = await response.json();
         if (response.status == 200) {
-            result.innerHTML = "> SUCCESS: Message transmitted.<br>> ACKOWLEDGED.";
+            result.innerHTML = "> SUCCESS: Your message has been sent :)";
             result.classList.add('success');
             result.style.display = "block";
-            btnText.innerHTML = "[ TRANSMIT ]";
+            btnText.innerHTML = "SEND";
             form.reset();
             selectValue.textContent = "Select a topic";
             hiddenInput.value = "";
         } else {
             console.log(response);
-            result.innerHTML = "> ERROR: Transmission failed.<br>> " + json.message;
+            result.innerHTML = "> ERROR: Your message didn't go through." + json.message;
             result.classList.add('error');
             result.style.display = "block";
-            btnText.innerHTML = "[ RETRY ]";
+            btnText.innerHTML = "RETRY";
         }
     })
     .catch(error => {
         console.log(error);
         result.innerHTML = "> ERROR: Connection lost.";
         result.style.display = "block";
-        btnText.innerHTML = "[ RETRY ]";
+        btnText.innerHTML = "RETRY";
     });
 });
 </script>

@@ -7,9 +7,52 @@
         <link>https://www.ashmod.dev/blog</link>
         <description>Blog posts from ashmod.dev</description>
         <language>en</language>
-        <lastBuildDate>Mon, 16 Feb 2026 18:55:44 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 28 Mar 2026 22:11:31 GMT</lastBuildDate>
         <atom:link href="https://www.ashmod.dev/rss.xml" rel="self" type="application/rss+xml" />
         
+    <item>
+        <title>Slopsquatting: vibe-coding too close to the sun</title>
+        <link>https://www.ashmod.dev/blog/slopsquatting</link>
+        <guid isPermaLink="true">https://www.ashmod.dev/blog/slopsquatting</guid>
+        <pubDate>Sat, 28 Mar 2026 00:00:00 GMT</pubDate>
+        <description><![CDATA[New challenges in the agentic era]]></description>
+        <content:encoded><![CDATA[<p>I&#39;ve yapped about AI a <a href="https://www.ashmod.dev/blog/ai/">couple</a> <a href="https://www.ashmod.dev/blog/open-source/">times</a> already, and it&#39;s pretty evident I was <em>against</em> having AI take the wheel. This time, however, it&#39;s a different kind of yap. The kind that is more concerning and more overlooked by many. The kind that if you were blindly giving in to AI, it should help open your eyes just a little.</p>
+<h2>What is Slopsquatting?</h2>
+<p>Slopsquatting is considered an evolution of the famous <a href="https://en.wikipedia.org/wiki/Typosquatting">typosquatting</a> attack. If you&#39;re not familiar with typosquatting, it&#39;s basically a classic form of malicious tampering, where an attacker relies on typos made in seemingly legitimate domains or URLs.</p>
+<p>A good example of typosquatting is the famous &quot;rnicrosoft.com&quot; domains/emails. Because this page is written in a monospace font, you can clearly tell where the typo is - but this was a serious issue at some point.</p>
+<img src="/content/blog/slopsquatting/msftsec.png" alt="Microsoft Threat Intelligence tweet on typosquatting" class="no-border">  
+
+<p>Typosquatting was never <em>that</em> serious, at least not as serious as some other attacks and exploits, because of the fact it could be relatively easily spotted and mitigated. </p>
+<p>Slopsquatting, however, is a more serious problem. A problem that can only exist in the agentic &quot;vibe-coding&quot; age.</p>
+<p>The way it basically works is that an attacker would make use of an AI coding agent&#39;s hallucination and turn it into an actual malicious package. So, for example: You&#39;re working on a coding project, and you&#39;re vibe-coding your way through it and at some point the agent decides to install the dependency <code>graphitorm</code> which, in fact, is a package that does not really exist. (Currently, the package is reserved on PyPi as a research package for slopsquatting because of it being a common hallucination by agents.)</p>
+<p>You probably know where this is going already... With enough information on the most hallucinated dependencies, an attacker can easily publish their own malicious packages - and with NPM and PyPI being two of the most frequent spots for AI agents <em>and</em> having a relatively easy way to deploy packages, this could get really ugly, really fast.</p>
+<h2>Why do hallucinations happen in the first place?</h2>
+<p>This boils down to the nature of those AI agents - the one that most people tend to forget. These Language Models are as good as the data they are trained on, and with their probabilistic nature, those types of hallucinations are actually more predictable than you&#39;d imagine!</p>
+<p>Large Language Models (LLMs), the things powering that agent you&#39;re running, are statistical models - meaning that they&#39;re just really good at making <strong>predictions</strong>, they do not really have any sort of &quot;coherent&quot; reasoning or thinking like we humans do. They don&#39;t have concrete knowledge, they&#39;re just always predicting whatever they &quot;think&quot; would fit best in the sentence they are spitting out.</p>
+<figure class="image-with-caption">
+  <img src="/content/blog/slopsquatting/machine_learning.png" alt="XKCD ML Comic">
+  <figcaption>the thing that's taking over people's jobs</figcaption>
+</figure>
+
+<h2>The (sortof) good news</h2>
+<p>The authors of the <a href="https://documents.trendmicro.com/assets/white_papers/techbrief-slopsquatting.pdf">paper</a> on slopsquatting thankfully took the time to test this theoretical threat on real code. </p>
+<p>They found out that mostly the ones that did hallucinate were mostly non-Frontier models. So if you&#39;re using a decent model, you are <em>probably</em> safe. This does <strong>not</strong> mean you should turn a blind eye to this. Hackers are always getting creative.</p>
+<img src="/content/blog/slopsquatting/hallucinations.png" alt="Package Hallucinations by model visualized" class="no-border">  
+
+<p>The paper also mentions that Coding Agents are less susceptible to this (by about 50%), but do not eliminate the threat completely either. For example, they could reproduce this on Cursor AI.</p>
+<h2>How to be safe</h2>
+<p>There are a few ways you could stay safe, I think the most effective one is just having some decent level of common sense enough to just know when your llm is about to screw up so you could just pull the brakes.</p>
+<p>One other effective method is to run those agents in a sandboxed environment. Additionally, I think using MCPs like context7 could help reduce hallucinations significantly (but you can never really be sure.)</p>
+<p>While this threat could sound like a long way from where we are, and it&#39;s all mostly theory... I do believe that it could shake up the industry fairly soon. I think this would also lead major package managers like NPM and PyPI to completely halt new package additions for a bit, or at least have those undergo a more rigorous form of checking. Hopefully <strong>not</strong> via AI.</p>
+<h2>References</h2>
+<p>If you&#39;d like to read more about slopsquatting, give the post by the paper&#39;s authors a read: <a href="https://www.trendmicro.com/vinfo/us/security/news/cybercrime-and-digital-threats/slopsquatting-when-ai-agents-hallucinate-malicious-packages" target="_blank">Slopsquatting: When AI Agents Hallucinate Malicious Packages</a></p>
+<p>You can also find a more detailed analysis, specifically on hallucinations by models that were tested, through their github repository: <a href="https://github.com/trendmicro/slopsquatting" target="_blank">https://github.com/trendmicro/slopsquatting</a></p>
+]]></content:encoded>
+        <category>security</category>
+        <category>development</category>
+        <category>ai</category>
+        <category>thoughts</category>
+    </item>
     <item>
         <title>State of Open Source - Q1 2026</title>
         <link>https://www.ashmod.dev/blog/open-source</link>
