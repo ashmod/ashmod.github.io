@@ -542,8 +542,10 @@ function showThemePicker() {
 
     const list = modal.querySelector(".theme-modal-list");
     const content = modal.querySelector(".theme-modal-content");
+    let done = false;
 
     list.addEventListener("mouseover", (e) => {
+        if (done) return;
         const item = e.target.closest(".theme-list-item");
         if (item) {
             const theme = THEMES[item.dataset.theme];
@@ -556,6 +558,7 @@ function showThemePicker() {
         if (item) {
             const theme = THEMES[item.dataset.theme];
             if (theme) {
+                done = true;
                 applyTheme(theme, true);
                 themeBeforePreview = theme;
 
