@@ -19,10 +19,6 @@
     padding: 0;
 }
 
-html {
-    scrollbar-gutter: stable both-edges;
-}
-
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
