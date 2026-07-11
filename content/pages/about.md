@@ -9,7 +9,7 @@ layout: page
 
 ## Hi there!
 
-I'm Shehab, a Computer Engineering student, software developer, open source advocate, and tech enthusiast.
+I'm Shehab, a Computer Engineer, software developer, open source advocate, and tech enthusiast.
 
 When I'm not coding, you'll find me reading on new technologies, gaming, or writing stuff for my blog. I believe in the power of community and love connecting with fellow developers and tech enthusiasts.
 

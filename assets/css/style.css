@@ -69,6 +69,11 @@ a {
     font-weight: 700;
     text-transform: lowercase;
     margin-left: 0.5rem;
+    transition: color 0.2s;
+}
+
+.nav-brand:hover {
+    color: color-mix(in srgb, var(--accent-color) 70%, var(--text-color));
 }
 
 .nav-links {
@@ -102,12 +107,91 @@ a {
     align-items: center;
     min-height: 100vh;
     text-align: center;
+    position: relative;
+    --mx: 50%;
+    --my: 40%;
+    --dot-grid: 24px;
+    --dot-pool: 240px;
+    background-image: radial-gradient(
+        ellipse 55% 45% at 50% 40%,
+        color-mix(in srgb, var(--accent-color) 7%, transparent),
+        transparent 70%
+    );
+}
+
+.home-body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image: radial-gradient(
+        circle,
+        color-mix(in srgb, var(--border-color) 14%, transparent) 1px,
+        transparent 1.5px
+    );
+    background-size: var(--dot-grid) var(--dot-grid);
+    -webkit-mask-image: radial-gradient(
+        ellipse at center,
+        #000 30%,
+        transparent 85%
+    );
+    mask-image: radial-gradient(ellipse at center, #000 30%, transparent 85%);
+}
+
+.home-body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image: radial-gradient(
+        circle,
+        color-mix(in srgb, var(--accent-color) 50%, transparent) 1.5px,
+        transparent 2px
+    );
+    background-size: var(--dot-grid) var(--dot-grid);
+    -webkit-mask-image: radial-gradient(circle, #000 0%, transparent 70%);
+    mask-image: radial-gradient(circle, #000 0%, transparent 70%);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: var(--dot-pool) var(--dot-pool);
+    mask-size: var(--dot-pool) var(--dot-pool);
+    -webkit-mask-position: calc(var(--mx) - var(--dot-pool) / 2)
+        calc(var(--my) - var(--dot-pool) / 2);
+    mask-position: calc(var(--mx) - var(--dot-pool) / 2)
+        calc(var(--my) - var(--dot-pool) / 2);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.home-body.cursor-active::after {
+    opacity: 1;
+    will-change: -webkit-mask-position, mask-position;
 }
 
 .home-container {
     padding: 2rem;
     max-width: 800px;
     width: 100%;
+    position: relative;
+    z-index: 1;
+    animation: home-fade-in 0.5s ease-out both;
+}
+
+@keyframes home-fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .home-container {
+        animation: none;
+    }
 }
 
 .home-hero {

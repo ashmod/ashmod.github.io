@@ -122,7 +122,8 @@
                 <div class="internet-corner-banner">
                     <span class="corner-text-small">my little</span>
                     <h1 class="corner-text-large">
-                        internet <span class="corner-highlight">corner.</span>
+                        <span class="corner-word">internet</span>
+                        <span class="corner-highlight">corner.</span>
                     </h1>
                 </div>
             </header>
@@ -135,7 +136,7 @@
             </nav>
 
             <footer class="home-footer">
-                <p>&copy; 2026 Shehab Mahmoud.</p>
+                <p>&copy; 2026 Shehab Mahmoud</p>
             </footer>
         </div>
         <script>
@@ -150,6 +151,110 @@
                         window.ThemeSystem.showThemePicker();
                     }
                 });
+
+            (function () {
+                const reduceMotion = window.matchMedia(
+                    "(prefers-reduced-motion: reduce)"
+                ).matches;
+
+                const glyphs = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!<>-_\\/[]{}=+*#?%";
+                const scrambleChar = (ch) =>
+                    ch === " "
+                        ? " "
+                        : glyphs[(Math.random() * glyphs.length) | 0];
+
+                const body = document.querySelector(".home-body");
+                if (
+                    body &&
+                    !reduceMotion &&
+                    window.matchMedia("(pointer: fine)").matches
+                ) {
+                    let tx = window.innerWidth / 2;
+                    let ty = window.innerHeight * 0.4;
+                    let cx = tx;
+                    let cy = ty;
+                    let raf = null;
+                    const render = () => {
+                        cx += (tx - cx) * 0.18;
+                        cy += (ty - cy) * 0.18;
+                        body.style.setProperty("--mx", cx + "px");
+                        body.style.setProperty("--my", cy + "px");
+                        if (Math.abs(tx - cx) > 0.5 || Math.abs(ty - cy) > 0.5) {
+                            raf = requestAnimationFrame(render);
+                        } else {
+                            raf = null;
+                        }
+                    };
+                    window.addEventListener("pointermove", (e) => {
+                        tx = e.clientX;
+                        ty = e.clientY;
+                        body.classList.add("cursor-active");
+                        if (!raf) raf = requestAnimationFrame(render);
+                    });
+                    const deactivate = () =>
+                        body.classList.remove("cursor-active");
+                    document.documentElement.addEventListener(
+                        "pointerleave",
+                        deactivate
+                    );
+                    window.addEventListener("blur", deactivate);
+                }
+
+                let scrambleRaf = null;
+                function scramble(targets, duration) {
+                    cancelAnimationFrame(scrambleRaf);
+                    const start = performance.now();
+                    const total = targets.reduce((n, t) => n + t.text.length, 0);
+                    function frame(now) {
+                        const p = Math.min((now - start) / duration, 1);
+                        const revealed = p * total;
+                        let idx = 0;
+                        for (const t of targets) {
+                            let out = "";
+                            for (let i = 0; i < t.text.length; i++) {
+                                const ch = t.text[i];
+                                out +=
+                                    idx + i < revealed ? ch : scrambleChar(ch);
+                            }
+                            t.el.textContent = out;
+                            idx += t.text.length;
+                        }
+                        if (p < 1) {
+                            scrambleRaf = requestAnimationFrame(frame);
+                        } else {
+                            scrambleRaf = null;
+                            targets.forEach((t) => (t.el.textContent = t.text));
+                        }
+                    }
+                    scrambleRaf = requestAnimationFrame(frame);
+                }
+
+                const banner = document.querySelector(
+                    ".internet-corner-banner"
+                );
+                const word = document.querySelector(".corner-word");
+                const highlight = document.querySelector(".corner-highlight");
+                if (word && highlight && !reduceMotion) {
+                    const targets = [
+                        { el: word, text: word.textContent.trim() },
+                        { el: highlight, text: highlight.textContent.trim() },
+                    ];
+                    targets.forEach(
+                        (t) =>
+                            (t.el.textContent = t.text
+                                .split("")
+                                .map(scrambleChar)
+                                .join(""))
+                    );
+                    setTimeout(() => scramble(targets, 1000), 450);
+                    if (banner) {
+                        banner.style.cursor = "pointer";
+                        banner.addEventListener("click", () =>
+                            scramble(targets, 850)
+                        );
+                    }
+                }
+            })();
         </script>
     </body>
 </html>
