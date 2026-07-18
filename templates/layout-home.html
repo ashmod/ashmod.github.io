@@ -163,43 +163,6 @@
                         ? " "
                         : glyphs[(Math.random() * glyphs.length) | 0];
 
-                const body = document.querySelector(".home-body");
-                if (
-                    body &&
-                    !reduceMotion &&
-                    window.matchMedia("(pointer: fine)").matches
-                ) {
-                    let tx = window.innerWidth / 2;
-                    let ty = window.innerHeight * 0.4;
-                    let cx = tx;
-                    let cy = ty;
-                    let raf = null;
-                    const render = () => {
-                        cx += (tx - cx) * 0.18;
-                        cy += (ty - cy) * 0.18;
-                        body.style.setProperty("--mx", cx + "px");
-                        body.style.setProperty("--my", cy + "px");
-                        if (Math.abs(tx - cx) > 0.5 || Math.abs(ty - cy) > 0.5) {
-                            raf = requestAnimationFrame(render);
-                        } else {
-                            raf = null;
-                        }
-                    };
-                    window.addEventListener("pointermove", (e) => {
-                        tx = e.clientX;
-                        ty = e.clientY;
-                        body.classList.add("cursor-active");
-                        if (!raf) raf = requestAnimationFrame(render);
-                    });
-                    const deactivate = () =>
-                        body.classList.remove("cursor-active");
-                    document.documentElement.addEventListener(
-                        "pointerleave",
-                        deactivate
-                    );
-                    window.addEventListener("blur", deactivate);
-                }
-
                 let scrambleRaf = null;
                 function scramble(targets, duration) {
                     cancelAnimationFrame(scrambleRaf);
@@ -239,14 +202,6 @@
                         { el: word, text: word.textContent.trim() },
                         { el: highlight, text: highlight.textContent.trim() },
                     ];
-                    targets.forEach(
-                        (t) =>
-                            (t.el.textContent = t.text
-                                .split("")
-                                .map(scrambleChar)
-                                .join(""))
-                    );
-                    setTimeout(() => scramble(targets, 1000), 450);
                     if (banner) {
                         banner.style.cursor = "pointer";
                         banner.addEventListener("click", () =>
