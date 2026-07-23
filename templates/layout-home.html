@@ -45,10 +45,6 @@
             href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&display=swap"
             rel="stylesheet"
         />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-        />
         <script src="{{ROOT}}/assets/js/themes.js"></script>
         <script>
             (function () {
@@ -76,7 +72,11 @@
                     class="theme-toggle"
                     aria-label="Choose Theme"
                 >
-                    <i class="fas fa-palette"></i>
+                    <svg viewBox="0 0 512 512" aria-hidden="true">
+                        <path
+                            d="M512 256c0 .9 0 1.8 0 2.7c-.4 36.5-33.6 61.3-70.1 61.3L344 320c-26.5 0-48 21.5-48 48c0 3.4 .4 6.7 1 9.9c2.1 10.2 6.5 20 10.8 29.9c6.1 13.8 12.1 27.5 12.1 42c0 31.8-21.6 60.7-53.4 62c-3.5 .1-7 .2-10.6 .2C114.6 512 0 397.4 0 256S114.6 0 256 0S512 114.6 512 256zM128 288a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm0-96a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM288 96a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm96 96a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"
+                        />
+                    </svg>
                 </button>
             </div>
 
@@ -92,32 +92,57 @@
                         href="https://linkedin.com/in/ShehabMahmoud"
                         target="_blank"
                         aria-label="LinkedIn"
-                        ><i class="fab fa-linkedin"></i
-                    ></a>
+                    >
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"
+                            />
+                        </svg>
+                    </a>
                     <a
                         href="https://x.com/shehabtweets"
                         target="_blank"
                         aria-label="X"
-                        ><i class="fab fa-x-twitter"></i
-                    ></a>
+                    >
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
+                            />
+                        </svg>
+                    </a>
                     <a
                         href="https://github.com/ashmod"
                         target="_blank"
                         aria-label="GitHub"
-                        ><i class="fab fa-github"></i
-                    ></a>
+                    >
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+                            />
+                        </svg>
+                    </a>
                     <a
                         href="https://monkeytype.com/profile/dizzydroid"
                         target="_blank"
                         aria-label="MonkeyType"
-                        ><i class="fas fa-keyboard"></i
-                    ></a>
+                    >
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M20 5H4c-1.1 0-1.99.9-1.99 2L2 17c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-9 3h2v2h-2V8zm0 3h2v2h-2v-2zM8 8h2v2H8V8zm0 3h2v2H8v-2zm-1 2H5v-2h2v2zm0-3H5V8h2v2zm9 7H8v-2h8v2zm0-4h-2v-2h2v2zm0-3h-2V8h2v2zm3 3h-2v-2h2v2zm0-3h-2V8h2v2z"
+                            />
+                        </svg>
+                    </a>
                     <a
                         href="https://steamcommunity.com/id/dizzydroid"
                         target="_blank"
                         aria-label="Steam"
-                        ><i class="fab fa-steam"></i
-                    ></a>
+                    >
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z"
+                            />
+                        </svg>
+                    </a>
                 </div>
                 <div class="internet-corner-banner">
                     <span class="corner-text-small">my little</span>
@@ -127,6 +152,8 @@
                     </h1>
                 </div>
             </header>
+
+            {{SHELF}}
 
             <nav class="home-nav">
                 <a href="{{ROOT}}/work" class="home-nav-btn">WORK</a>
@@ -153,62 +180,28 @@
                 });
 
             (function () {
-                const reduceMotion = window.matchMedia(
-                    "(prefers-reduced-motion: reduce)"
-                ).matches;
-
-                const glyphs = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!<>-_\\/[]{}=+*#?%";
-                const scrambleChar = (ch) =>
-                    ch === " "
-                        ? " "
-                        : glyphs[(Math.random() * glyphs.length) | 0];
-
-                let scrambleRaf = null;
-                function scramble(targets, duration) {
-                    cancelAnimationFrame(scrambleRaf);
-                    const start = performance.now();
-                    const total = targets.reduce((n, t) => n + t.text.length, 0);
-                    function frame(now) {
-                        const p = Math.min((now - start) / duration, 1);
-                        const revealed = p * total;
-                        let idx = 0;
-                        for (const t of targets) {
-                            let out = "";
-                            for (let i = 0; i < t.text.length; i++) {
-                                const ch = t.text[i];
-                                out +=
-                                    idx + i < revealed ? ch : scrambleChar(ch);
-                            }
-                            t.el.textContent = out;
-                            idx += t.text.length;
-                        }
-                        if (p < 1) {
-                            scrambleRaf = requestAnimationFrame(frame);
-                        } else {
-                            scrambleRaf = null;
-                            targets.forEach((t) => (t.el.textContent = t.text));
-                        }
-                    }
-                    scrambleRaf = requestAnimationFrame(frame);
-                }
-
-                const banner = document.querySelector(
-                    ".internet-corner-banner"
+                const buttons = document.querySelectorAll(
+                    ".shelf-group[data-shelf]"
                 );
-                const word = document.querySelector(".corner-word");
-                const highlight = document.querySelector(".corner-highlight");
-                if (word && highlight && !reduceMotion) {
-                    const targets = [
-                        { el: word, text: word.textContent.trim() },
-                        { el: highlight, text: highlight.textContent.trim() },
-                    ];
-                    if (banner) {
-                        banner.style.cursor = "pointer";
-                        banner.addEventListener("click", () =>
-                            scramble(targets, 850)
+                buttons.forEach((btn) => {
+                    btn.addEventListener("click", () => {
+                        const caption = document.getElementById(
+                            "shelf-caption-" + btn.dataset.shelf
                         );
-                    }
-                }
+                        if (!caption) return;
+                        const wasOpen = !caption.hidden;
+                        document
+                            .querySelectorAll(".shelf-caption")
+                            .forEach((c) => (c.hidden = true));
+                        buttons.forEach((b) =>
+                            b.setAttribute("aria-expanded", "false")
+                        );
+                        if (!wasOpen) {
+                            caption.hidden = false;
+                            btn.setAttribute("aria-expanded", "true");
+                        }
+                    });
+                });
             })();
         </script>
     </body>

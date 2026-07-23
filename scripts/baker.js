@@ -234,6 +234,54 @@ function generateWorkListHtml(projects, rootPath = "..") {
     return html;
 }
 
+function generateShelfHtml(now, latestPost) {
+    if (!now) return "";
+
+    const reading = now.reading || {};
+    const playing = now.playing || {};
+    const pokemon =
+        typeof now.pokemon === "string"
+            ? { title: now.pokemon }
+            : now.pokemon || {};
+    const wrote = latestPost
+        ? { title: latestPost.title, url: `blog/${latestPost.slug}` }
+        : { title: "" };
+
+    const caption = (slug, label, item, sub) => {
+        const subHtml = sub
+            ? ` <span class="caption-sub">${escapeXml(sub)}</span>`
+            : "";
+        const valueInner = `${escapeXml(item.title || "")}${subHtml}`;
+        const external = /^https?:/.test(item.url || "");
+        const valueHtml = item.url
+            ? `<a class="caption-value" href="${escapeXml(item.url)}"${external ? ' target="_blank" rel="noopener"' : ""}>${valueInner}</a>`
+            : `<span class="caption-value">${valueInner}</span>`;
+        return `<div class="shelf-caption" id="shelf-caption-${slug}" hidden><span class="caption-key">${escapeXml(label)}</span>${valueHtml}</div>`;
+    };
+
+    const object = (slug, ariaLabel, inner) =>
+        `<button class="shelf-group" data-shelf="${slug}" aria-expanded="false" aria-controls="shelf-caption-${slug}" aria-label="${escapeXml(ariaLabel)}">${inner}</button>`;
+
+    return `
+                <section class="home-shelf" aria-label="A little shelf of things I'm reading, playing, and doing">
+                    <div class="shelf-objects">
+                        ${object("corner", "This corner", `<span class="plant"><span class="plant-leaves"></span><span class="plant-pot"></span></span>`)}
+                        ${object("reading", "What I'm reading", `<span class="book book-current"></span><span class="book book-1"></span><span class="book book-2"></span>`)}
+                        ${object("playing", "What I'm playing", `<span class="cartridge"></span>`)}
+                        ${object("pokemon", "Favorite Pokémon", `<span class="pokeball"></span>`)}
+                        ${object("wrote", "Latest blog post", `<span class="newspaper"></span>`)}
+                    </div>
+                    <div class="shelf-board"></div>
+                    <div class="shelf-captions">
+                        ${caption("corner", "this corner", { title: "est. june 5, 2025." })}
+                        ${caption("reading", "reading", reading, reading.author || "")}
+                        ${caption("playing", "playing", playing, playing.platform || "")}
+                        ${caption("pokemon", "favourite pokémon", pokemon)}
+                        ${caption("wrote", "recently wrote", wrote)}
+                    </div>
+                </section>`;
+}
+
 function generateBlogListHtml(posts) {
     let html = `
     <div class="blog-actions">
@@ -477,6 +525,11 @@ async function build() {
     await fs.outputFile(path.join(CONFIG.publicDir, "rss.xml"), rss);
     console.log("√ Generated rss.xml");
 
+    const nowPath = path.join(CONFIG.contentDir, "now.json");
+    const now = (await fs.pathExists(nowPath))
+        ? await fs.readJson(nowPath)
+        : null;
+
     const pageFiles = await fs.glob(path.join(CONFIG.contentDir, "pages/*.md"));
 
     for (const file of pageFiles) {
@@ -514,6 +567,10 @@ async function build() {
             .replaceAll("{{OG_IMAGE}}", `${rootPath}/assets/images/banner.png`)
             .replace("{{RSS_FEED_LINK}}", rssFeedLink)
             .replaceAll("{{ROOT}}", rootPath)
+            .replace(
+                "{{SHELF}}",
+                layout === "home" ? generateShelfHtml(now, posts[0]) : "",
+            )
             .replace("{{CONTENT}}", htmlContent);
 
         await fs.outputFile(path.join(CONFIG.publicDir, outPath), finalHtml);

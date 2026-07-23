@@ -108,11 +108,6 @@ a {
     min-height: 100vh;
     text-align: center;
     position: relative;
-    background-image: radial-gradient(
-        ellipse 55% 45% at 50% 40%,
-        color-mix(in srgb, var(--accent-color) 7%, transparent),
-        transparent 70%
-    );
 }
 
 .home-container {
@@ -140,7 +135,7 @@ a {
 }
 
 .home-hero {
-    margin-bottom: 2.5rem;
+    margin-bottom: 3.5rem;
 }
 
 .profile-pic {
@@ -161,17 +156,30 @@ a {
     display: flex;
     justify-content: center;
     gap: 1.5rem;
-    margin-bottom: 2.5rem;
+    margin: 0 0 2.5rem;
 }
 
 .social-icons a {
     color: var(--icon-color);
-    font-size: 1.5rem;
     transition: color 0.15s ease;
+}
+
+.social-icons a svg {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: currentColor;
 }
 
 .social-icons a:hover {
     color: var(--accent-color);
+}
+
+.theme-toggle svg {
+    display: block;
+    width: 1.3rem;
+    height: 1.3rem;
+    fill: currentColor;
 }
 
 .internet-corner-banner {
@@ -214,6 +222,297 @@ a {
 
 .internet-corner-banner:hover .corner-highlight {
     color: var(--text-color);
+}
+
+/* =========================================
+   HOME SHELF
+   ========================================= */
+.home-shelf {
+    width: min(540px, 100%);
+    margin: 0 auto 3rem;
+    position: relative;
+}
+
+.shelf-objects {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 1.9rem;
+    padding: 0 1.5rem;
+}
+
+.shelf-group {
+    display: flex;
+    align-items: flex-end;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.15s ease-out;
+}
+
+.shelf-group:hover,
+.shelf-group[aria-expanded="true"] {
+    transform: translateY(-4px);
+}
+
+.book {
+    display: block;
+    border: var(--border-width) solid var(--border-color);
+    background: var(--bg-color);
+    position: relative;
+}
+
+.book::after {
+    content: "";
+    position: absolute;
+    left: 3px;
+    right: 3px;
+    top: 10px;
+    height: 5px;
+    background: var(--border-color);
+}
+
+.book-current {
+    width: 30px;
+    height: 104px;
+    background: var(--accent-color);
+}
+
+.book-current::after {
+    top: 12px;
+    height: 6px;
+}
+
+.book-1 {
+    width: 24px;
+    height: 90px;
+    margin-left: -2px;
+}
+
+.book-2 {
+    width: 22px;
+    height: 78px;
+    background: var(--highlight-color);
+    transform: rotate(-9deg);
+    transform-origin: bottom right;
+    margin-left: 6px;
+}
+
+.cartridge {
+    display: block;
+    width: 60px;
+    height: 64px;
+    border: var(--border-width) solid var(--border-color);
+    background: var(--bg-color);
+    position: relative;
+}
+
+.cartridge::before {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 10px;
+    right: 10px;
+    height: 11px;
+    background: repeating-linear-gradient(
+        to bottom,
+        var(--border-color) 0 2px,
+        transparent 2px 5px
+    );
+}
+
+.cartridge::after {
+    content: "";
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    top: 21px;
+    bottom: 8px;
+    border: var(--border-width) solid var(--border-color);
+    background: var(--highlight-color);
+}
+
+.plant {
+    display: block;
+    position: relative;
+    width: 46px;
+    height: 62px;
+}
+
+.plant-leaves {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 36px;
+    background: var(--border-color);
+    border-radius: 50% 50% 0 0;
+}
+
+.plant-leaves::before,
+.plant-leaves::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 8px;
+    height: 25px;
+    background: var(--border-color);
+    border-radius: 50% 50% 0 0;
+    transform-origin: bottom center;
+}
+
+.plant-leaves::before {
+    left: -10px;
+    transform: rotate(-24deg);
+}
+
+.plant-leaves::after {
+    right: -10px;
+    transform: rotate(24deg);
+}
+
+.plant-pot {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 32px;
+    height: 20px;
+    background: var(--highlight-color);
+    border: var(--border-width) solid var(--border-color);
+}
+
+.plant-pot::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: -6px;
+    right: -6px;
+    height: 8px;
+    background: var(--highlight-color);
+    border: var(--border-width) solid var(--border-color);
+}
+
+.pokeball {
+    display: block;
+    width: 28px;
+    height: 28px;
+    border: var(--border-width) solid var(--border-color);
+    border-radius: 50%;
+    background: linear-gradient(
+        to bottom,
+        var(--accent-color) 0 42%,
+        var(--border-color) 42% 58%,
+        var(--bg-color) 58% 100%
+    );
+    position: relative;
+}
+
+.pokeball::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--bg-color);
+    border: var(--border-width) solid var(--border-color);
+}
+
+.newspaper {
+    display: block;
+    width: 48px;
+    height: 36px;
+    border: var(--border-width) solid var(--border-color);
+    background: var(--bg-color);
+    position: relative;
+}
+
+.newspaper::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    right: 4px;
+    height: 6px;
+    background: var(--border-color);
+}
+
+.newspaper::after {
+    content: "";
+    position: absolute;
+    top: 13px;
+    left: 4px;
+    right: 4px;
+    bottom: 4px;
+    background:
+        linear-gradient(var(--border-color), var(--border-color)) left top /
+            15px 100% no-repeat,
+        repeating-linear-gradient(
+                to bottom,
+                var(--border-color) 0 2px,
+                transparent 2px 5px
+            )
+            right top / calc(100% - 19px) 100% no-repeat;
+}
+
+.shelf-board {
+    height: 8px;
+    background: var(--border-color);
+    box-shadow: 5px 5px 0 var(--accent-color);
+}
+
+.shelf-captions {
+    position: absolute;
+    top: calc(100% + 0.9rem);
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 5;
+}
+
+.shelf-caption {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    text-align: left;
+    background: var(--bg-color);
+    border: var(--border-width) solid var(--border-color);
+    padding: 0.5rem 0.9rem;
+    box-shadow: 4px 4px 0 var(--border-color);
+}
+
+.shelf-caption[hidden] {
+    display: none;
+}
+
+.caption-key {
+    font-size: 0.75rem;
+    color: var(--sub-color);
+}
+
+.caption-key::before {
+    content: "// ";
+}
+
+.caption-value {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-color);
+}
+
+.caption-sub {
+    color: var(--sub-color);
+    font-weight: 400;
+}
+
+a.caption-value:hover {
+    color: var(--accent-color);
 }
 
 .home-nav {
@@ -1000,7 +1299,7 @@ a {
     }
 
     .corner-text-large {
-        font-size: 3rem;
+        font-size: min(3.75rem, 16vw);
         text-align: center;
     }
 
@@ -1011,10 +1310,21 @@ a {
 
     .corner-text-small {
         align-self: auto;
+        font-size: 2.25rem;
     }
 
     .corner-highlight {
         display: inline;
+    }
+
+    .shelf-objects {
+        gap: 0.9rem;
+        padding: 0 0.5rem;
+    }
+
+    .shelf-caption {
+        align-items: center;
+        text-align: center;
     }
 
     .project-header {
