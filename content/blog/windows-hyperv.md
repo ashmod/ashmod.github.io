@@ -30,7 +30,7 @@ So the first problem was, the machine initially reported an error that it couldn
 I decided to turn the Microsoft Virtualization Platform feature off, reboot (it's required), then turn it back on, reboot again, and sure enough, it worked. What the hell Microsoft.
 
 <figure class="image-with-caption">
-  <img src="https://y.yarn.co/1ab70c93-fce1-460d-8575-3bac5a666e96_text.gif" alt="Roy from The IT Crowd: Have you tried turning it on and off again?">
+  <img src="/content/blog/windows-hyperv/roy.gif" alt="Roy from The IT Crowd: Have you tried turning it on and off again?">
   <figcaption>Roy from "The IT Crowd" was onto something.</figcaption>
 </figure>
 

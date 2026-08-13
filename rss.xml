@@ -7,7 +7,7 @@
         <link>https://www.ashmod.dev/blog</link>
         <description>Blog posts from ashmod.dev</description>
         <language>en</language>
-        <lastBuildDate>Thu, 23 Jul 2026 11:16:32 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 13 Aug 2026 22:42:24 GMT</lastBuildDate>
         <atom:link href="https://www.ashmod.dev/rss.xml" rel="self" type="application/rss+xml" />
         
     <item>
@@ -228,7 +228,7 @@ If you&#39;re not familiar with WSL, that&#39;s <a href="https://learn.microsoft
 So the first problem was, the machine initially reported an error that it couldn&#39;t upgrade due to missing virtualization dependencies, which makes no sense because I double checked the enabled features and all was good. </p>
 <p>I decided to turn the Microsoft Virtualization Platform feature off, reboot (it&#39;s required), then turn it back on, reboot again, and sure enough, it worked. What the hell Microsoft.</p>
 <figure class="image-with-caption">
-  <img src="https://y.yarn.co/1ab70c93-fce1-460d-8575-3bac5a666e96_text.gif" alt="Roy from The IT Crowd: Have you tried turning it on and off again?">
+  <img src="/content/blog/windows-hyperv/roy.gif" alt="Roy from The IT Crowd: Have you tried turning it on and off again?">
   <figcaption>Roy from "The IT Crowd" was onto something.</figcaption>
 </figure>
 
