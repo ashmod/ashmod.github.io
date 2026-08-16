@@ -200,6 +200,31 @@
                 const buttons = document.querySelectorAll(
                     ".shelf-group[data-shelf]"
                 );
+                const shelf = document.querySelector(".home-shelf");
+
+                function closeShelfCaptions() {
+                    document
+                        .querySelectorAll(".shelf-caption")
+                        .forEach((caption) => (caption.hidden = true));
+                    buttons.forEach((button) =>
+                        button.setAttribute("aria-expanded", "false")
+                    );
+                }
+
+                function positionCaption(button, caption) {
+                    if (!shelf) return;
+                    const shelfRect = shelf.getBoundingClientRect();
+                    const buttonRect = button.getBoundingClientRect();
+                    const anchor =
+                        buttonRect.left -
+                        shelfRect.left +
+                        buttonRect.width / 2;
+                    caption.style.setProperty(
+                        "--shelf-caption-x",
+                        anchor + "px"
+                    );
+                }
+
                 buttons.forEach((btn) => {
                     btn.addEventListener("click", () => {
                         const caption = document.getElementById(
@@ -207,17 +232,37 @@
                         );
                         if (!caption) return;
                         const wasOpen = !caption.hidden;
-                        document
-                            .querySelectorAll(".shelf-caption")
-                            .forEach((c) => (c.hidden = true));
-                        buttons.forEach((b) =>
-                            b.setAttribute("aria-expanded", "false")
-                        );
+                        closeShelfCaptions();
                         if (!wasOpen) {
+                            positionCaption(btn, caption);
                             caption.hidden = false;
                             btn.setAttribute("aria-expanded", "true");
                         }
                     });
+                });
+
+                document.addEventListener("click", (event) => {
+                    if (
+                        !event.target.closest(".shelf-group") &&
+                        !event.target.closest(".shelf-caption")
+                    ) {
+                        closeShelfCaptions();
+                    }
+                });
+
+                document.addEventListener("keydown", (event) => {
+                    if (event.key === "Escape") closeShelfCaptions();
+                });
+
+                window.addEventListener("resize", () => {
+                    const openButton = document.querySelector(
+                        '.shelf-group[aria-expanded="true"]'
+                    );
+                    if (!openButton) return;
+                    const caption = document.getElementById(
+                        "shelf-caption-" + openButton.dataset.shelf
+                    );
+                    if (caption) positionCaption(openButton, caption);
                 });
             })();
         </script>

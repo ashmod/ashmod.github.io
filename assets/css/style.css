@@ -471,12 +471,16 @@ a {
     top: calc(100% + 0.9rem);
     left: 0;
     right: 0;
-    display: flex;
-    justify-content: center;
     z-index: 5;
+    pointer-events: none;
 }
 
 .shelf-caption {
+    position: absolute;
+    top: 0;
+    left: var(--shelf-caption-x, 50%);
+    width: max-content;
+    max-width: min(24rem, calc(100vw - 2rem));
     display: flex;
     flex-direction: column;
     gap: 0.1rem;
@@ -485,6 +489,8 @@ a {
     border: var(--border-width) solid var(--border-color);
     padding: 0.5rem 0.9rem;
     box-shadow: 4px 4px 0 var(--border-color);
+    transform: translateX(-50%);
+    pointer-events: auto;
 }
 
 .shelf-caption[hidden] {
@@ -1323,6 +1329,7 @@ a.caption-value:hover {
     }
 
     .shelf-caption {
+        left: 50%;
         align-items: center;
         text-align: center;
     }
