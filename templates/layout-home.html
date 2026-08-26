@@ -184,6 +184,72 @@
                     ".shelf-group[data-shelf]"
                 );
                 const shelf = document.querySelector(".home-shelf");
+                const quoteBankElement =
+                    document.getElementById("shelf-quote-bank");
+                const quoteBank = quoteBankElement
+                    ? JSON.parse(quoteBankElement.textContent)
+                    : [];
+                const quoteText = document.getElementById("shelf-quote-text");
+                const quoteAttribution = document.getElementById(
+                    "shelf-quote-attribution"
+                );
+                const quoteSource =
+                    document.getElementById("shelf-quote-source");
+                let quoteDeck = [];
+                let lastQuoteText = "";
+
+                function shuffle(items) {
+                    const shuffled = [...items];
+                    for (let i = shuffled.length - 1; i > 0; i -= 1) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [shuffled[i], shuffled[j]] = [
+                            shuffled[j],
+                            shuffled[i],
+                        ];
+                    }
+                    return shuffled;
+                }
+
+                function nextQuote() {
+                    if (!quoteBank.length || !quoteText) return;
+
+                    if (!quoteDeck.length) {
+                        quoteDeck = shuffle(quoteBank);
+                        const nextIndex = quoteDeck.length - 1;
+                        if (
+                            quoteDeck.length > 1 &&
+                            quoteDeck[nextIndex].text === lastQuoteText
+                        ) {
+                            [quoteDeck[0], quoteDeck[nextIndex]] = [
+                                quoteDeck[nextIndex],
+                                quoteDeck[0],
+                            ];
+                        }
+                    }
+
+                    const quote = quoteDeck.pop();
+                    lastQuoteText = quote.text;
+                    quoteText.textContent = quote.text;
+
+                    if (quoteAttribution) {
+                        quoteAttribution.textContent = quote.by
+                            ? "— " + quote.by
+                            : "";
+                        quoteAttribution.hidden = !quote.by;
+                    }
+                    if (quoteSource) quoteSource.href = quote.source;
+                }
+
+                function animateDice(button) {
+                    const dice = button.querySelector(".dice");
+                    if (!dice) return;
+                    dice.dataset.face = String(
+                        Math.floor(Math.random() * 6) + 1
+                    );
+                    dice.classList.remove("is-rolling");
+                    void dice.offsetWidth;
+                    dice.classList.add("is-rolling");
+                }
 
                 function closeShelfCaptions() {
                     document
@@ -208,12 +274,40 @@
                     );
                 }
 
+                document
+                    .querySelectorAll(".shelf-caption-close")
+                    .forEach((closeButton) => {
+                        closeButton.addEventListener("click", () => {
+                            const caption = closeButton.closest(
+                                ".shelf-caption"
+                            );
+                            const owner = caption
+                                ? document.querySelector(
+                                      '[aria-controls="' +
+                                          caption.id +
+                                          '"]'
+                                  )
+                                : null;
+                            closeShelfCaptions();
+                            if (owner) owner.focus();
+                        });
+                    });
+
                 buttons.forEach((btn) => {
                     btn.addEventListener("click", () => {
                         const caption = document.getElementById(
                             "shelf-caption-" + btn.dataset.shelf
                         );
                         if (!caption) return;
+                        if (btn.dataset.shelf === "quote") {
+                            closeShelfCaptions();
+                            nextQuote();
+                            animateDice(btn);
+                            positionCaption(btn, caption);
+                            caption.hidden = false;
+                            btn.setAttribute("aria-expanded", "true");
+                            return;
+                        }
                         const wasOpen = !caption.hidden;
                         closeShelfCaptions();
                         if (!wasOpen) {

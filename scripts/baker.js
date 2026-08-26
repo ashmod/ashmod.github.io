@@ -21,6 +21,15 @@ function escapeXml(value) {
         .replaceAll("'", "&apos;");
 }
 
+function serializeJsonForHtml(value) {
+    return JSON.stringify(value)
+        .replaceAll("&", "\\u0026")
+        .replaceAll("<", "\\u003c")
+        .replaceAll(">", "\\u003e")
+        .replaceAll("\u2028", "\\u2028")
+        .replaceAll("\u2029", "\\u2029");
+}
+
 function wrapCdata(value) {
     const safe = String(value ?? "").replaceAll("]]>", "]]]]><![CDATA[>");
     return `<![CDATA[${safe}]]>`;
@@ -234,7 +243,7 @@ function generateWorkListHtml(projects, rootPath = "..") {
     return html;
 }
 
-function generateShelfHtml(now, latestPost) {
+function generateShelfHtml(now, latestPost, quotes = []) {
     if (!now) return "";
 
     const reading = now.reading || {};
@@ -246,6 +255,8 @@ function generateShelfHtml(now, latestPost) {
     const wrote = latestPost
         ? { title: latestPost.title, url: `blog/${latestPost.slug}` }
         : { title: "" };
+    const closeButton =
+        '<button type="button" class="shelf-caption-close" aria-label="Close shelf details">&times;</button>';
 
     const caption = (slug, label, item, sub) => {
         const subHtml = sub
@@ -256,16 +267,45 @@ function generateShelfHtml(now, latestPost) {
         const valueHtml = item.url
             ? `<a class="caption-value" href="${escapeXml(item.url)}"${external ? ' target="_blank" rel="noopener"' : ""}>${valueInner}</a>`
             : `<span class="caption-value">${valueInner}</span>`;
-        return `<div class="shelf-caption" id="shelf-caption-${slug}" hidden><span class="caption-key">${escapeXml(label)}</span>${valueHtml}</div>`;
+        return `<div class="shelf-caption" id="shelf-caption-${slug}" hidden>${closeButton}<span class="caption-key">${escapeXml(label)}</span>${valueHtml}</div>`;
     };
 
     const object = (slug, ariaLabel, inner) =>
         `<button class="shelf-group" data-shelf="${slug}" aria-expanded="false" aria-controls="shelf-caption-${slug}" aria-label="${escapeXml(ariaLabel)}">${inner}</button>`;
 
+    const invalidQuoteIndex = quotes.findIndex(
+        (quote) =>
+            !quote ||
+            typeof quote.text !== "string" ||
+            !quote.text.trim() ||
+            typeof quote.source !== "string" ||
+            !/^https?:\/\//.test(quote.source),
+    );
+    if (invalidQuoteIndex !== -1) {
+        throw new Error(
+            `Quote ${invalidQuoteIndex + 1} must have text and an HTTP(S) source`,
+        );
+    }
+    const quoteBank = quotes;
+    const dicePips = Array.from(
+        { length: 9 },
+        () => '<span class="dice-pip"></span>',
+    ).join("");
+    const quoteObject = quoteBank.length
+        ? object(
+              "quote",
+              "Roll for a programming quote",
+              `<span class="dice" data-face="5" aria-hidden="true">${dicePips}</span>`,
+          )
+        : "";
+    const quoteCaption = quoteBank.length
+        ? `<div class="shelf-caption quote-caption" id="shelf-caption-quote" hidden>${closeButton}<span class="caption-key">random access</span><span class="caption-value" id="shelf-quote-text" role="status" aria-live="polite"></span><span class="quote-meta"><span class="caption-sub quote-attribution" id="shelf-quote-attribution" hidden></span><a class="quote-source" id="shelf-quote-source" target="_blank" rel="noopener noreferrer">source&nbsp;↗</a></span></div><script type="application/json" id="shelf-quote-bank">${serializeJsonForHtml(quoteBank)}</script>`
+        : "";
+
     return `
                 <section class="home-shelf" aria-label="A little shelf of things I'm reading, playing, and doing">
                     <div class="shelf-objects">
-                        ${object("corner", "This corner", `<span class="plant"><span class="plant-leaves"></span><span class="plant-pot"></span></span>`)}
+                        ${quoteObject}
                         ${object("reading", "What I'm reading", `<span class="book book-current"></span><span class="book book-1"></span><span class="book book-2"></span>`)}
                         ${object("playing", "What I'm playing", `<span class="cartridge"></span>`)}
                         ${object("pokemon", "Favorite Pokémon", `<span class="pokeball"></span>`)}
@@ -273,7 +313,7 @@ function generateShelfHtml(now, latestPost) {
                     </div>
                     <div class="shelf-board"></div>
                     <div class="shelf-captions">
-                        ${caption("corner", "this corner", { title: "est. june 5, 2025." })}
+                        ${quoteCaption}
                         ${caption("reading", "reading", reading, reading.author || "")}
                         ${caption("playing", "playing", playing, playing.platform || "")}
                         ${caption("pokemon", "favourite pokémon", pokemon)}
@@ -529,6 +569,9 @@ async function build() {
     const now = (await fs.pathExists(nowPath))
         ? await fs.readJson(nowPath)
         : null;
+    const quotes = await loadJsonArrayIfExists(
+        path.join(CONFIG.contentDir, "quotes.json"),
+    );
 
     const pageFiles = await fs.glob(path.join(CONFIG.contentDir, "pages/*.md"));
 
@@ -569,7 +612,9 @@ async function build() {
             .replaceAll("{{ROOT}}", rootPath)
             .replace(
                 "{{SHELF}}",
-                layout === "home" ? generateShelfHtml(now, posts[0]) : "",
+                layout === "home"
+                    ? generateShelfHtml(now, posts[0], quotes)
+                    : "",
             )
             .replace("{{CONTENT}}", htmlContent);
 
