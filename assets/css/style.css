@@ -346,10 +346,15 @@ a {
     height: 48px;
     padding: 7px;
     border: var(--border-width) solid var(--border-color);
+    border-radius: 14px;
     background: var(--highlight-color);
     box-shadow: 5px 5px 0 var(--accent-color);
-    transform: rotate(-4deg);
-    transform-origin: center bottom;
+    rotate: -4deg;
+    transform-origin: center center;
+    backface-visibility: hidden;
+    /* promoted up front so the first frame of a flip never waits on a
+       new compositor layer */
+    will-change: rotate, translate;
 }
 
 .dice-pip {
@@ -386,25 +391,31 @@ a {
 }
 
 .dice.is-rolling {
-    will-change: transform;
-    animation: dice-roll 0.48s cubic-bezier(0.22, 0.8, 0.36, 1);
+    animation:
+        dice-flip-spin 0.7s cubic-bezier(0.45, 0.05, 0.55, 0.95),
+        dice-flip-hop 0.7s linear;
 }
 
-@keyframes dice-roll {
+@keyframes dice-flip-spin {
+    from {
+        rotate: -4deg;
+    }
+    to {
+        rotate: -364deg;
+    }
+}
+
+@keyframes dice-flip-hop {
     0% {
-        transform: translate3d(0, 0, 0) rotate(-4deg) scale(1);
+        translate: 0 0;
+        animation-timing-function: cubic-bezier(0.33, 0.6, 0.45, 1);
     }
-    32% {
-        transform: translate3d(0, -11px, 0) rotate(10deg) scale(1.025);
-    }
-    64% {
-        transform: translate3d(0, 0, 0) rotate(-7deg) scale(0.985);
-    }
-    80% {
-        transform: translate3d(0, -3px, 0) rotate(-2deg) scale(1);
+    50% {
+        translate: -7px -8px;
+        animation-timing-function: cubic-bezier(0.55, 0, 0.67, 0.4);
     }
     100% {
-        transform: translate3d(0, 0, 0) rotate(-4deg) scale(1);
+        translate: 0 0;
     }
 }
 
