@@ -156,7 +156,7 @@
             
                 <section class="home-shelf" aria-label="A little shelf of things I'm reading, playing, and doing">
                     <div class="shelf-objects">
-                        <button class="shelf-group" data-shelf="quote" aria-expanded="false" aria-controls="shelf-caption-quote" aria-label="Roll for a programming quote"><span class="dice" data-face="5" aria-hidden="true"><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span></span></button>
+                        <button class="shelf-group" data-shelf="quote" aria-expanded="false" aria-controls="shelf-caption-quote" aria-label="Roll for a programming quote"><span class="dice" aria-hidden="true"><span class="dice-cube"><span class="dice-fill" data-side="front"></span><span class="dice-fill" data-side="back"></span><span class="dice-fill" data-side="right"></span><span class="dice-fill" data-side="left"></span><span class="dice-fill" data-side="top"></span><span class="dice-fill" data-side="bottom"></span><span class="dice-face" data-pips="1"><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span></span><span class="dice-face" data-pips="2"><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span></span><span class="dice-face" data-pips="3"><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span></span><span class="dice-face" data-pips="4"><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span></span><span class="dice-face" data-pips="5"><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span></span><span class="dice-face" data-pips="6"><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span><span class="dice-pip"></span></span></span></span></button>
                         <button class="shelf-group" data-shelf="reading" aria-expanded="false" aria-controls="shelf-caption-reading" aria-label="What I&apos;m reading"><span class="book book-current"></span><span class="book book-1"></span><span class="book book-2"></span></button>
                         <button class="shelf-group" data-shelf="playing" aria-expanded="false" aria-controls="shelf-caption-playing" aria-label="What I&apos;m playing"><span class="cartridge"></span></button>
                         <button class="shelf-group" data-shelf="pokemon" aria-expanded="false" aria-controls="shelf-caption-pokemon" aria-label="Favorite Pokémon"><span class="pokeball"></span></button>
@@ -214,6 +214,22 @@
                     document.getElementById("shelf-quote-source");
                 let quoteDeck = [];
                 let lastQuoteText = "";
+                const reduceMotion = window.matchMedia(
+                    "(prefers-reduced-motion: reduce)"
+                );
+                // cube rotation, in degrees, that brings each face to the
+                // front; must match the .dice-face placements in style.css
+                const DICE_FACE_REST = {
+                    1: [-90, 0],
+                    2: [0, 180],
+                    3: [0, -90],
+                    4: [0, 90],
+                    5: [0, 0],
+                    6: [90, 0],
+                };
+                let diceFace = 5;
+                let diceTurnsX = 0;
+                let diceTurnsY = 0;
 
                 function shuffle(items) {
                     const shuffled = [...items];
@@ -257,12 +273,32 @@
                     if (quoteSource) quoteSource.href = quote.source;
                 }
 
+                function nextFace(previous) {
+                    const face = Math.floor(Math.random() * 6) + 1;
+                    return face === previous ? (face % 6) + 1 : face;
+                }
+
                 function animateDice(button) {
                     const dice = button.querySelector(".dice");
-                    if (!dice) return;
-                    dice.dataset.face = String(
-                        Math.floor(Math.random() * 6) + 1
+                    const cube = dice && dice.querySelector(".dice-cube");
+                    if (!cube) return;
+                    diceFace = nextFace(diceFace);
+                    const rest = DICE_FACE_REST[diceFace];
+                    if (!reduceMotion.matches) {
+                        // whole extra turns, so the cube always tumbles
+                        // forward on its way to the rolled face
+                        diceTurnsX += 1 + Math.floor(Math.random() * 2);
+                        diceTurnsY += Math.floor(Math.random() * 2);
+                    }
+                    cube.style.setProperty(
+                        "--dice-x",
+                        diceTurnsX * 360 + rest[0] + "deg"
                     );
+                    cube.style.setProperty(
+                        "--dice-y",
+                        diceTurnsY * 360 + rest[1] + "deg"
+                    );
+                    if (reduceMotion.matches) return;
                     dice.classList.remove("is-rolling");
                     void dice.offsetWidth;
                     dice.classList.add("is-rolling");
@@ -289,6 +325,15 @@
                         "--shelf-caption-x",
                         anchor + "px"
                     );
+                }
+
+                const diceElement = document.querySelector(".dice");
+                if (diceElement) {
+                    // dropping the class once the hop is over is what rounds
+                    // the die's corners back off
+                    diceElement.addEventListener("animationend", () => {
+                        diceElement.classList.remove("is-rolling");
+                    });
                 }
 
                 document

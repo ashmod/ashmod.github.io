@@ -339,22 +339,100 @@ a {
 }
 
 .dice {
+    display: block;
+    position: relative;
+    width: 48px;
+    height: 48px;
+    margin-left: 3px;
+    margin-right: 6px;
+    rotate: -4deg;
+    perspective: 340px;
+    will-change: translate;
+}
+
+.dice::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    background: var(--accent-color);
+    translate: 5px 5px;
+}
+
+.dice-cube {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+    transform: rotateX(var(--dice-x, 0deg)) rotateY(var(--dice-y, 0deg));
+    transition: transform 0.62s cubic-bezier(0.2, 0.68, 0.24, 1);
+    will-change: transform;
+}
+
+.dice-face {
+    position: absolute;
+    inset: 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    width: 48px;
-    height: 48px;
     padding: 7px;
     border: var(--border-width) solid var(--border-color);
-    border-radius: 14px;
+    border-radius: 12px;
     background: var(--highlight-color);
-    box-shadow: 5px 5px 0 var(--accent-color);
-    rotate: -4deg;
-    transform-origin: center center;
     backface-visibility: hidden;
-    /* promoted up front so the first frame of a flip never waits on a
-       new compositor layer */
-    will-change: rotate, translate;
+}
+
+.dice-fill {
+    position: absolute;
+    inset: 4px;
+    background: color-mix(in srgb, var(--border-color) 75%, var(--accent-color));
+}
+
+.dice-fill[data-side="front"] {
+    transform: translateZ(20px);
+}
+
+.dice-fill[data-side="back"] {
+    transform: rotateY(180deg) translateZ(20px);
+}
+
+.dice-fill[data-side="right"] {
+    transform: rotateY(90deg) translateZ(20px);
+}
+
+.dice-fill[data-side="left"] {
+    transform: rotateY(-90deg) translateZ(20px);
+}
+
+.dice-fill[data-side="top"] {
+    transform: rotateX(90deg) translateZ(20px);
+}
+
+.dice-fill[data-side="bottom"] {
+    transform: rotateX(-90deg) translateZ(20px);
+}
+
+.dice-face[data-pips="5"] {
+    transform: translateZ(24px);
+}
+
+.dice-face[data-pips="2"] {
+    transform: rotateY(180deg) translateZ(24px);
+}
+
+.dice-face[data-pips="3"] {
+    transform: rotateY(90deg) translateZ(24px);
+}
+
+.dice-face[data-pips="4"] {
+    transform: rotateY(-90deg) translateZ(24px);
+}
+
+.dice-face[data-pips="1"] {
+    transform: rotateX(90deg) translateZ(24px);
+}
+
+.dice-face[data-pips="6"] {
+    transform: rotateX(-90deg) translateZ(24px);
 }
 
 .dice-pip {
@@ -366,62 +444,88 @@ a {
     opacity: 0;
 }
 
-.dice[data-face="1"] .dice-pip:nth-child(5),
-.dice[data-face="2"] .dice-pip:nth-child(1),
-.dice[data-face="2"] .dice-pip:nth-child(9),
-.dice[data-face="3"] .dice-pip:nth-child(1),
-.dice[data-face="3"] .dice-pip:nth-child(5),
-.dice[data-face="3"] .dice-pip:nth-child(9),
-.dice[data-face="4"] .dice-pip:nth-child(1),
-.dice[data-face="4"] .dice-pip:nth-child(3),
-.dice[data-face="4"] .dice-pip:nth-child(7),
-.dice[data-face="4"] .dice-pip:nth-child(9),
-.dice[data-face="5"] .dice-pip:nth-child(1),
-.dice[data-face="5"] .dice-pip:nth-child(3),
-.dice[data-face="5"] .dice-pip:nth-child(5),
-.dice[data-face="5"] .dice-pip:nth-child(7),
-.dice[data-face="5"] .dice-pip:nth-child(9),
-.dice[data-face="6"] .dice-pip:nth-child(1),
-.dice[data-face="6"] .dice-pip:nth-child(3),
-.dice[data-face="6"] .dice-pip:nth-child(4),
-.dice[data-face="6"] .dice-pip:nth-child(6),
-.dice[data-face="6"] .dice-pip:nth-child(7),
-.dice[data-face="6"] .dice-pip:nth-child(9) {
+.dice-face[data-pips="1"] .dice-pip:nth-child(5) {
+    opacity: 1;
+}
+
+.dice-face[data-pips="2"] .dice-pip:nth-child(1),
+.dice-face[data-pips="2"] .dice-pip:nth-child(9) {
+    opacity: 1;
+}
+
+.dice-face[data-pips="3"] .dice-pip:nth-child(1),
+.dice-face[data-pips="3"] .dice-pip:nth-child(5),
+.dice-face[data-pips="3"] .dice-pip:nth-child(9) {
+    opacity: 1;
+}
+
+.dice-face[data-pips="4"] .dice-pip:nth-child(1),
+.dice-face[data-pips="4"] .dice-pip:nth-child(3),
+.dice-face[data-pips="4"] .dice-pip:nth-child(7),
+.dice-face[data-pips="4"] .dice-pip:nth-child(9) {
+    opacity: 1;
+}
+
+.dice-face[data-pips="5"] .dice-pip:nth-child(1),
+.dice-face[data-pips="5"] .dice-pip:nth-child(3),
+.dice-face[data-pips="5"] .dice-pip:nth-child(5),
+.dice-face[data-pips="5"] .dice-pip:nth-child(7),
+.dice-face[data-pips="5"] .dice-pip:nth-child(9) {
+    opacity: 1;
+}
+
+.dice-face[data-pips="6"] .dice-pip:nth-child(1),
+.dice-face[data-pips="6"] .dice-pip:nth-child(3),
+.dice-face[data-pips="6"] .dice-pip:nth-child(4),
+.dice-face[data-pips="6"] .dice-pip:nth-child(6),
+.dice-face[data-pips="6"] .dice-pip:nth-child(7),
+.dice-face[data-pips="6"] .dice-pip:nth-child(9) {
     opacity: 1;
 }
 
 .dice.is-rolling {
-    animation:
-        dice-flip-spin 0.7s cubic-bezier(0.45, 0.05, 0.55, 0.95),
-        dice-flip-hop 0.7s linear;
+    animation: dice-roll-hop 0.62s cubic-bezier(0.33, 0, 0.4, 1);
 }
 
-@keyframes dice-flip-spin {
-    from {
-        rotate: -4deg;
-    }
-    to {
-        rotate: -364deg;
-    }
+.dice.is-rolling::before {
+    animation: dice-roll-shadow 0.62s cubic-bezier(0.33, 0, 0.4, 1);
 }
 
-@keyframes dice-flip-hop {
+@keyframes dice-roll-hop {
     0% {
         translate: 0 0;
-        animation-timing-function: cubic-bezier(0.33, 0.6, 0.45, 1);
     }
-    50% {
-        translate: -7px -8px;
-        animation-timing-function: cubic-bezier(0.55, 0, 0.67, 0.4);
+    42% {
+        translate: 0 -16px;
     }
     100% {
         translate: 0 0;
     }
 }
 
+@keyframes dice-roll-shadow {
+    0% {
+        opacity: 1;
+    }
+    14% {
+        opacity: 0;
+    }
+    80% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
-    .dice.is-rolling {
+    .dice.is-rolling,
+    .dice.is-rolling::before {
         animation: none;
+    }
+
+    .dice-cube {
+        transition: none;
     }
 }
 

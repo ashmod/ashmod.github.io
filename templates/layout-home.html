@@ -197,6 +197,22 @@
                     document.getElementById("shelf-quote-source");
                 let quoteDeck = [];
                 let lastQuoteText = "";
+                const reduceMotion = window.matchMedia(
+                    "(prefers-reduced-motion: reduce)"
+                );
+                // cube rotation, in degrees, that brings each face to the
+                // front; must match the .dice-face placements in style.css
+                const DICE_FACE_REST = {
+                    1: [-90, 0],
+                    2: [0, 180],
+                    3: [0, -90],
+                    4: [0, 90],
+                    5: [0, 0],
+                    6: [90, 0],
+                };
+                let diceFace = 5;
+                let diceTurnsX = 0;
+                let diceTurnsY = 0;
 
                 function shuffle(items) {
                     const shuffled = [...items];
@@ -240,12 +256,32 @@
                     if (quoteSource) quoteSource.href = quote.source;
                 }
 
+                function nextFace(previous) {
+                    const face = Math.floor(Math.random() * 6) + 1;
+                    return face === previous ? (face % 6) + 1 : face;
+                }
+
                 function animateDice(button) {
                     const dice = button.querySelector(".dice");
-                    if (!dice) return;
-                    dice.dataset.face = String(
-                        Math.floor(Math.random() * 6) + 1
+                    const cube = dice && dice.querySelector(".dice-cube");
+                    if (!cube) return;
+                    diceFace = nextFace(diceFace);
+                    const rest = DICE_FACE_REST[diceFace];
+                    if (!reduceMotion.matches) {
+                        // whole extra turns, so the cube always tumbles
+                        // forward on its way to the rolled face
+                        diceTurnsX += 1 + Math.floor(Math.random() * 2);
+                        diceTurnsY += Math.floor(Math.random() * 2);
+                    }
+                    cube.style.setProperty(
+                        "--dice-x",
+                        diceTurnsX * 360 + rest[0] + "deg"
                     );
+                    cube.style.setProperty(
+                        "--dice-y",
+                        diceTurnsY * 360 + rest[1] + "deg"
+                    );
+                    if (reduceMotion.matches) return;
                     dice.classList.remove("is-rolling");
                     void dice.offsetWidth;
                     dice.classList.add("is-rolling");
@@ -272,6 +308,15 @@
                         "--shelf-caption-x",
                         anchor + "px"
                     );
+                }
+
+                const diceElement = document.querySelector(".dice");
+                if (diceElement) {
+                    // dropping the class once the hop is over is what rounds
+                    // the die's corners back off
+                    diceElement.addEventListener("animationend", () => {
+                        diceElement.classList.remove("is-rolling");
+                    });
                 }
 
                 document

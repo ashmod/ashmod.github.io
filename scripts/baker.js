@@ -291,11 +291,20 @@ function generateShelfHtml(now, latestPost, quotes = []) {
         { length: 9 },
         () => '<span class="dice-pip"></span>',
     ).join("");
+    const diceFill = ["front", "back", "right", "left", "top", "bottom"]
+        .map((side) => `<span class="dice-fill" data-side="${side}"></span>`)
+        .join("");
+    const diceFaces = [1, 2, 3, 4, 5, 6]
+        .map(
+            (pips) =>
+                `<span class="dice-face" data-pips="${pips}">${dicePips}</span>`,
+        )
+        .join("");
     const quoteObject = quoteBank.length
         ? object(
               "quote",
               "Roll for a programming quote",
-              `<span class="dice" data-face="5" aria-hidden="true">${dicePips}</span>`,
+              `<span class="dice" aria-hidden="true"><span class="dice-cube">${diceFill}${diceFaces}</span></span>`,
           )
         : "";
     const quoteCaption = quoteBank.length
